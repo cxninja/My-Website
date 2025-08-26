@@ -1,0 +1,34 @@
+[
+  {
+    "id": "sarah-johnson",
+    "quote": "AstraVantage transformed our manufacturing operations. Their analytics platform reduced our downtime by 22% and improved OEE significantly. The ROI was evident within the first quarter.",
+    "author": "Sarah Johnson",
+    "title": "VP Operations",
+    "company": "TechManufacturing Inc.",
+    "avatar": "/api/placeholder/60/60"
+  },
+  {
+    "id": "michael-chen", 
+    "quote": "Their digital marketing expertise helped us build a scalable demand generation engine. We saw a 38% increase in qualified leads while reducing our cost per lead by 27%.",
+    "author": "Michael Chen",
+    "title": "CMO",
+    "company": "GrowthSoft Solutions",
+    "avatar": "/api/placeholder/60/60"
+  },
+  {
+    "id": "lisa-rodriguez",
+    "quote": "The transformation exceeded our expectations. Patient satisfaction scores improved dramatically while we increased our capacity by nearly 30%.",
+    "author": "Dr. Lisa Rodriguez",
+    "title": "Chief Medical Officer",
+    "company": "Regional Health System",
+    "avatar": "/api/placeholder/60/60"
+  },
+  {
+    "id": "james-patterson",
+    "quote": "The inventory optimization system transformed our operations. We reduced stockouts by 41% while significantly lowering our carrying costs.",
+    "author": "James Patterson",
+    "title": "Director of Supply Chain",
+    "company": "RetailPlus",
+    "avatar": "/api/placeholder/60/60"
+  }
+]

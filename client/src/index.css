@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 7%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(0 0% 7%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(0 0% 7%);
+  --primary: hsl(355 78% 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 97%);
+  --secondary-foreground: hsl(0 0% 7%);
+  --muted: hsl(0 0% 97%);
+  --muted-foreground: hsl(0 0% 45%);
+  --accent: hsl(355 78% 60%);
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(356 63% 56%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(0 0% 93%);
+  --input: hsl(0 0% 93%);
+  --ring: hsl(355 78% 60%);
+  --chart-1: hsl(355 78% 60%);
+  --chart-2: hsl(159 78% 36%);
+  --chart-3: hsl(42 93% 56%);
+  --chart-4: hsl(147 79% 42%);
+  --chart-5: hsl(341 75% 51%);
+  --radius: 0.5rem;
+  
+  /* Brand Colors */
+  --brand-accent: hsl(355 78% 60%);
+  --brand-neutral-bg: hsl(0 0% 100%);
+  --brand-neutral-text: hsl(0 0% 7%);
+  --brand-neutral-line: hsl(0 0% 93%);
+  --brand-gray-light: hsl(0 0% 97%);
+  --brand-gray-medium: hsl(0 0% 93%);
+  --brand-gray-dark: hsl(0 0% 86%);
+}
+
+.dark {
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(200 7% 91%);
+  --card: hsl(228 10% 10%);
+  --card-foreground: hsl(0 0% 85%);
+  --popover: hsl(0 0% 0%);
+  --popover-foreground: hsl(200 7% 91%);
+  --primary: hsl(355 78% 60%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195 15% 95%);
+  --secondary-foreground: hsl(0 0% 7%);
+  --muted: hsl(0 0% 9%);
+  --muted-foreground: hsl(210 3% 46%);
+  --accent: hsl(205 70% 8%);
+  --accent-foreground: hsl(355 78% 60%);
+  --destructive: hsl(356 63% 56%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210 5% 15%);
+  --input: hsl(208 28% 18%);
+  --ring: hsl(355 78% 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .magnetic-button {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .magnetic-button:hover {
+    @apply -translate-y-0.5 shadow-lg;
+    box-shadow: 0 8px 25px -8px hsl(var(--brand-accent) / 0.3);
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-1 shadow-xl;
+  }
+  
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    @apply absolute -bottom-0.5 left-0 h-0.5 w-0 bg-accent transition-all duration-300 ease-out;
+    content: '';
+  }
+  
+  .link-underline:hover::after,
+  .link-underline.active::after {
+    @apply w-full;
+  }
+  
+  .hero-bg {
+    background: 
+      radial-gradient(circle at 20% 50%, hsl(var(--brand-accent) / 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--brand-accent) / 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, hsl(var(--brand-accent) / 0.03) 0%, transparent 50%);
+  }
+  
+  .metric-chip {
+    @apply animate-in fade-in slide-in-from-bottom-2 duration-700 ease-out;
+  }
+  
+  .header-blur {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .service-image {
+    @apply absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out;
+  }
+  
+  .service-image.active {
+    @apply opacity-100;
+  }
+  
+  .service-image:not(.active) {
+    @apply opacity-0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-button:hover,
+  .card-hover:hover {
+    transform: none;
+  }
+  
+  .metric-chip {
+    animation: none;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Font families */
+.font-sans {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}

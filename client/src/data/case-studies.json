@@ -1,0 +1,172 @@
+[
+  {
+    "slug": "precision-plant-oee-lift",
+    "title": "OEE Lift in Precision Manufacturing",
+    "industry": "Manufacturing",
+    "capabilities": ["Manufacturing Analytics", "Digital Transformation"],
+    "year": 2024,
+    "summary": "Unified line telemetry and SPC to cut unplanned downtime.",
+    "metrics": [
+      {"label": "OEE", "delta": 12, "unit": "pp"},
+      {"label": "Downtime", "delta": -22, "unit": "%"},
+      {"label": "Yield", "delta": 7, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A precision manufacturing facility was experiencing frequent unplanned downtime and quality issues, impacting overall equipment effectiveness. The client needed real-time visibility into production performance and predictive maintenance capabilities.",
+      "approach": [
+        "Conducted comprehensive assessment of existing production systems and data sources",
+        "Implemented IoT sensors and telemetry infrastructure across critical production lines",
+        "Developed custom OEE dashboard with real-time monitoring and alerting",
+        "Created predictive maintenance algorithms based on historical failure patterns"
+      ],
+      "solution": "Integrated manufacturing execution system with advanced analytics platform, providing real-time OEE monitoring, predictive maintenance scheduling, and quality control automation.",
+      "outcomes": [
+        {"metric": "OEE", "before": 58, "after": 70, "unit": "%"},
+        {"metric": "Unplanned Downtime", "before": 18, "after": 14, "unit": "hours/week"},
+        {"metric": "First Pass Yield", "before": 89, "after": 96, "unit": "%"},
+        {"metric": "Maintenance Costs", "before": 145000, "after": 98000, "unit": "$/month"}
+      ]
+    },
+    "testimonial": {
+      "quote": "AstraVantage transformed our manufacturing operations. Their analytics platform reduced our downtime by 22% and improved OEE significantly. The ROI was evident within the first quarter.",
+      "author": "Sarah Johnson",
+      "title": "VP Operations, TechManufacturing Inc."
+    }
+  },
+  {
+    "slug": "b2b-lead-engine",
+    "title": "B2B Demand Engine for Enterprise SaaS",
+    "industry": "Software",
+    "capabilities": ["Digital Marketing", "Customer Success"],
+    "year": 2023,
+    "summary": "Full-funnel build: intent capture → qualification → winback.",
+    "metrics": [
+      {"label": "MQLs", "delta": 38, "unit": "%"},
+      {"label": "CPL", "delta": -27, "unit": "%"},
+      {"label": "LTV", "delta": 19, "unit": "%"}
+    ],
+    "sections": {
+      "context": "An enterprise SaaS company struggled with inconsistent lead quality and high customer acquisition costs. They needed a comprehensive demand generation system to scale their B2B marketing efforts.",
+      "approach": [
+        "Audited existing marketing technology stack and lead qualification processes",
+        "Implemented intent data integration and lead scoring algorithms",
+        "Created automated nurture campaigns and qualification workflows",
+        "Developed attribution model for full-funnel performance measurement"
+      ],
+      "solution": "End-to-end demand generation platform with intent-based targeting, automated lead qualification, and integrated customer success handoffs.",
+      "outcomes": [
+        {"metric": "Marketing Qualified Leads", "before": 245, "after": 338, "unit": "/month"},
+        {"metric": "Cost Per Lead", "before": 187, "after": 137, "unit": "$"},
+        {"metric": "Lead-to-Customer Rate", "before": 12, "after": 18, "unit": "%"},
+        {"metric": "Customer Lifetime Value", "before": 47500, "after": 56500, "unit": "$"}
+      ]
+    },
+    "testimonial": {
+      "quote": "Their digital marketing expertise helped us build a scalable demand generation engine. We saw a 38% increase in qualified leads while reducing our cost per lead by 27%.",
+      "author": "Michael Chen",
+      "title": "CMO, GrowthSoft Solutions"
+    }
+  },
+  {
+    "slug": "healthcare-patient-journey",
+    "title": "Patient Journey Optimization",
+    "industry": "Healthcare",
+    "capabilities": ["Digital Transformation", "Customer Success"],
+    "year": 2024,
+    "summary": "End-to-end digital transformation reducing wait times and improving satisfaction.",
+    "metrics": [
+      {"label": "CSAT", "delta": 45, "unit": "%"},
+      {"label": "Wait Time", "delta": -35, "unit": "%"},
+      {"label": "Throughput", "delta": 28, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A regional healthcare system faced patient satisfaction challenges due to long wait times and inefficient appointment scheduling. They needed to modernize patient experience while maintaining quality of care.",
+      "approach": [
+        "Mapped current patient journey from scheduling to discharge",
+        "Implemented digital check-in and appointment management system",
+        "Created real-time capacity planning and resource optimization",
+        "Developed patient satisfaction monitoring and feedback loops"
+      ],
+      "solution": "Comprehensive patient experience platform with automated scheduling, real-time wait time tracking, and integrated communication tools.",
+      "outcomes": [
+        {"metric": "Patient Satisfaction", "before": 67, "after": 97, "unit": "CSAT score"},
+        {"metric": "Average Wait Time", "before": 45, "after": 29, "unit": "minutes"},
+        {"metric": "Patient Throughput", "before": 125, "after": 160, "unit": "patients/day"},
+        {"metric": "No-Show Rate", "before": 18, "after": 12, "unit": "%"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The transformation exceeded our expectations. Patient satisfaction scores improved dramatically while we increased our capacity by nearly 30%.",
+      "author": "Dr. Lisa Rodriguez",
+      "title": "Chief Medical Officer, Regional Health System"
+    }
+  },
+  {
+    "slug": "retail-inventory-optimization",
+    "title": "AI-Powered Inventory Optimization",
+    "industry": "Retail",
+    "capabilities": ["Manufacturing Analytics", "Digital Transformation"],
+    "year": 2023,
+    "summary": "Machine learning-driven demand forecasting and inventory management.",
+    "metrics": [
+      {"label": "Inventory Turns", "delta": 23, "unit": "%"},
+      {"label": "Stockouts", "delta": -41, "unit": "%"},
+      {"label": "Carrying Costs", "delta": -18, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A multi-location retail chain struggled with inventory imbalances, frequent stockouts, and high carrying costs. Traditional forecasting methods were insufficient for their complex product mix and seasonal variations.",
+      "approach": [
+        "Analyzed historical sales data and identified demand patterns",
+        "Implemented machine learning models for demand forecasting",
+        "Created automated replenishment and transfer recommendations",
+        "Developed performance dashboards for category managers"
+      ],
+      "solution": "AI-powered inventory optimization platform with predictive analytics, automated ordering, and cross-location inventory balancing.",
+      "outcomes": [
+        {"metric": "Inventory Turnover", "before": 4.2, "after": 5.2, "unit": "times/year"},
+        {"metric": "Stockout Incidents", "before": 127, "after": 75, "unit": "/month"},
+        {"metric": "Inventory Carrying Costs", "before": 2.1, "after": 1.7, "unit": "M$/year"},
+        {"metric": "Forecast Accuracy", "before": 72, "after": 89, "unit": "%"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The inventory optimization system transformed our operations. We reduced stockouts by 41% while significantly lowering our carrying costs.",
+      "author": "James Patterson",
+      "title": "Director of Supply Chain, RetailPlus"
+    }
+  },
+  {
+    "slug": "fintech-customer-onboarding",
+    "title": "Fintech Customer Onboarding Acceleration",
+    "industry": "Financial Services",
+    "capabilities": ["Digital Transformation", "Customer Success"],
+    "year": 2024,
+    "summary": "Streamlined digital onboarding with KYC automation and risk assessment.",
+    "metrics": [
+      {"label": "Onboarding Time", "delta": -58, "unit": "%"},
+      {"label": "Completion Rate", "delta": 34, "unit": "%"},
+      {"label": "Support Tickets", "delta": -46, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A growing fintech company faced regulatory compliance challenges and lengthy customer onboarding processes. Manual KYC procedures and document verification created bottlenecks and poor customer experience.",
+      "approach": [
+        "Analyzed current onboarding workflow and compliance requirements",
+        "Implemented automated KYC and document verification systems",
+        "Created digital identity verification with biometric authentication",
+        "Developed risk scoring and automated decision engines"
+      ],
+      "solution": "End-to-end digital onboarding platform with automated compliance checks, real-time verification, and intelligent risk assessment.",
+      "outcomes": [
+        {"metric": "Onboarding Duration", "before": 7.2, "after": 3.0, "unit": "days"},
+        {"metric": "Application Completion", "before": 68, "after": 91, "unit": "%"},
+        {"metric": "Customer Support Load", "before": 340, "after": 184, "unit": "tickets/week"},
+        {"metric": "Regulatory Compliance", "before": 94, "after": 99.7, "unit": "%"}
+      ]
+    },
+    "testimonial": {
+      "quote": "AstraVantage revolutionized our customer onboarding. We cut onboarding time by 58% while improving compliance and customer satisfaction.",
+      "author": "Emily Zhang",
+      "title": "Chief Operating Officer, NextGen Finance"
+    }
+  }
+]
