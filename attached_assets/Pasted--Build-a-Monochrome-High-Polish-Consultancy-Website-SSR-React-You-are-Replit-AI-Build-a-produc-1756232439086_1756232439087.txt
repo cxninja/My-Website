@@ -1,0 +1,263 @@
+# Build a Monochrome, High‑Polish Consultancy Website (SSR React)
+
+You are Replit AI. Build a production‑ready consultancy website inspired by D3’s vibe (animations, crisp UI) but **not** a clone. The brand is new; default name: **AstraVantage Consulting** (you may change in `/config/brand.ts`).
+
+## Tech Stack & Constraints
+
+* **Framework:** Next.js 14 (App Router) with **SSR by default** and SSG where suitable.
+* **Styling:** Tailwind CSS + CSS variables. One primary accent only.
+* **UI Kit:** shadcn/ui (tree‑shaken components) + **lucide-react** icons.
+* **Animation:** **Framer Motion** (delightful, subtle; 60fps).
+* **Fonts:** Inter for UI, optional display: Plus Jakarta Sans. Load via `next/font/google`.
+* **Forms:** server actions (Next 14) + fallback to a POST endpoint. Provide easy switch to Formspark/Netlify.
+* **Images:** next/image; add low‑quality blur placeholders.
+* **Lint/Format:** ESLint + Prettier + strict TS. No any.
+* **Accessibility:** WCAG AA, keyboard nav, focus rings, reduced motion support.
+* **Performance:** Lighthouse ≥ 95 (mobile & desktop). Animations GPU‑friendly (opacity, transform). Avoid layout thrash.
+
+## Visual Direction (Bright, White, Monochrome)
+
+* Background: **pure white** (#FFFFFF); text: near‑black (#111); subtle grays (#F7F7F7, #EDEDED, #DADADA).
+* Single accent: **#1E90FF** ("Signal Blue"). Use **sparingly**: CTAs, hover states, links, small dividers.
+* Elevation via soft shadows, glass‑light overlays, and hairline borders (1px #EDEDED).
+* Micro‑interactions: link underlines expand on hover; cards lift 2–4px with subtle shadow.
+
+## Information Architecture & Routes
+
+* `/` Home (hero, services, proof, case studies preview, credibility strip, CTA)
+* `/services` Overview + detail anchors:
+
+  * Digital Marketing
+  * Manufacturing Analytics
+  * Digital Transformation
+  * Customer Success
+* `/case-studies` Index and dynamic pages `/case-studies/[slug]`
+* `/about` Founder/leadership, values, approach, credentials
+* `/contact` Form + company details; success & error states
+* **Header:** sticky, transparent → solid on scroll; **Blog** link goes to `https://google.com` for now.
+* **Footer:** compact sitemap, contact, socials (LinkedIn only placeholder), copyright.
+
+## Pages – Content & Layout Requirements
+
+### 1) Home `/`
+
+* **Hero:**
+
+  * Headline: “Strategy. Systems. Scale.”
+  * Subhead: “Consulting across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success—rooted in outcomes.”
+  * Primary CTA: **Start a Conversation** (scroll to contact or `/contact`).
+  * Secondary CTA: **View Case Studies**.
+  * **Visual:** Animated abstract grid + particles (Framer Motion) that react to pointer (parallax) and respects `prefers-reduced-motion`.
+* **Service Tiles (4):** monochrome cards with minimal icon, 1‑liner value prop, link to detail anchor on `/services`.
+* **Credibility Strip:** logos (placeholder) in grayscale with hover tint to accent.
+* **Case Studies Teaser:** 3 cards with KPI highlights (e.g., “+38% MQLs”, “‑22% downtime”). Clicking → detail page.
+* **Why Us:** three pillars—“Senior‑led”, “Data‑native”, “Operator mindset”. Include small motion checkmarks.
+* **Final CTA Band:** short pitch, email + CTA button.
+
+### 2) Services `/services`
+
+* **Intro:** positioning + engagement model (diagnose → blueprint → pilot → scale).
+* **Sections** (anchors):
+
+  * **Digital Marketing:** growth loops, CRO, measurement, campaign ops. Bulleted deliverables.
+  * **Manufacturing Analytics:** OEE, SPC dashboards, predictive maintenance, quality analytics; sample KPIs.
+  * **Digital Transformation:** process mapping, tooling audit, change mgmt, integration roadmap.
+  * **Customer Success:** onboarding, lifecycle health scores, churn signals, playbooks.
+* Each section includes: problem → approach → outcomes → 2–3 example artifacts (cards).
+
+### 3) Case Studies `/case-studies` & `[slug]`
+
+* Index filters: Industry, Capability, Impact (range slider), Year.
+* Card layout: title, 1‑line context, **3 metric chips** with arrows (▲▼) and tooltips.
+* Detail page structure:
+
+  * Context (client, industry, challenge)
+  * Approach (phases)
+  * Solution Architecture (diagram block)
+  * Outcomes (before/after metrics table)
+  * Testimonial (quote card)
+  * CTA to contact
+
+### 4) About `/about`
+
+* Founder story (write as neutral placeholder), values, operating principles.
+* Timeline (vertical) with subtle scroll reveal.
+* Certifications/logos (gray), LinkedIn link.
+
+### 5) Contact `/contact`
+
+* Split layout: form (name, email, company, role, topic select, message) + sidebar (email, LinkedIn, location).
+* Validation with Zod + server action. Show success state with confetti animation (reduced motion safe).
+
+## Components & Effects
+
+* **Header:**
+
+  * Sticky. On scroll past hero, background fades from transparent → white w/ border.
+  * Active link underline animates.
+* **Magnetic CTA Button:** slight cursor attraction, accessible.
+* **Particles/Noise Layer:** optional; keep GPU cheap.
+* **Metric Chips:** animated count‑ups (on in‑view) for case study KPIs.
+
+## Data & Content Seeds
+
+Provide JSON seeds in `/data` used by SSG where appropriate:
+
+* `caseStudies.json` (5 examples):
+
+```json
+[
+  {
+    "slug": "precision-plant-oee-lift",
+    "title": "OEE Lift in Precision Manufacturing",
+    "industry": "Manufacturing",
+    "capabilities": ["Manufacturing Analytics", "Digital Transformation"],
+    "year": 2024,
+    "summary": "Unified line telemetry and SPC to cut unplanned downtime.",
+    "metrics": [{"label":"OEE","delta":12,"unit":"pp"},{"label":"Downtime","delta":-22,"unit":"%"},{"label":"Yield","delta":+7,"unit":"%"}],
+    "sections": {"context": "…", "approach": ["…"], "solution": "…", "outcomes": [{"metric":"OEE","before":58,"after":70}]}
+  },
+  {
+    "slug": "b2b-lead-engine",
+    "title": "B2B Demand Engine for Enterprise SaaS",
+    "industry": "Software",
+    "capabilities": ["Digital Marketing", "Customer Success"],
+    "year": 2023,
+    "summary": "Full‑funnel build: intent capture → qualification → winback.",
+    "metrics": [{"label":"MQLs","delta":38,"unit":"%"},{"label":"CPL","delta":-27,"unit":"%"},{"label":"LTV","delta":19,"unit":"%"}]
+  }
+]
+```
+
+* `services.ts` with title, blurb, bullets, icon name.
+* `testimonials.json` with placeholder quotes.
+
+## Brand Config & Theming
+
+Create `/config/brand.ts`:
+
+```ts
+export const brand = {
+  name: "AstraVantage Consulting",
+  accent: "#1E90FF",
+  neutral: {
+    bg: "#FFFFFF",
+    text: "#111111",
+    line: "#EDEDED",
+  },
+  meta: {
+    title: "AstraVantage — Strategy. Systems. Scale.",
+    description: "Consultancy across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success.",
+  }
+};
+```
+
+Wire Tailwind CSS variables from this config for easy theme swap.
+
+## SEO, Metadata, & Schema
+
+* Next SEO via metadata API; canonical URLs; OG/Twitter images.
+* JSON‑LD per page:
+
+  * Organization (logo, sameAs LinkedIn)
+  * BreadcrumbList
+  * Article for case studies
+* Sitemap at `/sitemap.xml` and `robots.txt`.
+
+## Header & Nav
+
+* Left: logotype (text logo driven by brand name, no image needed initially).
+* Right: links **Home, Services, Case Studies, About, Contact, Blog** (Blog → `https://google.com`).
+* Mobile: animated sheet/drawer with staggered links.
+
+## Footer
+
+* Small; three columns: About blurb, Quick Links, Contact.
+* Newsletter input (non‑functional placeholder with success toast).
+
+## Copywriting Tone
+
+* Senior, outcome‑driven, direct. Avoid fluff. One‑liners that sell impact.
+
+## Animations (Framer Motion) — Rules
+
+* Entrance: `opacity` + `y: 12` translate; stagger children.
+* Hover: scale 1.02 max; shadow +2.
+* Underlines: width animate from 0 → 100% on hover and active route.
+* Respect `prefers-reduced-motion` and provide static fallbacks.
+
+## Accessibility
+
+* Semantic landmarks; aria‑labels for icon‑only.
+* Visible focus outlines (accent color); focus trap in mobile menu.
+* Color contrast checked.
+
+## Analytics & Consent (Optional Stubs)
+
+* Add a hook for GTM/GA with consent banner stub (no network calls by default).
+
+## Project Structure
+
+```
+/ (repo root)
+  ├─ app/
+  │  ├─ (site)/
+  │  │  ├─ page.tsx (Home)
+  │  │  ├─ services/page.tsx
+  │  │  ├─ case-studies/page.tsx
+  │  │  ├─ case-studies/[slug]/page.tsx
+  │  │  ├─ about/page.tsx
+  │  │  ├─ contact/page.tsx
+  │  ├─ api/contact/route.ts (POST handler)
+  │  ├─ robots.txt/route.ts
+  │  ├─ sitemap.xml/route.ts
+  ├─ components/
+  │  ├─ ui/* (shadcn)
+  │  ├─ header.tsx, footer.tsx, hero.tsx, service-card.tsx, metric-chip.tsx
+  │  ├─ case-study-card.tsx, section.tsx, motion/*
+  ├─ data/
+  │  ├─ caseStudies.json
+  │  ├─ testimonials.json
+  │  └─ services.ts
+  ├─ config/brand.ts
+  ├─ lib/seo.ts, lib/utils.ts
+  ├─ styles/globals.css
+  ├─ README.md
+```
+
+## Acceptance Criteria (Do Not Skip)
+
+1. **SSR/SSG**: Pages render on server; case study detail pages statically generated from `caseStudies.json`.
+2. **Header** is sticky with transparent→solid transition; **Blog** goes to `https://google.com`.
+3. **Hero** includes animated background (subtle particles/parallax) and two CTAs.
+4. **Services page** has four anchor sections with bullets and example artifacts.
+5. **Case studies** index filter works client‑side; detail pages show metrics table and testimonial.
+6. **Contact form** validates with Zod, posts to `/api/contact`, shows success and error states.
+7. **Monochrome theme** with single accent; hover/active effects only use that accent.
+8. **Lighthouse ≥ 95** on performance/accessibility/best practices/SEO in a fresh build.
+9. **A11y:** keyboard nav through header/menu/cards/forms.
+10. **Code quality:** strict TS, no unused vars, organized components, no inline styles except quick layout.
+
+## Helpful Sample Content
+
+* Service bullets (short, punchy):
+
+  * **Digital Marketing:** Full‑funnel measurement, CRO sprints, paid media systems, SEO diagnostics.
+  * **Manufacturing Analytics:** OEE dashboards, anomaly detection, line telemetry pipelines, SPC alerts.
+  * **Digital Transformation:** Tooling audit, process mapping, integration roadmaps, change enablement.
+  * **Customer Success:** Health scoring, onboarding playbooks, churn early‑warning, lifecycle ops.
+* Founder blurb placeholder: “20+ years across ops and growth; pragmatic, data‑led execution.”
+
+## Commands
+
+* Initialize shadcn: `npx shadcn-ui@latest init` and pull `button, card, input, textarea, badge, sheet, separator, toast, select`.
+* Ensure `motion` helpers (variants) live in `components/motion`.
+
+## Deployment
+
+* Provide `vercel.json` and a GitHub Actions CI for lint+build.
+* Document envs in README (none required yet). Blog later will move from external link to `/blog`.
+
+---
+
+**Deliver now**: full codebase implementing the above, with clean, commented TSX and minimal placeholder content. Keep visuals elegant, performance‑minded, and brandable from `/config/brand.ts`. Ensure the Blog header link points to `https://google.com`. Provide a short README with setup and dev commands.
