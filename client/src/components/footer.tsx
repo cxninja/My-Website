@@ -67,17 +67,7 @@ export function Footer() {
               Senior-led consulting across Digital Marketing, Manufacturing Analytics, 
               Digital Transformation, and Customer Success. Strategy. Systems. Scale.
             </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-accent transition-colors"
-                data-testid="link-linkedin"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+            
           </div>
 
           {/* Quick Links */}
