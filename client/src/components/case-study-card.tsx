@@ -35,7 +35,7 @@ export function CaseStudyCard({
   return (
     <FadeIn delay={delay}>
       <Card 
-        className="standard-card p-6 cursor-pointer"
+        className="standard-card p-6 cursor-pointer h-full"
         onClick={handleClick}
         data-testid={`case-study-card-${slug}`}
       >

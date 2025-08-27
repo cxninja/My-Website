@@ -30,7 +30,7 @@ export function ServiceCard({
   return (
     <FadeIn delay={delay}>
       <Card
-        className="standard-card p-8 cursor-pointer group relative overflow-hidden"
+        className="standard-card p-8 cursor-pointer group relative overflow-hidden h-full"
         onClick={handleClick}
         data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
       >
