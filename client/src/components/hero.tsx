@@ -66,7 +66,7 @@ export function Hero() {
           <FadeIn>
             <div className="space-y-4">
               <h1 className="heading-xl">
-                <span className="text-muted-foreground">Strategy.</span><br />
+                <span className="text-[#121212]">Strategy.</span><br />
                 <span className="text-[#121212]">Systems.</span><br />
                 <span className="text-accent inline-block relative">
                   <AnimatePresence mode="wait">
