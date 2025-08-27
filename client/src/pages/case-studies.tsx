@@ -185,6 +185,7 @@ export default function CaseStudies() {
                   summary={caseStudy.summary}
                   metrics={caseStudy.metrics}
                   slug={caseStudy.slug}
+                  image={caseStudy.image}
                   delay={index * 0.1}
                 />
               ))}

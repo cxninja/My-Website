@@ -69,6 +69,16 @@ export default function CaseStudyDetail() {
               {caseStudy.summary}
             </p>
 
+            {caseStudy.image && (
+              <div className="mb-8">
+                <img 
+                  src={caseStudy.image}
+                  alt={caseStudy.title}
+                  className="w-full h-64 object-cover rounded-lg"
+                />
+              </div>
+            )}
+
             <div className="flex flex-wrap gap-3">
               {caseStudy.metrics.map((metric, index) => (
                 <MetricChip
