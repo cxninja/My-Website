@@ -14,7 +14,7 @@ export const contacts = pgTable("contacts", {
   name: text("name").notNull(),
   email: text("email").notNull(),
   company: text("company"),
-  role: text("role"),
+  mobile: text("mobile"),
   topic: text("topic"),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
@@ -33,7 +33,7 @@ export const insertContactSchema = createInsertSchema(contacts).omit({
   email: z.string().email("Please enter a valid email address"),
   message: z.string().min(10, "Please provide a detailed message (at least 10 characters)"),
   company: z.string().optional(),
-  role: z.string().optional(),
+  mobile: z.string().optional(),
   topic: z.enum(["digital-marketing", "manufacturing-analytics", "digital-transformation", "customer-success", "other"]).optional(),
 });
 

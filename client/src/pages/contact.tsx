@@ -20,7 +20,7 @@ type ContactFormData = {
   name: string;
   email: string;
   company?: string;
-  role?: string;
+  mobile?: string;
   topic?: string;
   message: string;
 };
@@ -44,7 +44,7 @@ export default function Contact() {
       name: "",
       email: "",
       company: "",
-      role: "",
+      mobile: "",
       topic: "",
       message: "",
     },
@@ -185,15 +185,15 @@ export default function Contact() {
 
                               <FormField
                                 control={form.control}
-                                name="role"
+                                name="mobile"
                                 render={({ field }) => (
                                   <FormItem>
-                                    <FormLabel>Role</FormLabel>
+                                    <FormLabel>Mobile</FormLabel>
                                     <FormControl>
                                       <Input 
-                                        placeholder="VP Operations" 
+                                        placeholder="+1 (555) 123-4567" 
                                         {...field} 
-                                        data-testid="input-contact-role"
+                                        data-testid="input-contact-mobile"
                                       />
                                     </FormControl>
                                     <FormMessage />
@@ -235,7 +235,7 @@ export default function Contact() {
                                   <FormLabel>Message *</FormLabel>
                                   <FormControl>
                                     <Textarea 
-                                      placeholder="Tell us about your challenge..." 
+                                      placeholder="How can we help you?" 
                                       rows={4}
                                       {...field} 
                                       data-testid="textarea-contact-message"
