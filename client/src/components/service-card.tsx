@@ -36,7 +36,7 @@ export function ServiceCard({
       >
         <CardContent className="p-0 relative z-10">
           <div className="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
-            <Icon className="w-12 h-12 text-white" />
+            <Icon className="w-8 h-8 text-white" />
           </div>
           <h3 className="font-display font-bold text-xl mb-3 group-hover:text-accent transition-colors">
             {title}
