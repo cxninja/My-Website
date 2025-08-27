@@ -26,8 +26,11 @@ const heroImages = [
   }
 ];
 
+const rotatingWords = ["Scale.", "Grow.", "Excel.", "Succeed.", "Transform."];
+
 export function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,6 +38,14 @@ export function Hero() {
     }, 4000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const wordInterval = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
+    }, 2000);
+
+    return () => clearInterval(wordInterval);
   }, []);
 
   const handleIndicatorClick = (index: number) => {
@@ -60,7 +71,20 @@ export function Hero() {
               <h1 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
                 Strategy.<br />
                 Systems.<br />
-                <span className="text-accent hover:scale-105 transition-transform duration-300">Scale.</span>
+                <span className="text-accent inline-block">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={currentWordIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="inline-block"
+                    >
+                      {rotatingWords[currentWordIndex]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
                 Consulting across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success—rooted in outcomes.
