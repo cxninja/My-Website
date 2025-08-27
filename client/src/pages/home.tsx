@@ -93,7 +93,7 @@ export default function Home() {
                 title={service.title}
                 description={service.description}
                 icon={service.icon}
-                href={`/services#${service.id}`}
+                href={`/service/${service.id}`}
                 delay={index * 0.1}
               />
             ))}
