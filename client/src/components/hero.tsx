@@ -57,9 +57,7 @@ export function Hero() {
     contactElement?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleViewCaseStudies = () => {
-    window.location.href = '/case-studies';
-  };
+  
 
   return (
     <section id="home" className="min-h-screen hero-bg flex items-center pt-20">
@@ -100,14 +98,6 @@ export function Hero() {
                 data-testid="button-start-conversation"
               >
                 Start a Conversation
-              </Button>
-              <Button
-                variant="outline"
-                onClick={handleViewCaseStudies}
-                className="border-border hover:border-accent hover:text-accent px-8 py-3"
-                data-testid="button-view-case-studies"
-              >
-                View Case Studies
               </Button>
             </div>
           </FadeIn>
