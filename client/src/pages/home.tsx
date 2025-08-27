@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 import caseStudies from "@/data/case-studies.json";
 import testimonials from "@/data/testimonials.json";
-import { Check, Quote } from "lucide-react";
+import { Check, Quote, ArrowRight } from "lucide-react";
 import { SiTechcrunch, SiGoogle, SiAmazon, SiIntel, SiSalesforce } from "react-icons/si";
 
 const credibilityLogos = [
@@ -73,27 +73,75 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section id="services" className="py-20 bg-secondary/30">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="services" className="py-20 bg-gradient-to-br from-secondary/30 via-accent/5 to-secondary/30 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-accent rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-6 relative">
           <FadeIn className="text-center mb-16">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Our Capabilities
+            <div className="inline-block px-4 py-2 bg-accent/10 rounded-full border border-accent/20 mb-6">
+              <span className="text-accent font-semibold text-sm">🚀 PROVEN EXPERTISE</span>
+            </div>
+            <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
+              Four <span className="text-accent">Game-Changing</span> Capabilities
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
               Senior-led expertise across four core domains, each engineered for measurable business impact.
             </p>
+            
+            {/* Success metrics banner */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-12">
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-accent/20">
+                <div className="text-2xl font-bold text-accent">25-50%</div>
+                <div className="text-xs text-muted-foreground">Lead Growth</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-accent/20">
+                <div className="text-2xl font-bold text-accent">30%</div>
+                <div className="text-xs text-muted-foreground">Cost Reduction</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-accent/20">
+                <div className="text-2xl font-bold text-accent">60%</div>
+                <div className="text-xs text-muted-foreground">Time Savings</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 border border-accent/20">
+                <div className="text-2xl font-bold text-accent">15-25%</div>
+                <div className="text-xs text-muted-foreground">Churn Reduction</div>
+              </div>
+            </div>
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <ServiceCard
-                key={service.id}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                href={`/services#${service.id}`}
-                delay={index * 0.1}
-              />
+              <div key={service.id} className="group">
+                <FadeIn delay={index * 0.1}>
+                  <div className="relative bg-white/90 backdrop-blur-sm rounded-xl p-6 border border-accent/20 hover:border-accent/40 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2">
+                    {/* Gradient overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    <div className="relative z-10">
+                      <div className="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                        <service.icon className="w-8 h-8 text-accent" />
+                      </div>
+                      
+                      <h3 className="font-display font-bold text-xl mb-3 group-hover:text-accent transition-colors">
+                        {service.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      
+                      <div className="flex items-center text-accent font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
+                        <span>Learn More</span>
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </div>
+                    </div>
+                  </div>
+                </FadeIn>
+              </div>
             ))}
           </StaggerContainer>
         </div>
