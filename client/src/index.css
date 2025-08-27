@@ -92,13 +92,13 @@
   /* Standardized Card Styles */
   .standard-card {
     @apply bg-white transition-all duration-300 ease-out;
-    box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
+    box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06) !important;
     border: 1px solid hsl(var(--border));
   }
   
   .standard-card:hover {
     @apply -translate-y-2;
-    box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06), 0 10px 15px -3px hsl(0 0% 0% / 0.1);
+    box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06), 0 10px 15px -3px hsl(0 0% 0% / 0.1) !important;
     border: 1px solid #E63946 !important;
   }
   
