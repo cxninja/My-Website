@@ -17,6 +17,7 @@ import CustomerSuccess from "@/pages/customer-success";
 import CaseStudies from "@/pages/case-studies";
 import CaseStudyDetail from "@/pages/case-study-detail";
 import About from "@/pages/about";
+import Leadership from "@/pages/leadership";
 import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
@@ -35,6 +36,7 @@ function Router() {
           <Route path="/case-studies" component={CaseStudies} />
           <Route path="/case-studies/:slug" component={CaseStudyDetail} />
           <Route path="/about" component={About} />
+          <Route path="/leadership" component={Leadership} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>
