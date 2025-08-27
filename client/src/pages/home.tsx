@@ -114,18 +114,24 @@ export default function Home() {
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-12">
-            {caseStudies.slice(0, 3).map((caseStudy, index) => (
-              <CaseStudyCard
-                key={caseStudy.slug}
-                title={caseStudy.title}
-                industry={caseStudy.industry}
-                year={caseStudy.year}
-                summary={caseStudy.summary}
-                metrics={caseStudy.metrics}
-                slug={caseStudy.slug}
-                delay={index * 0.1}
-              />
-            ))}
+            {caseStudies.slice(0, 3).map((caseStudy, index) => {
+              // Convert @assets path to proper URL
+              const imageUrl = caseStudy.image ? caseStudy.image.replace('@assets/', '/attached_assets/') : undefined;
+              
+              return (
+                <CaseStudyCard
+                  key={caseStudy.slug}
+                  title={caseStudy.title}
+                  industry={caseStudy.industry}
+                  year={caseStudy.year}
+                  summary={caseStudy.summary}
+                  metrics={caseStudy.metrics}
+                  slug={caseStudy.slug}
+                  image={imageUrl}
+                  delay={index * 0.1}
+                />
+              );
+            })}
           </StaggerContainer>
 
           <FadeIn className="text-center">

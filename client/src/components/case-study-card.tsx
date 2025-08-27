@@ -15,6 +15,7 @@ interface CaseStudyCardProps {
   summary: string;
   metrics: Metric[];
   slug: string;
+  image?: string;
   delay?: number;
 }
 
@@ -25,6 +26,7 @@ export function CaseStudyCard({
   summary, 
   metrics, 
   slug,
+  image,
   delay = 0 
 }: CaseStudyCardProps) {
   const handleClick = () => {
@@ -35,11 +37,21 @@ export function CaseStudyCard({
   return (
     <FadeIn delay={delay}>
       <Card 
-        className="standard-card p-6 cursor-pointer h-full"
+        className="standard-card overflow-hidden cursor-pointer h-full group"
         onClick={handleClick}
         data-testid={`case-study-card-${slug}`}
       >
         <CardContent className="p-0">
+          {image && (
+            <div className="relative overflow-hidden mb-4">
+              <img 
+                src={image}
+                alt={title}
+                className="w-full h-48 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              />
+            </div>
+          )}
+          <div className="p-6 pb-4">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-medium text-muted-foreground">
               {industry}
@@ -62,9 +74,10 @@ export function CaseStudyCard({
             ))}
           </div>
           
-          <button className="text-accent text-sm font-medium hover:underline">
-            View Details →
-          </button>
+            <button className="text-accent text-sm font-medium hover:underline">
+              View Details →
+            </button>
+          </div>
         </CardContent>
       </Card>
     </FadeIn>
