@@ -139,11 +139,11 @@ export default function Leadership() {
           <FadeIn>
             <div className="text-center mb-8">
               {/* Thin Banner */}
-              <div className="w-full h-24 mb-6 rounded-lg overflow-hidden">
+              <div className="w-full h-24 mb-6 rounded-lg overflow-hidden bg-secondary/50">
                 <img 
                   src="https://media.licdn.com/dms/image/v2/D5616AQGZv2Ev9tGgwA/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1733746258207?e=1759363200&v=beta&t=sJiGxL6Q5ld8JMr5boRZwKz4tlDJfePHAFrTjOQosBA"
                   alt="Professional Banner"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               
