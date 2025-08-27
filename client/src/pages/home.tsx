@@ -102,7 +102,7 @@ export default function Home() {
       </section>
 
       {/* Case Studies Preview */}
-      <section id="case-studies" className="section-padding section-divider">
+      <section id="case-studies" className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
