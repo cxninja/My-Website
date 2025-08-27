@@ -67,7 +67,7 @@ export function Hero() {
             <div className="space-y-4">
               <h1 className="heading-xl">
                 <span className="text-muted-foreground">Strategy.</span><br />
-                <span className="text-muted-foreground">Systems.</span><br />
+                <span className="text-[#121212]">Systems.</span><br />
                 <span className="text-accent inline-block relative">
                   <AnimatePresence mode="wait">
                     <motion.span
