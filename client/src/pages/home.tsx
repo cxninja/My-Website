@@ -185,7 +185,7 @@ export default function Home() {
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {testimonials.slice(0, 2).map((testimonial, index) => (
               <FadeIn key={testimonial.id} delay={index * 0.1}>
-                <div className="bg-card p-8 rounded-lg border border-border">
+                <div className="bg-card p-8 rounded-lg border border-border h-full">
                   <div className="mb-6">
                     <Quote className="w-8 h-8 text-accent mb-4" />
                     <p className="text-lg italic text-muted-foreground">
