@@ -152,7 +152,7 @@ export default function DigitalMarketing() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
-              What You'll Receive
+              When You'll See Results
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Concrete deliverables that transform your marketing from cost center to revenue driver
