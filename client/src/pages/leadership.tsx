@@ -134,20 +134,34 @@ export default function Leadership() {
       />
 
       {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-secondary/30">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="pt-24 pb-16 relative overflow-hidden">
+        {/* Background Banner */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://media.licdn.com/dms/image/v2/D5616AQGZv2Ev9tGgwA/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1733746258207?e=1759363200&v=beta&t=sJiGxL6Q5ld8JMr5boRZwKz4tlDJfePHAFrTjOQosBA')"
+          }}
+        />
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/60" />
+        
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
           <FadeIn>
             <div className="text-center mb-8">
-              <div className="w-32 h-32 bg-gradient-to-br from-accent/10 to-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <UserCheck className="w-16 h-16 text-accent" />
+              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white/20">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/C4E03AQEHHepD4pJI7Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517744343084?e=1759363200&v=beta&t=_gyiwiAlvV6cuPEJeA6qKYoiJWDkD-NjgC3Y4i6s56U"
+                  alt={leaderProfile.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <h1 className="font-display font-bold text-4xl md:text-5xl mb-4">
+              <h1 className="font-display font-bold text-4xl md:text-5xl mb-4 text-white">
                 {leaderProfile.name}
               </h1>
-              <p className="text-xl text-muted-foreground mb-4">
+              <p className="text-xl text-white/90 mb-4">
                 {leaderProfile.title}
               </p>
-              <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center justify-center gap-4 text-sm text-white/80">
                 <span className="flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
                   {leaderProfile.location}
@@ -159,7 +173,7 @@ export default function Leadership() {
               </div>
             </div>
 
-            <Card className="standard-card p-8">
+            <Card className="standard-card p-8 bg-white/95 backdrop-blur-sm">
               <p className="text-lg text-muted-foreground leading-relaxed text-center">
                 {leaderProfile.summary}
               </p>
