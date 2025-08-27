@@ -53,9 +53,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/sitemap.xml", async (_req, res) => {
+  app.get("/sitemap.xml", async (req, res) => {
     try {
-      const sitemap = await generateSitemap();
+      const hostname = req.protocol + "://" + req.get("host");
+      const sitemap = await generateSitemap(hostname);
       res.header("Content-Type", "application/xml");
       res.send(sitemap);
     } catch (error) {
