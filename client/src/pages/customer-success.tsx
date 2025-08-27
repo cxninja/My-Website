@@ -106,8 +106,8 @@ export default function CustomerSuccess() {
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {painPoints.map((pain, index) => (
               <FadeIn key={index} delay={index * 0.1}>
-                <div className="p-6 border border-destructive/20 rounded-lg bg-destructive/5">
-                  <p className="text-muted-foreground">{pain}</p>
+                <div className="p-6 border border-destructive/20 rounded-lg bg-destructive/5 h-full">
+                  <p className="text-gray-800 dark:text-gray-200">{pain}</p>
                 </div>
               </FadeIn>
             ))}

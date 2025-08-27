@@ -12,10 +12,10 @@ const navigation = [
     name: "Services", 
     href: "/services",
     dropdown: [
-      { name: "Digital Marketing", href: "/digital-marketing" },
-      { name: "Manufacturing Analytics", href: "/manufacturing-analytics" },
-      { name: "Digital Transformation", href: "/digital-transformation" },
-      { name: "Customer Success", href: "/customer-success" },
+      { name: "Digital Marketing", href: "/service/digital-marketing" },
+      { name: "Manufacturing Analytics", href: "/service/manufacturing-analytics" },
+      { name: "Digital Transformation", href: "/service/digital-transformation" },
+      { name: "Customer Success", href: "/service/customer-success" },
       { name: "All Services", href: "/services" }
     ]
   },

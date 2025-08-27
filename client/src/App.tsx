@@ -28,10 +28,10 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/services" component={Services} />
-          <Route path="/digital-marketing" component={DigitalMarketing} />
-          <Route path="/manufacturing-analytics" component={ManufacturingAnalytics} />
-          <Route path="/digital-transformation" component={DigitalTransformation} />
-          <Route path="/customer-success" component={CustomerSuccess} />
+          <Route path="/service/digital-marketing" component={DigitalMarketing} />
+          <Route path="/service/manufacturing-analytics" component={ManufacturingAnalytics} />
+          <Route path="/service/digital-transformation" component={DigitalTransformation} />
+          <Route path="/service/customer-success" component={CustomerSuccess} />
           <Route path="/case-studies" component={CaseStudies} />
           <Route path="/case-studies/:slug" component={CaseStudyDetail} />
           <Route path="/about" component={About} />
