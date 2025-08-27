@@ -10,18 +10,18 @@ interface ServiceCardProps {
   delay?: number;
 }
 
-export function ServiceCard({ 
-  title, 
-  description, 
-  icon: Icon, 
+export function ServiceCard({
+  title,
+  description,
+  icon: Icon,
   href,
-  delay = 0 
+  delay = 0,
 }: ServiceCardProps) {
   const handleClick = () => {
     // Scroll to services section on same page, or navigate if different page
-    if (href.startsWith('#')) {
+    if (href.startsWith("#")) {
       const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      element?.scrollIntoView({ behavior: "smooth" });
     } else {
       window.location.href = href;
     }
@@ -29,20 +29,26 @@ export function ServiceCard({
 
   return (
     <FadeIn delay={delay}>
-      <Card 
+      <Card
         className="standard-card p-8 cursor-pointer group relative overflow-hidden"
         onClick={handleClick}
-        data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, '-')}`}
+        data-testid={`service-card-${title.toLowerCase().replace(/\s+/g, "-")}`}
       >
         <CardContent className="p-0 relative z-10">
-          <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 bg-[#e94a57]" style={{backgroundColor: '#2d15a2'}}>
-            <Icon className="w-8 h-8 text-white" />
+          <div className="w-16 h-16 bg-accent rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
+            <Icon className="w-12 h-12 text-white" />
           </div>
-          <h3 className="font-display font-bold text-xl mb-3 group-hover:text-accent transition-colors">{title}</h3>
-          <p className="text-muted-foreground mb-6 leading-relaxed">{description}</p>
+          <h3 className="font-display font-bold text-xl mb-3 group-hover:text-accent transition-colors">
+            {title}
+          </h3>
+          <p className="text-muted-foreground mb-6 leading-relaxed">
+            {description}
+          </p>
           <button className="inline-flex items-center text-accent font-semibold group-hover:translate-x-1 transition-transform duration-200">
             <span>Learn More</span>
-            <span className="ml-2 group-hover:ml-3 transition-all duration-200">→</span>
+            <span className="ml-2 group-hover:ml-3 transition-all duration-200">
+              →
+            </span>
           </button>
         </CardContent>
         <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
