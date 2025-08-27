@@ -8,9 +8,14 @@ import { services } from "@/data/services";
 import caseStudies from "@/data/case-studies.json";
 import testimonials from "@/data/testimonials.json";
 import { Check, Quote } from "lucide-react";
+import { SiTechcrunch, SiGoogle, SiAmazon, SiIntel, SiSalesforce } from "react-icons/si";
 
 const credibilityLogos = [
-  "TechCorp", "ManufactureInc", "GrowthCo", "InnovateLtd", "ScaleSys"
+  { name: "TechCorp", icon: SiTechcrunch },
+  { name: "ManufactureInc", icon: SiIntel },
+  { name: "GrowthCo", icon: SiGoogle },
+  { name: "InnovateLtd", icon: SiAmazon },
+  { name: "ScaleSys", icon: SiSalesforce }
 ];
 
 const whyUsPoints = [
@@ -51,10 +56,15 @@ export default function Home() {
             <p className="text-center text-sm text-muted-foreground mb-8">
               Trusted by industry leaders
             </p>
-            <div className="flex items-center justify-center space-x-12 opacity-60">
-              {credibilityLogos.map((logo) => (
-                <div key={logo} className="font-semibold text-lg hover:opacity-100 transition-opacity">
-                  {logo}
+            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
+              {credibilityLogos.map((company) => (
+                <div 
+                  key={company.name} 
+                  className="flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"
+                  data-testid={`company-${company.name.toLowerCase()}`}
+                >
+                  <company.icon className="w-8 h-8 text-muted-foreground" />
+                  <span className="font-semibold text-sm">{company.name}</span>
                 </div>
               ))}
             </div>
