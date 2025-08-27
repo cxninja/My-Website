@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  Crown, 
+  UserCheck, 
   Target, 
   TrendingUp, 
   Users, 
@@ -139,7 +139,7 @@ export default function Leadership() {
           <FadeIn>
             <div className="text-center mb-8">
               <div className="w-32 h-32 bg-gradient-to-br from-accent/10 to-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Crown className="w-16 h-16 text-accent" />
+                <UserCheck className="w-16 h-16 text-accent" />
               </div>
               <h1 className="font-display font-bold text-4xl md:text-5xl mb-4">
                 {leaderProfile.name}
