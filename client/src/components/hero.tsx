@@ -60,7 +60,7 @@ export function Hero() {
               <h1 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
                 Strategy.<br />
                 Systems.<br />
-                <span className="text-accent animate-pulse">Scale.</span>
+                <span className="text-accent hover:scale-105 transition-transform duration-300">Scale.</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
                 Consulting across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success—rooted in outcomes.
