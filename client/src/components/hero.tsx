@@ -53,8 +53,7 @@ export function Hero() {
   };
 
   const handleStartConversation = () => {
-    const contactElement = document.querySelector('#contact');
-    contactElement?.scrollIntoView({ behavior: 'smooth' });
+    window.location.href = '/contact';
   };
 
   
