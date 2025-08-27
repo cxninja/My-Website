@@ -60,7 +60,7 @@ export function Hero() {
   
 
   return (
-    <section id="home" className="min-h-screen hero-bg flex items-center pt-20">
+    <section id="home" className="hero-bg flex items-center pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         {/* Hero Content */}
         <div className="space-y-8">

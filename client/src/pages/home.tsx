@@ -50,7 +50,7 @@ export default function Home() {
       <Hero />
 
       {/* Credibility Strip */}
-      <section className="py-12 border-t border-border">
+      <section className="py-8 border-t border-border">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
             <p className="text-center text-sm text-muted-foreground mb-8">
