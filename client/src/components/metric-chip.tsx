@@ -20,13 +20,13 @@ export function MetricChip({ label, delta, unit, delay = 0 }: MetricChipProps) {
         label.toLowerCase().includes('stockout')) {
       // For metrics where decrease is good
       return isNegative 
-        ? "bg-green-50 text-green-700 border-green-200" 
-        : "bg-red-50 text-red-700 border-red-200";
+        ? "bg-accent/10 text-accent border-accent/20" 
+        : "bg-muted text-muted-foreground border-border";
     } else {
       // For metrics where increase is good
       return isPositive 
-        ? "bg-green-50 text-green-700 border-green-200"
-        : "bg-red-50 text-red-700 border-red-200";
+        ? "bg-accent/10 text-accent border-accent/20"
+        : "bg-muted text-muted-foreground border-border";
     }
   };
 
