@@ -1,5 +1,5 @@
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 interface FadeInProps {
   children: React.ReactNode;

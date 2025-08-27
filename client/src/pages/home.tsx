@@ -1,3 +1,4 @@
+import React from "react";
 import { Hero } from "@/components/hero";
 import { ServiceCard } from "@/components/service-card";
 import { CaseStudyCard } from "@/components/case-study-card";
@@ -30,12 +31,16 @@ const whyUsPoints = [
 
 export default function Home() {
   const handleContactScroll = () => {
-    const contactElement = document.querySelector('#contact');
-    contactElement?.scrollIntoView({ behavior: 'smooth' });
+    if (typeof document !== 'undefined') {
+      const contactElement = document.querySelector('#contact');
+      contactElement?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleCaseStudiesNavigate = () => {
-    window.location.href = '/case-studies';
+    if (typeof window !== 'undefined') {
+      window.location.href = '/case-studies';
+    }
   };
 
   return (

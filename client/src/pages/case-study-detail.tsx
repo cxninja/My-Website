@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "wouter";
 import { SEO } from "@/lib/seo";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -17,7 +18,7 @@ export default function CaseStudyDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Case Study Not Found</h1>
-          <Button onClick={() => window.location.href = '/case-studies'}>
+          <Button onClick={() => typeof window !== 'undefined' && (window.location.href = '/case-studies')}>
             ← Back to Case Studies
           </Button>
         </div>
@@ -26,7 +27,9 @@ export default function CaseStudyDetail() {
   }
 
   const handleBackClick = () => {
-    window.location.href = '/case-studies';
+    if (typeof window !== 'undefined') {
+      window.location.href = '/case-studies';
+    }
   };
 
   const handleContactClick = () => {

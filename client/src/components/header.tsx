@@ -17,9 +17,20 @@ const navigation = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [location] = useLocation();
+  
+  // Safe location hook for SSR
+  let location = "/";
+  try {
+    [location] = useLocation();
+  } catch (error) {
+    // On server-side, default to "/"
+    location = "/";
+  }
 
   useEffect(() => {
+    // Only run on client-side
+    if (typeof window === 'undefined') return;
+    
     const handleScroll = () => {
       const scrolled = window.scrollY > 50;
       setIsScrolled(scrolled);
@@ -36,7 +47,7 @@ export function Header() {
   };
 
   const handleLinkClick = (href: string, external?: boolean) => {
-    if (external) {
+    if (external && typeof window !== 'undefined') {
       window.open(href, "_blank", "noopener noreferrer");
     } else {
       setIsMobileMenuOpen(false);
