@@ -50,21 +50,23 @@ export default function Home() {
       <Hero />
 
       {/* Credibility Strip */}
-      <section className="py-8 border-t border-border">
+      <section className="section-padding-sm border-t border-border bg-secondary/20">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
-            <p className="text-center text-sm text-muted-foreground mb-8">
-              Trusted by industry leaders
+            <p className="text-center text-muted-foreground mb-12 font-medium tracking-wide uppercase text-xs">
+              Trusted by <span className="text-emphasis">industry leaders</span>
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16">
               {credibilityLogos.map((company) => (
                 <div 
                   key={company.name} 
-                  className="flex flex-col items-center gap-2 hover:opacity-100 transition-opacity"
+                  className="flex flex-col items-center gap-3 opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 group cursor-pointer"
                   data-testid={`company-${company.name.toLowerCase()}`}
                 >
-                  <company.icon className="w-8 h-8 text-muted-foreground" />
-                  <span className="font-semibold text-sm">{company.name}</span>
+                  <div className="p-4 rounded-xl bg-white shadow-sm group-hover:shadow-md transition-shadow duration-300">
+                    <company.icon className="w-8 h-8 text-muted-foreground group-hover:text-accent transition-colors duration-300" />
+                  </div>
+                  <span className="font-semibold text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">{company.name}</span>
                 </div>
               ))}
             </div>
@@ -73,14 +75,14 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section id="services" className="py-20 bg-secondary/30">
+      <section id="services" className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Our Capabilities
+          <FadeIn className="text-center container-spacing">
+            <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
+              Our <span className="text-emphasis">Capabilities</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Senior-led expertise across four core domains, each engineered for measurable business impact.
+            <p className="text-large text-muted-foreground max-w-3xl mx-auto">
+              Senior-led expertise across four core domains, each engineered for <span className="font-semibold text-foreground">measurable business impact</span>.
             </p>
           </FadeIn>
 
@@ -100,14 +102,14 @@ export default function Home() {
       </section>
 
       {/* Case Studies Preview */}
-      <section id="case-studies" className="py-20">
+      <section id="case-studies" className="section-padding section-divider">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Proven Results
+          <FadeIn className="text-center container-spacing">
+            <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
+              <span className="text-emphasis">Proven</span> Results
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real outcomes from strategic partnerships. Each engagement designed for measurable impact.
+            <p className="text-large text-muted-foreground max-w-3xl mx-auto">
+              Real outcomes from strategic partnerships. Each engagement designed for <span className="font-semibold text-foreground">measurable impact</span>.
             </p>
           </FadeIn>
 
@@ -129,8 +131,9 @@ export default function Home() {
           <FadeIn className="text-center">
             <Button
               variant="outline"
+              size="lg"
               onClick={handleCaseStudiesNavigate}
-              className="magnetic-button border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-3"
+              className="magnetic-button border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-4 font-semibold rounded-xl"
               data-testid="button-view-all-case-studies"
             >
               View All Case Studies
@@ -140,25 +143,27 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-secondary/30">
+      <section className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Why AstraVantage
+          <FadeIn className="text-center container-spacing">
+            <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
+              Why <span className="text-emphasis">AstraVantage</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Three core principles that differentiate our approach and ensure your success.
+            <p className="text-large text-muted-foreground max-w-3xl mx-auto">
+              Three core principles that differentiate our approach and ensure <span className="font-semibold text-foreground">your success</span>.
             </p>
           </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
+          <StaggerContainer className="grid md:grid-cols-3 gap-10">
             {whyUsPoints.map((point, index) => (
               <FadeIn key={point.title} delay={index * 0.1} className="text-center">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Check className="w-8 h-8 text-accent" />
+                <div className="elevated-card p-8 h-full">
+                  <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                    <Check className="w-10 h-10 text-accent" />
+                  </div>
+                  <h3 className="font-display font-bold text-xl mb-4">{point.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{point.description}</p>
                 </div>
-                <h3 className="font-semibold text-xl mb-3">{point.title}</h3>
-                <p className="text-muted-foreground">{point.description}</p>
               </FadeIn>
             ))}
           </StaggerContainer>
@@ -166,14 +171,14 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20">
+      <section className="section-padding section-divider">
         <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center mb-16">
-            <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Client Testimonials
+          <FadeIn className="text-center container-spacing">
+            <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
+              <span className="text-emphasis">Client</span> Testimonials
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Hear from the leaders who've partnered with us to drive meaningful change.
+            <p className="text-large text-muted-foreground max-w-3xl mx-auto">
+              Hear from the leaders who've partnered with us to drive <span className="font-semibold text-foreground">meaningful change</span>.
             </p>
           </FadeIn>
 

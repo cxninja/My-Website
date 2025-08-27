@@ -78,20 +78,31 @@
 
 @layer components {
   .magnetic-button {
-    @apply transition-all duration-200 ease-out;
+    @apply transition-all duration-300 ease-out;
+    box-shadow: 0 4px 14px 0 hsl(var(--brand-accent) / 0.15);
   }
   
   .magnetic-button:hover {
-    @apply -translate-y-0.5 shadow-lg;
-    box-shadow: 0 8px 25px -8px hsl(var(--brand-accent) / 0.3);
+    @apply -translate-y-1 scale-105;
+    box-shadow: 0 10px 35px -5px hsl(var(--brand-accent) / 0.4), 0 0 0 1px hsl(var(--brand-accent) / 0.1);
   }
   
   .card-hover {
     @apply transition-all duration-300 ease-out;
+    box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
+    border: 1px solid hsl(var(--border));
   }
   
   .card-hover:hover {
-    @apply -translate-y-1 shadow-xl;
+    @apply -translate-y-2;
+    box-shadow: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 10px 10px -5px hsl(0 0% 0% / 0.04), 0 0 0 1px hsl(var(--brand-accent) / 0.05);
+    border-color: hsl(var(--brand-accent) / 0.2);
+  }
+  
+  .elevated-card {
+    @apply bg-white;
+    box-shadow: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
+    border: 1px solid hsl(var(--border));
   }
   
   .link-underline {
@@ -110,9 +121,29 @@
   
   .hero-bg {
     background: 
-      radial-gradient(circle at 20% 50%, hsl(var(--brand-accent) / 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(var(--brand-accent) / 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, hsl(var(--brand-accent) / 0.03) 0%, transparent 50%);
+      linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--secondary)) 100%),
+      radial-gradient(circle at 20% 50%, hsl(var(--brand-accent) / 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, hsl(var(--brand-accent) / 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 40% 80%, hsl(var(--brand-accent) / 0.04) 0%, transparent 60%);
+  }
+  
+  .section-divider {
+    @apply relative;
+  }
+  
+  .section-divider::before {
+    @apply absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent;
+    content: '';
+  }
+  
+  .accent-border {
+    @apply relative;
+  }
+  
+  .accent-border::after {
+    @apply absolute bottom-0 left-0 w-12 h-1 rounded-full;
+    background: linear-gradient(to right, hsl(var(--accent)), hsl(var(--accent) / 0.5));
+    content: '';
   }
   
   .metric-chip {
@@ -159,4 +190,40 @@
 
 .font-display {
   font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+/* Typography enhancements */
+.heading-xl {
+  @apply font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-tight;
+  letter-spacing: -0.025em;
+}
+
+.heading-lg {
+  @apply font-display font-bold text-3xl md:text-4xl lg:text-5xl leading-tight;
+  letter-spacing: -0.02em;
+}
+
+.heading-md {
+  @apply font-display font-bold text-2xl md:text-3xl lg:text-4xl leading-tight;
+  letter-spacing: -0.015em;
+}
+
+.text-emphasis {
+  @apply font-medium italic text-accent;
+}
+
+.text-large {
+  @apply text-lg md:text-xl leading-relaxed;
+}
+
+.section-padding {
+  @apply py-16 md:py-20 lg:py-24;
+}
+
+.section-padding-sm {
+  @apply py-12 md:py-16;
+}
+
+.container-spacing {
+  @apply mb-12 md:mb-16 lg:mb-20;
 }

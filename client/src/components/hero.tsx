@@ -65,10 +65,10 @@ export function Hero() {
         <div className="space-y-8">
           <FadeIn>
             <div className="space-y-4">
-              <h1 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
-                Strategy.<br />
-                Systems.<br />
-                <span className="text-accent inline-block">
+              <h1 className="heading-xl">
+                <span className="text-muted-foreground">Strategy.</span><br />
+                <span className="text-muted-foreground">Systems.</span><br />
+                <span className="text-accent inline-block relative">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={currentWordIndex}
@@ -81,19 +81,21 @@ export function Hero() {
                       {rotatingWords[currentWordIndex]}
                     </motion.span>
                   </AnimatePresence>
+                  <div className="absolute -bottom-2 left-0 w-full h-1 rounded-full" style={{background: 'linear-gradient(to right, hsl(var(--accent)), hsl(var(--accent) / 0.5))'}}></div>
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
-                Consulting across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success—rooted in outcomes.
+              <p className="text-large text-muted-foreground max-w-xl leading-relaxed">
+                Consulting across <span className="font-semibold text-foreground">Digital Marketing</span>, <span className="font-semibold text-foreground">Manufacturing Analytics</span>, <span className="font-semibold text-foreground">Digital Transformation</span>, and <span className="font-semibold text-foreground">Customer Success</span>—<span className="text-emphasis">rooted in outcomes</span>.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-6 mt-8">
               <Button
                 onClick={handleStartConversation}
-                className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3"
+                size="lg"
+                className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground px-12 py-4 text-lg font-semibold rounded-xl"
                 data-testid="button-start-conversation"
               >
                 Start a Conversation
