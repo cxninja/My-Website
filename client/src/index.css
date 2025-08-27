@@ -99,7 +99,7 @@
   .standard-card:hover {
     @apply -translate-y-2;
     box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06), 0 10px 15px -3px hsl(0 0% 0% / 0.1);
-    border-color: #E63946;
+    border-color: #E63946 !important;
   }
   
   /* Legacy classes for backward compatibility */
