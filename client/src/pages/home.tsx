@@ -157,7 +157,7 @@ export default function Home() {
           <StaggerContainer className="grid md:grid-cols-3 gap-10">
             {whyUsPoints.map((point, index) => (
               <FadeIn key={point.title} delay={index * 0.1} className="text-center">
-                <div className="elevated-card p-8 h-full">
+                <div className="standard-card p-8 h-full">
                   <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <Check className="w-10 h-10 text-accent" />
                   </div>

@@ -80,29 +80,35 @@
   .magnetic-button {
     @apply transition-all duration-300 ease-out;
     box-shadow: 0 4px 14px 0 hsl(var(--brand-accent) / 0.15);
+    border: 1px solid hsl(var(--brand-accent) / 0.2);
   }
   
   .magnetic-button:hover {
     @apply -translate-y-1 scale-105;
-    box-shadow: 0 10px 35px -5px hsl(var(--brand-accent) / 0.4), 0 0 0 1px hsl(var(--brand-accent) / 0.1);
+    box-shadow: 0 10px 35px -5px hsl(var(--brand-accent) / 0.4), 0 0 0 1px hsl(var(--brand-accent) / 0.3);
+    border-color: hsl(var(--brand-accent) / 0.4);
   }
   
-  .card-hover {
-    @apply transition-all duration-300 ease-out;
+  /* Standardized Card Styles */
+  .standard-card {
+    @apply bg-white transition-all duration-300 ease-out;
     box-shadow: 0 4px 6px -1px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.06);
     border: 1px solid hsl(var(--border));
   }
   
-  .card-hover:hover {
+  .standard-card:hover {
     @apply -translate-y-2;
     box-shadow: 0 20px 25px -5px hsl(0 0% 0% / 0.1), 0 10px 10px -5px hsl(0 0% 0% / 0.04), 0 0 0 1px hsl(var(--brand-accent) / 0.05);
     border-color: hsl(var(--brand-accent) / 0.2);
   }
   
+  /* Legacy classes for backward compatibility */
+  .card-hover {
+    @apply standard-card;
+  }
+  
   .elevated-card {
-    @apply bg-white;
-    box-shadow: 0 10px 15px -3px hsl(0 0% 0% / 0.1), 0 4px 6px -2px hsl(0 0% 0% / 0.05);
-    border: 1px solid hsl(var(--border));
+    @apply standard-card;
   }
   
   .link-underline {
