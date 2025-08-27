@@ -1,4 +1,3 @@
-import React from "react";
 import { LucideIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn } from "./motion/fade-in";
@@ -20,8 +19,6 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const handleClick = () => {
     // Scroll to services section on same page, or navigate if different page
-    if (typeof window === 'undefined') return;
-    
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: 'smooth' });

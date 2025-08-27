@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { MetricChip } from "./metric-chip";
 import { FadeIn } from "./motion/fade-in";
@@ -30,9 +29,7 @@ export function CaseStudyCard({
 }: CaseStudyCardProps) {
   const handleClick = () => {
     // Navigate to case study detail page
-    if (typeof window !== 'undefined') {
-      window.location.href = `/case-studies/${slug}`;
-    }
+    window.location.href = `/case-studies/${slug}`;
   };
 
   return (

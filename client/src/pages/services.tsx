@@ -1,4 +1,3 @@
-import React from "react";
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
@@ -27,9 +26,7 @@ const engagementModel = [
 
 export default function Services() {
   const handleContactClick = () => {
-    if (typeof window !== 'undefined') {
-      window.location.href = '/contact';
-    }
+    window.location.href = '/contact';
   };
 
   return (

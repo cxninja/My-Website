@@ -1,9 +1,8 @@
-import type { Express, Request, Response } from "express";
+import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
-import { renderApp, getHTMLTemplate } from "./ssr";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -50,36 +49,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
         success: false,
         message: "Failed to fetch contacts",
       });
-    }
-  });
-
-  // SSR Routes - handle all non-API routes
-  const ssrRoutes = ['/', '/services', '/case-studies', '/about', '/contact'];
-  
-  ssrRoutes.forEach(route => {
-    app.get(route, (req: Request, res: Response) => {
-      try {
-        const { html } = renderApp(req.path);
-        const fullHtml = getHTMLTemplate(html);
-        res.setHeader('Content-Type', 'text/html');
-        res.send(fullHtml);
-      } catch (error) {
-        console.error('SSR Error:', error);
-        res.status(500).send('Internal Server Error');
-      }
-    });
-  });
-
-  // Handle dynamic case study routes
-  app.get('/case-studies/:slug', (req: Request, res: Response) => {
-    try {
-      const { html } = renderApp(req.path);
-      const fullHtml = getHTMLTemplate(html);
-      res.setHeader('Content-Type', 'text/html');
-      res.send(fullHtml);
-    } catch (error) {
-      console.error('SSR Error:', error);
-      res.status(500).send('Internal Server Error');
     }
   });
 

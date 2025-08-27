@@ -1,4 +1,3 @@
-import React from "react";
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
