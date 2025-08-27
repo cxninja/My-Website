@@ -113,21 +113,21 @@ export function Header() {
                             <DropdownMenuItem key={subItem.name} asChild className="p-0">
                               <Link 
                                 href={subItem.href} 
-                                className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent/5 transition-colors group cursor-pointer" 
+                                className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent transition-colors group cursor-pointer" 
                                 data-testid={`dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
                               >
-                                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
-                                  <IconComponent className="w-5 h-5 text-accent" />
+                                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                                  <IconComponent className="w-5 h-5 text-accent group-hover:text-white transition-colors" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <h4 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors">
+                                  <h4 className="font-semibold text-sm text-foreground group-hover:text-white transition-colors">
                                     {subItem.name}
                                   </h4>
-                                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                                  <p className="text-xs text-muted-foreground group-hover:text-white/90 mt-1 leading-relaxed transition-colors">
                                     {subItem.description}
                                   </p>
                                 </div>
-                                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
+                                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors flex-shrink-0 mt-1" />
                               </Link>
                             </DropdownMenuItem>
                           );
