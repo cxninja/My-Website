@@ -1,23 +1,44 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, TrendingUp, BarChart3, Zap, Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { brand } from "@/config/brand";
+
+const servicesDropdown = [
+  { 
+    name: "Digital Marketing", 
+    href: "/service/digital-marketing", 
+    icon: TrendingUp, 
+    description: "Full-funnel measurement, CRO sprints, paid media systems"
+  },
+  { 
+    name: "Manufacturing Analytics", 
+    href: "/service/manufacturing-analytics", 
+    icon: BarChart3, 
+    description: "OEE dashboards, anomaly detection, line telemetry pipelines"
+  },
+  { 
+    name: "Digital Transformation", 
+    href: "/service/digital-transformation", 
+    icon: Zap, 
+    description: "Process automation, data integration, workflow optimization"
+  },
+  { 
+    name: "Customer Success", 
+    href: "/service/customer-success", 
+    icon: Users, 
+    description: "Health scoring, onboarding systems, churn prevention"
+  }
+];
 
 const navigation = [
   { name: "Home", href: "/" },
   { 
     name: "Services", 
     href: "/services",
-    dropdown: [
-      { name: "Digital Marketing", href: "/service/digital-marketing" },
-      { name: "Manufacturing Analytics", href: "/service/manufacturing-analytics" },
-      { name: "Digital Transformation", href: "/service/digital-transformation" },
-      { name: "Customer Success", href: "/service/customer-success" },
-      { name: "All Services", href: "/services" }
-    ]
+    dropdown: servicesDropdown
   },
   { name: "Case Studies", href: "/case-studies" },
   { name: "About", href: "/about" },
@@ -83,14 +104,45 @@ export function Header() {
                       <ChevronDown className="w-4 h-4" />
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56">
-                    {item.dropdown.map((subItem) => (
-                      <DropdownMenuItem key={subItem.name} asChild>
-                        <Link href={subItem.href} className="w-full" data-testid={`dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}>
-                          {subItem.name}
+                  <DropdownMenuContent className="w-96 p-0">
+                    <div className="p-6">
+                      <div className="grid grid-cols-1 gap-4">
+                        {item.dropdown.map((subItem) => {
+                          const IconComponent = subItem.icon;
+                          return (
+                            <DropdownMenuItem key={subItem.name} asChild className="p-0">
+                              <Link 
+                                href={subItem.href} 
+                                className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent/5 transition-colors group cursor-pointer" 
+                                data-testid={`dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
+                              >
+                                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent/20 transition-colors">
+                                  <IconComponent className="w-5 h-5 text-accent" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <h4 className="font-semibold text-sm text-foreground group-hover:text-accent transition-colors">
+                                    {subItem.name}
+                                  </h4>
+                                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                                    {subItem.description}
+                                  </p>
+                                </div>
+                                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
+                              </Link>
+                            </DropdownMenuItem>
+                          );
+                        })}
+                      </div>
+                      <div className="mt-6 pt-4 border-t border-border">
+                        <Link 
+                          href="/services" 
+                          className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-accent/5 transition-colors group text-sm font-medium text-accent"
+                        >
+                          View All Services
+                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                      </DropdownMenuItem>
-                    ))}
+                      </div>
+                    </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
