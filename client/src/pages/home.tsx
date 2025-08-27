@@ -44,6 +44,24 @@ export default function Home() {
       
       <Hero />
 
+      {/* Credibility Strip */}
+      <section className="py-12 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6">
+          <FadeIn>
+            <p className="text-center text-sm text-muted-foreground mb-8">
+              Trusted by industry leaders
+            </p>
+            <div className="flex items-center justify-center space-x-12 opacity-60">
+              {credibilityLogos.map((logo) => (
+                <div key={logo} className="font-semibold text-lg hover:opacity-100 transition-opacity">
+                  {logo}
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
       {/* Services Overview */}
       <section id="services" className="py-20 bg-secondary/30">
         <div className="max-w-7xl mx-auto px-6">
@@ -68,24 +86,6 @@ export default function Home() {
               />
             ))}
           </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Credibility Strip */}
-      <section className="py-12 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn>
-            <p className="text-center text-sm text-muted-foreground mb-8">
-              Trusted by industry leaders
-            </p>
-            <div className="flex items-center justify-center space-x-12 opacity-60">
-              {credibilityLogos.map((logo) => (
-                <div key={logo} className="font-semibold text-lg hover:opacity-100 transition-opacity">
-                  {logo}
-                </div>
-              ))}
-            </div>
-          </FadeIn>
         </div>
       </section>
 

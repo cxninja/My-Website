@@ -60,7 +60,7 @@ export function Hero() {
               <h1 className="font-display font-bold text-4xl md:text-6xl lg:text-7xl leading-tight">
                 Strategy.<br />
                 Systems.<br />
-                <span className="text-accent">Scale.</span>
+                <span className="text-accent animate-pulse">Scale.</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg">
                 Consulting across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success—rooted in outcomes.
@@ -97,7 +97,7 @@ export function Hero() {
                 key={currentImageIndex}
                 src={heroImages[currentImageIndex].src}
                 alt={heroImages[currentImageIndex].alt}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
