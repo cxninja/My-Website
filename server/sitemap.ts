@@ -10,6 +10,11 @@ const links = [
   { url: "/service/digital-transformation", changefreq: "monthly", priority: 0.7 },
   { url: "/service/customer-success", changefreq: "monthly", priority: 0.7 },
   { url: "/case-studies", changefreq: "weekly", priority: 0.8 },
+  { url: "/case-studies/precision-plant-oee-lift", changefreq: "weekly", priority: 0.8 },
+  { url: "/case-studies/b2b-lead-engine", changefreq: "weekly", priority: 0.8 },
+  { url: "/case-studies/healthcare-patient-journey", changefreq: "weekly", priority: 0.8 },
+  { url: "/case-studies/retail-inventory-optimization", changefreq: "weekly", priority: 0.8 },
+  { url: "/case-studies/fintech-customer-onboarding", changefreq: "weekly", priority: 0.8 },
   { url: "/about", changefreq: "monthly", priority: 0.6 },
   { url: "/contact", changefreq: "yearly", priority: 0.5 },
 ];
