@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { services } from "@/data/services";
 import caseStudies from "@/data/case-studies.json";
 import testimonials from "@/data/testimonials.json";
-import { Check, Quote } from "lucide-react";
+import { Check, Quote, Crown, BarChart3, Settings } from "lucide-react";
 import { SiTechcrunch, SiGoogle, SiAmazon, SiIntel, SiSalesforce } from "react-icons/si";
 
 const credibilityLogos = [
@@ -21,15 +21,18 @@ const credibilityLogos = [
 const whyUsPoints = [
   {
     title: "Senior-led",
-    description: "Partners, not junior consultants. 20+ years of hands-on experience across strategy and execution."
+    description: "Partners, not junior consultants. 20+ years of hands-on experience across strategy and execution.",
+    icon: Crown
   },
   {
     title: "Data-native", 
-    description: "Every recommendation backed by rigorous analysis. We measure what matters and optimize relentlessly."
+    description: "Every recommendation backed by rigorous analysis. We measure what matters and optimize relentlessly.",
+    icon: BarChart3
   },
   {
     title: "Operator mindset",
-    description: "We've built and scaled organizations. We understand the practical realities of implementation."
+    description: "We've built and scaled organizations. We understand the practical realities of implementation.",
+    icon: Settings
   }
 ];
 
@@ -156,17 +159,20 @@ export default function Home() {
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-10">
-            {whyUsPoints.map((point, index) => (
-              <FadeIn key={point.title} delay={index * 0.1} className="text-center">
-                <div className="standard-card p-8 h-full">
-                  <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                    <Check className="w-10 h-10 text-accent" />
+            {whyUsPoints.map((point, index) => {
+              const IconComponent = point.icon;
+              return (
+                <FadeIn key={point.title} delay={index * 0.1} className="text-center">
+                  <div className="standard-card p-8 h-full">
+                    <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-accent/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                      <IconComponent className="w-10 h-10 text-accent" />
+                    </div>
+                    <h3 className="font-display font-bold text-xl mb-4">{point.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{point.description}</p>
                   </div>
-                  <h3 className="font-display font-bold text-xl mb-4">{point.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{point.description}</p>
-                </div>
-              </FadeIn>
-            ))}
+                </FadeIn>
+              );
+            })}
           </StaggerContainer>
         </div>
       </section>
