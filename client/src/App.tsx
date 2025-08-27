@@ -36,7 +36,7 @@ function Router() {
           <Route path="/case-studies" component={CaseStudies} />
           <Route path="/case-studies/:slug" component={CaseStudyDetail} />
           <Route path="/about" component={About} />
-          <Route path="/leadership" component={Leadership} />
+          {/* <Route path="/leadership" component={Leadership} /> */}
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>

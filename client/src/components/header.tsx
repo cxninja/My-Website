@@ -42,7 +42,7 @@ const navigation = [
   },
   { name: "Case Studies", href: "/case-studies" },
   { name: "About", href: "/about" },
-  { name: "Leadership", href: "/leadership" },
+  // { name: "Leadership", href: "/leadership" },
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "https://google.com", external: true },
 ];
