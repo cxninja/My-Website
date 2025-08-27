@@ -12,6 +12,7 @@ const quickLinks = [
   { name: "Case Studies", href: "/case-studies" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
+  { name: "Blog", href: "/blog" },
 ];
 
 export function Footer() {
