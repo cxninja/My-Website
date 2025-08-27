@@ -10,6 +10,10 @@ import { Footer } from "@/components/footer";
 // Pages
 import Home from "@/pages/home";
 import Services from "@/pages/services";
+import DigitalMarketing from "@/pages/digital-marketing";
+import ManufacturingAnalytics from "@/pages/manufacturing-analytics";
+import DigitalTransformation from "@/pages/digital-transformation";
+import CustomerSuccess from "@/pages/customer-success";
 import CaseStudies from "@/pages/case-studies";
 import CaseStudyDetail from "@/pages/case-study-detail";
 import About from "@/pages/about";
@@ -24,6 +28,10 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/services" component={Services} />
+          <Route path="/digital-marketing" component={DigitalMarketing} />
+          <Route path="/manufacturing-analytics" component={ManufacturingAnalytics} />
+          <Route path="/digital-transformation" component={DigitalTransformation} />
+          <Route path="/customer-success" component={CustomerSuccess} />
           <Route path="/case-studies" component={CaseStudies} />
           <Route path="/case-studies/:slug" component={CaseStudyDetail} />
           <Route path="/about" component={About} />

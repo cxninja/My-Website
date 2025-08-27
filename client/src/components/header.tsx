@@ -1,13 +1,24 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { brand } from "@/config/brand";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
+  { 
+    name: "Services", 
+    href: "/services",
+    dropdown: [
+      { name: "Digital Marketing", href: "/digital-marketing" },
+      { name: "Manufacturing Analytics", href: "/manufacturing-analytics" },
+      { name: "Digital Transformation", href: "/digital-transformation" },
+      { name: "Customer Success", href: "/customer-success" },
+      { name: "All Services", href: "/services" }
+    ]
+  },
   { name: "Case Studies", href: "/case-studies" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
@@ -61,19 +72,41 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => handleLinkClick(item.href, item.external)}
-                className={`link-underline text-sm font-medium hover:text-accent transition-colors ${
-                  isActiveLink(item.href) ? 'active' : ''
-                }`}
-                data-testid={`link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => 
+              item.dropdown ? (
+                <DropdownMenu key={item.name}>
+                  <DropdownMenuTrigger asChild>
+                    <button className={`link-underline text-sm font-medium hover:text-accent transition-colors flex items-center gap-1 ${
+                      isActiveLink(item.href) ? 'active' : ''
+                    }`}>
+                      {item.name}
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-56">
+                    {item.dropdown.map((subItem) => (
+                      <DropdownMenuItem key={subItem.name} asChild>
+                        <Link href={subItem.href} className="w-full" data-testid={`dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                          {subItem.name}
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => handleLinkClick(item.href, item.external)}
+                  className={`link-underline text-sm font-medium hover:text-accent transition-colors ${
+                    isActiveLink(item.href) ? 'active' : ''
+                  }`}
+                  data-testid={`link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -90,23 +123,46 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <div className="flex flex-col space-y-4 mt-8">
-                {navigation.map((item, index) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => handleLinkClick(item.href, item.external)}
-                    className={`text-lg font-medium hover:text-accent transition-colors py-2 ${
-                      isActiveLink(item.href) ? 'text-accent' : ''
-                    }`}
-                    style={{ 
-                      animationDelay: `${index * 100}ms`,
-                      animation: isMobileMenuOpen ? 'slideInFromRight 0.3s ease-out forwards' : undefined
-                    }}
-                    data-testid={`mobile-link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
+                {navigation.map((item, index) => 
+                  item.dropdown ? (
+                    <div key={item.name} className="space-y-2">
+                      <div className="text-lg font-semibold text-accent py-2">{item.name}</div>
+                      {item.dropdown.map((subItem, subIndex) => (
+                        <Link
+                          key={subItem.name}
+                          href={subItem.href}
+                          onClick={() => handleLinkClick(subItem.href)}
+                          className={`text-base font-medium hover:text-accent transition-colors py-1 pl-4 block ${
+                            isActiveLink(subItem.href) ? 'text-accent' : ''
+                          }`}
+                          style={{ 
+                            animationDelay: `${(index + subIndex) * 100}ms`,
+                            animation: isMobileMenuOpen ? 'slideInFromRight 0.3s ease-out forwards' : undefined
+                          }}
+                          data-testid={`mobile-dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
+                        >
+                          {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => handleLinkClick(item.href, item.external)}
+                      className={`text-lg font-medium hover:text-accent transition-colors py-2 ${
+                        isActiveLink(item.href) ? 'text-accent' : ''
+                      }`}
+                      style={{ 
+                        animationDelay: `${index * 100}ms`,
+                        animation: isMobileMenuOpen ? 'slideInFromRight 0.3s ease-out forwards' : undefined
+                      }}
+                      data-testid={`mobile-link-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                )}
               </div>
             </SheetContent>
           </Sheet>
