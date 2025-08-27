@@ -49,6 +49,7 @@ const navigation = [
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -95,16 +96,22 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => 
               item.dropdown ? (
-                <DropdownMenu key={item.name}>
+                <DropdownMenu key={item.name} open={isServicesOpen} onOpenChange={setIsServicesOpen}>
                   <DropdownMenuTrigger asChild>
-                    <button className={`link-underline text-sm font-medium hover:text-accent transition-colors flex items-center gap-1 ${
-                      isActiveLink(item.href) ? 'active' : ''
-                    }`}>
+                    <button 
+                      className={`link-underline text-sm font-medium hover:text-accent transition-colors flex items-center gap-1 ${
+                        isActiveLink(item.href) ? 'active' : ''
+                      }`}
+                      onMouseEnter={() => setIsServicesOpen(true)}
+                    >
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
                     </button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-96 p-0">
+                  <DropdownMenuContent 
+                    className="w-96 p-0"
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                  >
                     <div className="p-6">
                       <div className="grid grid-cols-1 gap-4">
                         {item.dropdown.map((subItem) => {
