@@ -51,8 +51,9 @@ export default function Home() {
       <SEO />
       
       <Hero />
-
       {/* Credibility Strip */}
+
+      {/*
       <section className="section-padding-sm border-t border-border bg-secondary/20">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn>
@@ -76,7 +77,8 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
-
+      */}
+      
       {/* Services Overview */}
       <section id="services" className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
