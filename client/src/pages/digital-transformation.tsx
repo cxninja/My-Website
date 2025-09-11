@@ -68,7 +68,7 @@ export default function DigitalTransformation() {
   return (
     <>
       <Helmet>
-        <title>Digital Transformation Consulting - AstraVantage</title>
+        <title>Digital Transformation Consulting - NovaTransform</title>
         <meta name="description" content="Transform your business with integrated systems, automated workflows, and data-driven processes. Reduce manual work by 60% while improving decision speed and accuracy." />
       </Helmet>
       

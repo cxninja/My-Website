@@ -68,7 +68,7 @@ export default function CustomerSuccess() {
   return (
     <>
       <Helmet>
-        <title>Customer Success Consulting - AstraVantage</title>
+        <title>Customer Success Consulting - NovaTransform</title>
         <meta name="description" content="Transform your customer success with predictive health scoring, systematic onboarding, and churn prevention. Reduce churn by 25% while increasing expansion revenue." />
       </Helmet>
       

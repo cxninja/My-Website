@@ -151,7 +151,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
-              Why <span className="text-emphasis">AstraVantage</span>
+              Why <span className="text-emphasis">NovaTransform</span>
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
               Three core principles that differentiate our approach and ensure <span className="font-semibold text-foreground">your success</span>.

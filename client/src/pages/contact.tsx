@@ -87,7 +87,7 @@ export default function Contact() {
     <>
       <SEO 
         title="Contact Us"
-        description="Get in touch with AstraVantage to discuss your Digital Marketing, Manufacturing Analytics, Digital Transformation, or Customer Success challenges."
+        description="Get in touch with NovaTransform to discuss your Digital Marketing, Manufacturing Analytics, Digital Transformation, or Customer Success challenges."
       />
 
       {/* Hero */}
@@ -323,11 +323,11 @@ export default function Contact() {
                         Send us an email and we'll respond within 24 hours
                       </p>
                       <a 
-                        href="mailto:hello@astravantage.com" 
+                        href="mailto:hello@novatransform.com" 
                         className="text-accent hover:underline"
                         data-testid="link-contact-email"
                       >
-                        hello@astravantage.com
+                        hello@novatransform.com
                       </a>
                     </div>
                   </div>
@@ -342,13 +342,13 @@ export default function Contact() {
                         Connect with us on LinkedIn for updates and insights
                       </p>
                       <a 
-                        href="https://linkedin.com/company/astravantage" 
+                        href="https://linkedin.com/company/novatransform" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-accent hover:underline"
                         data-testid="link-contact-linkedin"
                       >
-                        @astravantage
+                        @novatransform
                       </a>
                     </div>
                   </div>

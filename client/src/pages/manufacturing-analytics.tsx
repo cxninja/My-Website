@@ -53,7 +53,7 @@ export default function ManufacturingAnalytics() {
   return (
     <>
       <Helmet>
-        <title>Manufacturing Analytics Consulting - AstraVantage</title>
+        <title>Manufacturing Analytics Consulting - NovaTransform</title>
         <meta name="description" content="Transform your manufacturing operations with predictive analytics, OEE monitoring, and real-time quality control. Reduce downtime by 35% and improve OEE by 15 points." />
       </Helmet>
       

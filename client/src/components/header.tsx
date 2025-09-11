@@ -89,7 +89,8 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-display font-bold text-xl text-foreground" data-testid="link-logo">
+          <Link href="/" className="flex items-center gap-2 font-display font-bold text-xl text-foreground" data-testid="link-logo">
+            <img src="/images/NovaTransform_Main.png" alt="" className="h-10" />
             {brand.name.split(' ')[0]}
           </Link>
 

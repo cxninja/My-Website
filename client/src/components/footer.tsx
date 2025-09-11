@@ -58,12 +58,10 @@ export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground py-12 border-t border-border">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 md:items-center">
           {/* About */}
           <div>
-            <div className="font-display font-bold text-xl mb-4">
-              {brand.name.split(' ')[0]}
-            </div>
+            <img src="/images/MainLogo.png" alt="NovaTransform Logo" className="h-40 mb-4" />
             <p className="text-muted-foreground text-sm mb-4 max-w-md">
               Senior-led consulting across Digital Marketing, Manufacturing Analytics, 
               Digital Transformation, and Customer Success. Strategy. Systems. Scale.
@@ -93,12 +91,12 @@ export function Footer() {
           <div className="flex flex-col items-center">
             <Mail className="w-6 h-6 mb-2 text-accent" />
             <div className="font-medium">Email</div>
-            <div className="text-sm text-muted-foreground">hello@astravantage.com</div>
+            <div className="text-sm text-muted-foreground">hello@novatransform.com</div>
           </div>
           <div className="flex flex-col items-center">
             <Linkedin className="w-6 h-6 mb-2 text-accent" />
             <div className="font-medium">LinkedIn</div>
-            <div className="text-sm text-muted-foreground">@astravantage</div>
+            <div className="text-sm text-muted-foreground">@novatransform</div>
           </div>
           <div className="flex flex-col items-center">
             <MapPin className="w-6 h-6 mb-2 text-accent" />

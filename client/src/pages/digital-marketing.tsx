@@ -47,7 +47,7 @@ export default function DigitalMarketing() {
   return (
     <>
       <Helmet>
-        <title>Digital Marketing Consulting - AstraVantage</title>
+        <title>Digital Marketing Consulting - NovaTransform</title>
         <meta name="description" content="Transform your marketing with data-driven attribution, conversion optimization, and systematic growth programs. Reduce CAC by 30% while increasing MQLs by 50%." />
       </Helmet>
       

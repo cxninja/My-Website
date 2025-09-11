@@ -32,7 +32,7 @@ const values = [
 const timeline = [
   {
     year: "2020",
-    title: "Founded AstraVantage",
+    title: "Founded NovaTransform",
     description: "Established with the mission to bridge the gap between strategy and execution for mid-market companies."
   },
   {
@@ -74,7 +74,7 @@ export default function About() {
     <>
       <SEO 
         title="About Us"
-        description="Learn about AstraVantage's leadership team, values, and approach to delivering measurable outcomes through strategic consulting."
+        description="Learn about NovaTransform's leadership team, values, and approach to delivering measurable outcomes through strategic consulting."
       />
 
       {/* Hero */}
@@ -82,7 +82,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              About AstraVantage
+              About NovaTransform
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               We're operators who became consultants. Our experience building and scaling businesses 
