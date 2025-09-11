@@ -108,7 +108,7 @@ export default function CaseStudyDetail() {
         {/* Approach */}
         <FadeIn delay={0.1}>
           <section className="mb-16">
-            <h2 className="font-display font-bold text-2xl mb-6">Our Approach</h2>
+            <h2 className="font-display font-bold text-2xl mb-6">My Approach</h2>
             <div className="space-y-4">
               {caseStudy.sections.approach.map((step, index) => (
                 <div key={index} className="flex items-start gap-4">

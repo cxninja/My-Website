@@ -69,7 +69,7 @@ export default function ManufacturingAnalytics() {
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Transform your manufacturing operations with predictive analytics and real-time monitoring. 
-              Our clients typically see <strong>20-35% less unplanned downtime</strong> and <strong>8-15 point OEE improvements</strong> within 90 days.
+              My clients typically see <strong>20-35% less unplanned downtime</strong> and <strong>8-15 point OEE improvements</strong> within 90 days.
             </p>
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/contact" data-testid="button-hero-contact">

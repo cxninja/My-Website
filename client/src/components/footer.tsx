@@ -40,7 +40,7 @@ export function Footer() {
       
       toast({
         title: "Successfully Subscribed!",
-        description: "Thank you for subscribing to our insights.",
+        description: "Thank you for subscribing to the insights.",
       });
       
       setEmail("");

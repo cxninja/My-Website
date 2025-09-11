@@ -83,7 +83,7 @@ export default function CustomerSuccess() {
               Stop Losing <span className="text-accent">Customers</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Turn customer success into a predictable growth engine. Our clients typically see 
+              Turn customer success into a predictable growth engine. My clients typically see 
               <strong> 15-25% reduction in churn</strong> and <strong>significant increases in expansion revenue</strong> within 90 days.
             </p>
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
@@ -129,7 +129,7 @@ export default function CustomerSuccess() {
               Proven Customer Success Results
             </h2>
             <p className="text-muted-foreground">
-              Average improvements across our customer success engagements
+              Average improvements across my customer success engagements
             </p>
           </FadeIn>
           <StaggerContainer className="grid md:grid-cols-3 gap-8">

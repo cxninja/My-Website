@@ -84,7 +84,7 @@ export default function DigitalTransformation() {
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Transform your business operations with integrated systems and automated workflows. 
-              Our clients typically reduce <strong>manual processing time by 40-60%</strong> while making <strong>faster, data-driven decisions</strong>.
+              My clients typically reduce <strong>manual processing time by 40-60%</strong> while making <strong>faster, data-driven decisions</strong>.
             </p>
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/contact" data-testid="button-hero-contact">
@@ -129,7 +129,7 @@ export default function DigitalTransformation() {
               Three Pillars of Transformation
             </h2>
             <p className="text-muted-foreground">
-              Where we focus to deliver maximum impact
+              Where I focus to deliver maximum impact
             </p>
           </FadeIn>
           <StaggerContainer className="grid md:grid-cols-3 gap-8">

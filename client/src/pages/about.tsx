@@ -85,7 +85,7 @@ export default function About() {
               About NovaTransform
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              We're operators who became consultants. Our experience building and scaling businesses 
+              I'm an operator who became a consultant. My experience building and scaling businesses 
               informs every recommendation we make.
             </p>
           </FadeIn>
@@ -126,10 +126,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Our Values
+              My Values
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide every client engagement and shape our approach to consulting.
+              The principles that guide every client engagement and shape my approach to consulting.
             </p>
           </FadeIn>
 
@@ -156,7 +156,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn className="text-center mb-16">
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Our Journey
+              My Journey
             </h2>
             <p className="text-lg text-muted-foreground">
               Key milestones in building a consulting practice focused on measurable outcomes.
@@ -194,7 +194,7 @@ export default function About() {
               Credentials & Certifications
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Our team maintains industry certifications to ensure we're always current with best practices.
+              I maintain industry certifications to ensure I'm always current with best practices.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3">
@@ -214,7 +214,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-6">
-              Our Operating Principles
+              My Operating Principles
             </h2>
             <div className="prose prose-lg mx-auto text-muted-foreground">
               <p className="mb-6">
@@ -230,7 +230,7 @@ export default function About() {
                 before committing to full implementations.
               </p>
               <p>
-                <strong className="text-foreground">Transfer Knowledge.</strong> Our success is measured by your team's ability 
+                <strong className="text-foreground">Transfer Knowledge.</strong> My success is measured by your team's ability 
                 to sustain improvements long after we're gone.
               </p>
             </div>

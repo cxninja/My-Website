@@ -63,7 +63,7 @@ export default function DigitalMarketing() {
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Get complete visibility into what's driving revenue, optimize what works, and eliminate what doesn't. 
-              Our clients typically see <strong>25-50% more qualified leads</strong> while reducing acquisition costs by <strong>15-30%</strong>.
+              My clients typically see <strong>25-50% more qualified leads</strong> while reducing acquisition costs by <strong>15-30%</strong>.
             </p>
             <Button size="lg" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
               <Link href="/contact" data-testid="button-hero-contact">

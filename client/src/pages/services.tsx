@@ -41,11 +41,11 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Our Services
+              My Services
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Senior-led expertise across four core domains, each engineered for measurable business impact. 
-              Our systematic approach ensures sustainable transformation.
+              My systematic approach ensures sustainable transformation.
             </p>
           </FadeIn>
         </div>
@@ -56,7 +56,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
             <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
-              Our Engagement Model
+              My Engagement Model
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               A proven methodology that delivers results through systematic execution and continuous optimization.
@@ -112,7 +112,7 @@ export default function Services() {
                 {/* Approach */}
                 <FadeIn delay={0.2}>
                   <div>
-                    <h3 className="font-semibold text-xl mb-4">Our Approach</h3>
+                    <h3 className="font-semibold text-xl mb-4">My Approach</h3>
                     <ul className="space-y-2">
                       {service.approach.map((step, stepIndex) => (
                         <li key={stepIndex} className="flex items-start gap-3">
