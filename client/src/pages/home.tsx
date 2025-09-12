@@ -37,9 +37,8 @@ const whyUsPoints = [
 ];
 
 export default function Home() {
-  const handleContactScroll = () => {
-    const contactElement = document.querySelector('#contact');
-    contactElement?.scrollIntoView({ behavior: 'smooth' });
+  const handleContactClick = () => {
+    window.location.href = '/contact';
   };
 
   const handleCaseStudiesNavigate = () => {
@@ -228,7 +227,7 @@ export default function Home() {
               Let's discuss how we can help you achieve measurable outcomes across your most critical business challenges.
             </p>
             <Button
-              onClick={handleContactScroll}
+              onClick={handleContactClick}
               variant="secondary"
               className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
               data-testid="button-start-conversation-footer"

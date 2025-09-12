@@ -10,7 +10,8 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Case Studies", href: "/case-studies" },
-  { name: "About", href: "/about" },
+  // { name: "About", href: "/about" },
+  { name: "Meet Varun", href: "/meet-varun" },
   { name: "Contact", href: "/contact" },
   { name: "Blog", href: "https://google.com" },
 ];
@@ -101,7 +102,7 @@ export function Footer() {
           <div className="flex flex-col items-center">
             <MapPin className="w-6 h-6 mb-2 text-accent" />
             <div className="font-medium">Location</div>
-            <div className="text-sm text-muted-foreground">San Francisco, CA</div>
+            <div className="text-sm text-muted-foreground">Noida, India</div>
           </div>
         </div>
 

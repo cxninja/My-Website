@@ -35,8 +35,8 @@ function Router() {
           <Route path="/service/customer-success" component={CustomerSuccess} />
           <Route path="/case-studies" component={CaseStudies} />
           <Route path="/case-studies/:slug" component={CaseStudyDetail} />
-          <Route path="/about" component={About} />
-          {/* <Route path="/leadership" component={Leadership} /> */}
+          {/* <Route path="/about" component={About} /> */}
+          <Route path="/meet-varun" component={Leadership} />
           <Route path="/contact" component={Contact} />
           <Route component={NotFound} />
         </Switch>

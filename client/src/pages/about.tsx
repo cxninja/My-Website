@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Linkedin, Award, Target, Users, Zap } from "lucide-react";
 
 const founderStory = {
-  name: "Leadership Team",
+  name: "Varun Goel",
   bio: "With over 20 years of combined experience across operations and growth, our team brings pragmatic, data-led execution to every engagement. We've built and scaled organizations across multiple industries, understanding both the strategic vision and tactical realities of transformation.",
   experience: "20+ years across ops and growth"
 };
@@ -97,11 +97,11 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <FadeIn>
-              <div className="w-32 h-32 bg-muted rounded-full mb-6"></div>
+              <img src="/images/founder.jpg" alt="Varun Goel" className="w-32 h-32 rounded-full object-cover mb-6" />
               <h2 className="font-display font-bold text-2xl mb-4">{founderStory.name}</h2>
               <p className="text-muted-foreground mb-4">{founderStory.experience}</p>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/varungoel/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-accent hover:underline"

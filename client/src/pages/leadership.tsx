@@ -20,10 +20,10 @@ const leaderProfile = {
   name: "Varun Goel",
   title: "Head of Client Success & Digital Transformation",
   location: "Noida, Uttar Pradesh, India",
-  experience: "19+ years",
+  experience: "20+ years",
   specialization: "B2B SaaS & Manufacturing Technology",
   summary:
-    "Client Success & Operations leader with 19+ years in B2B SaaS and manufacturing technology, delivering 98% portfolio retention, multi-million-dollar expansions, and measurable time-to-value gains through adoption programs, operational efficiency, and data-driven strategies.",
+    "Client Success & Operations leader with 20+ years in B2B SaaS and manufacturing technology, delivering 98% portfolio retention, multi-million-dollar expansions, and measurable time-to-value gains through adoption programs, operational efficiency, and data-driven strategies.",
 
   keyAchievements: [
     {
@@ -33,7 +33,7 @@ const leaderProfile = {
         "Consistently maintained high client retention rates across enterprise accounts",
     },
     {
-      metric: "19+",
+      metric: "20+",
       label: "Years Experience",
       description:
         "Deep expertise in B2B SaaS and manufacturing technology sectors",
@@ -149,7 +149,7 @@ export default function Leadership() {
     <>
       <SEO
         title="Leadership - Varun Goel"
-        description="Meet Varun Goel, Head of Client Success & Digital Transformation with 19+ years of experience in B2B SaaS and manufacturing technology."
+        description="Meet Varun Goel, Head of Client Success & Digital Transformation with 20+ years of experience in B2B SaaS and manufacturing technology."
       />
 
       {/* Hero Section */}

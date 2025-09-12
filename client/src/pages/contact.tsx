@@ -86,8 +86,8 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Us"
-        description="Get in touch with NovaTransform to discuss your Digital Marketing, Manufacturing Analytics, Digital Transformation, or Customer Success challenges."
+        title="Contact Me"
+        description="Get in touch with Varun Goel to discuss your Digital Marketing, Manufacturing Analytics, Digital Transformation, or Customer Success challenges."
       />
 
       {/* Hero */}
@@ -95,7 +95,7 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Contact Us
+              Contact Me
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Ready to scale your impact? Let's discuss how we can help you achieve measurable outcomes 
@@ -105,7 +105,7 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="pt-4 pb-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -360,9 +360,9 @@ export default function Contact() {
                     <div>
                       <h3 className="font-semibold mb-1">Location</h3>
                       <p className="text-muted-foreground text-sm mb-2">
-                        Based in San Francisco, serving clients globally
+                        Based in Noida, India, serving clients globally
                       </p>
-                      <span className="text-muted-foreground">San Francisco, CA</span>
+                      <span className="text-muted-foreground">Noida, India</span>
                     </div>
                   </div>
                 </div>
