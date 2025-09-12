@@ -8,6 +8,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 
 // Pages
+import { useScrollToTop } from "./hooks/use-scroll-to-top";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
 import DigitalMarketing from "@/pages/digital-marketing";
@@ -22,6 +23,7 @@ import Contact from "@/pages/contact";
 import NotFound from "@/pages/not-found";
 
 function Router() {
+  useScrollToTop();
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
