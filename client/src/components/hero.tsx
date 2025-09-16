@@ -5,22 +5,22 @@ import { FadeIn } from "./motion/fade-in";
 
 const heroImages = [
   {
-    src: "images/IMG1.png",
+    src: "images/IMG1.webp",
     alt: "Meet Varun - Digital Marketing Strategy",
     service: "digital-marketing"
   },
   {
-    src: "images/IMG3.png",
+    src: "images/IMG3.webp",
     alt: "Meet Varun - Manufacturing Floor",
     service: "manufacturing"
   },
   {
-    src: "images/IMG2.png",
+    src: "images/IMG2.webp",
     alt: "Meet Varun - Informal Coffee",
     service: "transformation"
   },
   {
-    src: "images/IMG4.png",
+    src: "images/IMG4.webp",
     alt: "Meet Varun - Customer success",
     service: "customer-success"
   }
