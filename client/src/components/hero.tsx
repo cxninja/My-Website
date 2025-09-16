@@ -5,23 +5,23 @@ import { FadeIn } from "./motion/fade-in";
 
 const heroImages = [
   {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-    alt: "Digital marketing strategy session",
+    src: "public/images/IMG1.png",
+    alt: "Meet Varun - Digital Marketing Strategy",
     service: "digital-marketing"
   },
   {
-    src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-    alt: "Manufacturing analytics dashboard",
+    src: "public/images/IMG3.png",
+    alt: "Meet Varun - Manufacturing Floor",
     service: "manufacturing"
   },
   {
-    src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-    alt: "Digital transformation technology workspace",
+    src: "public/images/IMG2.png",
+    alt: "Meet Varun - Informal Coffee",
     service: "transformation"
   },
   {
-    src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600",
-    alt: "Customer success team meeting",
+    src: "public/images/IMG4.png",
+    alt: "Meet Varun - Customer success",
     service: "customer-success"
   }
 ];
