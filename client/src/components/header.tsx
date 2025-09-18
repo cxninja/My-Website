@@ -1,56 +1,81 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, TrendingUp, BarChart3, Zap, Users, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, TrendingUp, BarChart3, Zap, Users, ArrowRight, Target, Crown, Globe, Brain, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { brand } from "@/config/brand";
 
-const servicesDropdown = [
+const capabilitiesDropdown = [
   { 
-    name: "Digital Marketing", 
-    href: "/service/digital-marketing", 
-    icon: TrendingUp, 
-    description: "Full-funnel measurement, CRO sprints, paid media systems"
+    name: "Customer Success", 
+    href: "/capability/customer-success", 
+    icon: Users, 
+    description: "Retention mastery (95%+): Churn prediction, relationship ecosystems"
   },
   { 
-    name: "Manufacturing Analytics", 
-    href: "/service/manufacturing-analytics", 
-    icon: BarChart3, 
-    description: "OEE dashboards, anomaly detection, line telemetry pipelines"
+    name: "Digital Marketing", 
+    href: "/capability/digital-marketing", 
+    icon: TrendingUp, 
+    description: "Growth campaigns (40%+ leads): SEO/PPC, AI personalization"
   },
   { 
     name: "Digital Transformation", 
-    href: "/service/digital-transformation", 
+    href: "/capability/digital-transformation", 
     icon: Zap, 
-    description: "Process automation, data integration, workflow optimization"
+    description: "Efficiency revolutions (35%+): CRM/AI integrations, agile pivots"
   },
   { 
-    name: "Customer Success", 
-    href: "/service/customer-success", 
-    icon: Users, 
-    description: "Health scoring, onboarding systems, churn prevention"
+    name: "GTM Strategy", 
+    href: "/capability/gtm-strategy", 
+    icon: Target, 
+    description: "Market dominance: Planning to launch, CEO-synced"
+  },
+  { 
+    name: "Leadership & Scaling", 
+    href: "/capability/leadership-scaling", 
+    icon: Crown, 
+    description: "Winning teams (5-50+, 25% productivity): Selfless builds"
+  },
+  { 
+    name: "Cross-Industry Adaptability", 
+    href: "/capability/cross-industry", 
+    icon: Globe, 
+    description: "Seamless shifts: Startup hustle to enterprise polish"
+  },
+  { 
+    name: "AI Innovation", 
+    href: "/capability/ai-innovation", 
+    icon: Brain, 
+    description: "Tool creation: SOW generators and beyond"
+  },
+  { 
+    name: "Stakeholder Engagement", 
+    href: "/capability/stakeholder-engagement", 
+    icon: Network, 
+    description: "Syncing deciders: CEO collaborations, influence without noise"
   }
 ];
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { 
-    name: "Services", 
-    href: "/services",
-    dropdown: servicesDropdown
+    name: "Expertise", 
+    href: "/expertise",
+    dropdown: capabilitiesDropdown
   },
-  { name: "Case Studies", href: "/case-studies" },
-  // { name: "About", href: "/about" },
-  { name: "Meet Varun", href: "/meet-varun" },
-  { name: "Contact", href: "/contact" },
+  { name: "Edgy Insights", href: "/edgy-insights" },
+  { name: "Innovations", href: "/innovations" },
+  { name: "Toolkit", href: "/toolkit" },
+  { name: "Connect", href: "/connect" },
   { name: "Blog", href: "https://google.com", external: true },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isExpertiseOpen, setIsExpertiseOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -98,13 +123,13 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => 
               item.dropdown ? (
-                <DropdownMenu key={item.name} open={isServicesOpen} onOpenChange={setIsServicesOpen}>
+                <DropdownMenu key={item.name} open={isExpertiseOpen} onOpenChange={setIsExpertiseOpen}>
                   <DropdownMenuTrigger asChild>
                     <button 
                       className={`link-underline text-sm font-medium hover:text-accent transition-colors flex items-center gap-1 ${
                         isActiveLink(item.href) ? 'active' : ''
                       }`}
-                      onMouseEnter={() => setIsServicesOpen(true)}
+                      onMouseEnter={() => setIsExpertiseOpen(true)}
                     >
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
@@ -112,7 +137,7 @@ export function Header() {
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
                     className="w-96 p-0"
-                    onMouseLeave={() => setIsServicesOpen(false)}
+                    onMouseLeave={() => setIsExpertiseOpen(false)}
                   >
                     <div className="p-6">
                       <div className="grid grid-cols-1 gap-4">
@@ -144,10 +169,10 @@ export function Header() {
                       </div>
                       <div className="mt-6 pt-4 border-t border-border">
                         <Link 
-                          href="/services" 
+                          href="/expertise" 
                           className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-accent/5 transition-colors group text-sm font-medium text-accent"
                         >
-                          View All Services
+                          View All Capabilities
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </div>
