@@ -4,8 +4,8 @@ import { CaseStudyCard } from "@/components/case-study-card";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { SEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
-import { services } from "@/data/services";
-import caseStudies from "@/data/case-studies.json";
+import { capabilities } from "@/data/capabilities";
+import edgyInsights from "@/data/edgy-insights.json";
 import testimonials from "@/data/testimonials.json";
 import { Check, Quote, Crown, BarChart3, Settings } from "lucide-react";
 import { SiTechcrunch, SiGoogle, SiAmazon, SiIntel, SiSalesforce } from "react-icons/si";
@@ -37,12 +37,12 @@ const whyUsPoints = [
 ];
 
 export default function Home() {
-  const handleContactClick = () => {
-    window.location.href = '/contact';
+  const handleConnectClick = () => {
+    window.location.href = '/connect';
   };
 
-  const handleCaseStudiesNavigate = () => {
-    window.location.href = '/case-studies';
+  const handleEdgyInsightsNavigate = () => {
+    window.location.href = '/edgy-insights';
   };
 
   return (
@@ -78,26 +78,26 @@ export default function Home() {
       </section>
       */}
       
-      {/* Services Overview */}
-      <section id="services" className="section-padding bg-secondary/30 section-divider">
+      {/* Capabilities Overview */}
+      <section id="capabilities" className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
-              My <span className="text-emphasis">Capabilities</span>
+              My <span className="text-emphasis">8 Capability Pillars</span>
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
-              Senior-led expertise across four core domains, each engineered for <span className="font-semibold text-foreground">measurable business impact</span>.
+              The <span className="text-accent font-semibold">NovaTransform Edge</span>: Eight interconnected capabilities that unlock explosive business transformation and sustainable competitive advantage.
             </p>
           </FadeIn>
 
-          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {capabilities.map((capability, index) => (
               <ServiceCard
-                key={service.id}
-                title={service.title}
-                description={service.description}
-                icon={service.icon}
-                href={`/service/${service.id}`}
+                key={capability.id}
+                title={capability.title}
+                description={capability.description}
+                icon={capability.icon}
+                href={`/capability/${capability.id}`}
                 delay={index * 0.1}
               />
             ))}
@@ -105,29 +105,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Case Studies Preview */}
-      <section id="case-studies" className="section-padding bg-secondary/30 section-divider">
+      {/* Edgy Insights Preview */}
+      <section id="edgy-insights" className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
-              <span className="text-emphasis">Proven</span> Results
+              <span className="text-emphasis">Edgy Insights:</span> Bursts of Real Impact
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
-              Real outcomes from strategic partnerships. Each engagement designed for <span className="font-semibold text-foreground">measurable impact</span>.
+              6 story-driven transformation narratives with visuals and takeaways. Each insight reveals lessons from <span className="font-semibold text-foreground">explosive business transformations</span>—your edge awaits.
             </p>
           </FadeIn>
 
           <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-12">
-            {caseStudies.slice(0, 3).map((caseStudy, index) => (
+            {edgyInsights.slice(0, 3).map((insight, index) => (
               <CaseStudyCard
-                key={caseStudy.slug}
-                title={caseStudy.title}
-                industry={caseStudy.industry}
-                year={caseStudy.year}
-                summary={caseStudy.summary}
-                metrics={caseStudy.metrics}
-                slug={caseStudy.slug}
-                image={caseStudy.image}
+                key={insight.slug}
+                title={insight.title}
+                industry={insight.industry}
+                year={insight.year}
+                summary={insight.summary}
+                metrics={insight.metrics}
+                slug={insight.slug}
+                image={insight.image}
                 delay={index * 0.1}
               />
             ))}
@@ -137,11 +137,11 @@ export default function Home() {
             <Button
               variant="outline"
               size="lg"
-              onClick={handleCaseStudiesNavigate}
+              onClick={handleEdgyInsightsNavigate}
               className="magnetic-button border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-4 font-semibold rounded-xl"
-              data-testid="button-view-all-case-studies"
+              data-testid="button-view-all-edgy-insights"
             >
-              View All Case Studies
+              Explore All Edgy Insights
             </Button>
           </FadeIn>
         </div>
@@ -221,18 +221,18 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Ready to Scale Your Impact?
+              Ready to Unleash Your NovaTransform?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can help you achieve measurable outcomes across your most critical business challenges.
+              Let's explore which of the 8 capability pillars can drive your explosive business transformation. Every NovaTransform starts with bold action.
             </p>
             <Button
-              onClick={handleContactClick}
+              onClick={handleConnectClick}
               variant="secondary"
               className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-start-conversation-footer"
+              data-testid="button-connect-footer"
             >
-              Start a Conversation
+              Ignite Your Edge
             </Button>
           </FadeIn>
         </div>
