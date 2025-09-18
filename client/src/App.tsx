@@ -20,6 +20,7 @@ import EdgyInsights from "@/pages/case-studies"; // Reuse case-studies as edgy-i
 import EdgyInsightDetail from "@/pages/case-study-detail";
 import Leadership from "@/pages/leadership";
 import Connect from "@/pages/contact"; // Reuse contact as connect
+import CapabilityDetail from "@/pages/capability-detail";
 import Innovations from "@/pages/innovations";
 import Toolkit from "@/pages/toolkit";
 import NotFound from "@/pages/not-found";
@@ -35,15 +36,8 @@ function Router() {
           <Route path="/about" component={About} />
           <Route path="/expertise" component={Expertise} />
           
-          {/* New capability routes */}
-          <Route path="/capability/customer-success" component={CustomerSuccess} />
-          <Route path="/capability/digital-marketing" component={DigitalMarketing} />
-          <Route path="/capability/digital-transformation" component={DigitalTransformation} />
-          <Route path="/capability/gtm-strategy" component={DigitalMarketing} /> {/* Reuse for now */}
-          <Route path="/capability/leadership-scaling" component={CustomerSuccess} /> {/* Reuse for now */}
-          <Route path="/capability/cross-industry" component={DigitalTransformation} /> {/* Reuse for now */}
-          <Route path="/capability/ai-innovation" component={ManufacturingAnalytics} /> {/* Reuse for now */}
-          <Route path="/capability/stakeholder-engagement" component={CustomerSuccess} /> {/* Reuse for now */}
+          {/* Capability detail routes - single dynamic page for all */}
+          <Route path="/capability/:slug" component={CapabilityDetail} />
           
           <Route path="/edgy-insights" component={EdgyInsights} />
           <Route path="/edgy-insights/:slug" component={EdgyInsightDetail} />

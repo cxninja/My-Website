@@ -30,8 +30,8 @@ export function CaseStudyCard({
   delay = 0 
 }: CaseStudyCardProps) {
   const handleClick = () => {
-    // Navigate to case study detail page
-    window.location.href = `/case-studies/${slug}`;
+    // Navigate to edgy insight detail page
+    window.location.href = `/edgy-insights/${slug}`;
   };
 
   return (
@@ -39,7 +39,7 @@ export function CaseStudyCard({
       <Card 
         className="standard-card overflow-hidden cursor-pointer h-full group"
         onClick={handleClick}
-        data-testid={`case-study-card-${slug}`}
+        data-testid={`edgy-insight-card-${slug}`}
       >
         <CardContent className="p-0">
           {image && (
