@@ -1,5 +1,6 @@
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
+import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -141,9 +142,6 @@ const leaderProfile = {
 };
 
 export default function Leadership() {
-  const handleContactClick = () => {
-    window.location.href = "/contact";
-  };
 
   return (
     <>
@@ -381,15 +379,16 @@ export default function Leadership() {
               Let's discuss how our leadership experience can drive
               transformational results for your organization.
             </p>
-            <Button
-              onClick={handleContactClick}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-contact-leadership-cta"
-            >
-              <Mail className="w-4 h-4 mr-2" />
-              Get In Touch
-            </Button>
+            <Link href="/contact">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-contact-leadership-cta"
+              >
+                <Mail className="w-4 h-4 mr-2" />
+                Get In Touch
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>

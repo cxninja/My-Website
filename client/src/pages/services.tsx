@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { capabilities } from "@/data/capabilities";
 import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 const engagementModel = [
   {
@@ -25,15 +26,12 @@ const engagementModel = [
 ];
 
 export default function Services() {
-  const handleConnectClick = () => {
-    window.location.href = '/connect';
-  };
 
   return (
     <>
       <SEO 
-        title="Expertise: 8 Pillars of NovaTransform Edge | Varun Goel"
-        description="Varun Goel's 8 core capabilities: Customer Success, Digital Marketing, Digital Transformation, GTM Strategy, Leadership & Scaling, Cross-Industry Adaptability, AI Innovation, and Stakeholder Engagement."
+        title="Expertise: Capability Pillars of NovaTransform Edge | Varun Goel"
+        description="Varun Goel's core capabilities: Customer Success, Digital Marketing, Digital Transformation, GTM Strategy, Leadership & Scaling, Cross-Industry Adaptability, AI Innovation, and Stakeholder Engagement."
       />
 
       {/* Hero */}
@@ -41,7 +39,7 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Expertise: <span className="text-accent">8 Pillars of NovaTransform Edge</span>
+              Expertise: <span className="text-accent">Capability Pillars of NovaTransform Edge</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               Deepened across industries—these pillars deliver frameworks honed in real fires. 
@@ -114,13 +112,14 @@ export default function Services() {
                       <span className="text-muted-foreground ml-2 italic">"{capability.edgyInsight}"</span>
                     </div>
                   </div>
-                  <Button
-                    onClick={handleConnectClick}
-                    className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground"
-                    data-testid={`button-connect-${capability.id}`}
-                  >
-                    Leverage This Capability
-                  </Button>
+                  <Link href="/connect">
+                    <Button
+                      className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground"
+                      data-testid={`button-connect-${capability.id}`}
+                    >
+                      Leverage This Capability
+                    </Button>
+                  </Link>
                 </div>
               </FadeIn>
 
@@ -211,14 +210,15 @@ export default function Services() {
               Let's identify which capabilities can deliver the most explosive impact for your transformation. 
               Every nova starts with understanding your unique edge potential.
             </p>
-            <Button
-              onClick={handleConnectClick}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-connect-capabilities-cta"
-            >
-              Ignite Your Transformation
-            </Button>
+            <Link href="/connect">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-connect-capabilities-cta"
+              >
+                Ignite Your Transformation
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>

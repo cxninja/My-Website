@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Linkedin, Award, Target, Users, Zap } from "lucide-react";
+import { Link } from "wouter";
 
 const founderStory = {
   name: "Varun Goel",
@@ -66,9 +67,6 @@ const certifications = [
 ];
 
 export default function About() {
-  const handleContactClick = () => {
-    window.location.href = '/contact';
-  };
 
   return (
     <>
@@ -249,14 +247,15 @@ export default function About() {
               We'd love to learn about your challenges and discuss how our approach 
               can drive measurable results for your business.
             </p>
-            <Button
-              onClick={handleContactClick}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-contact-about-cta"
-            >
-              Get in Touch
-            </Button>
+            <Link href="/contact">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-contact-about-cta"
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>

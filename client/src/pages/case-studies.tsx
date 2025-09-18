@@ -5,6 +5,7 @@ import { CaseStudyCard } from "@/components/case-study-card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
+import { Link } from "wouter";
 import edgyInsights from "@/data/edgy-insights.json";
 
 type EdgyInsight = typeof edgyInsights[0];
@@ -224,14 +225,15 @@ export default function CaseStudies() {
               Every edgy insight started with bold action. Let's discuss how to unleash 
               similar explosive results in your transformation journey.
             </p>
-            <Button
-              onClick={() => window.location.href = '/connect'}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-connect-edgy-insights-cta"
-            >
-              Ignite Your Edge
-            </Button>
+            <Link href="/connect">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-connect-edgy-insights-cta"
+              >
+                Ignite Your Edge
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>

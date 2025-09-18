@@ -91,7 +91,7 @@ export default function Contact() {
     <>
       <SEO 
         title="Connect: Ignite Your NovaTransform | Varun Goel"
-        description="Ready to unleash explosive business transformation? Connect with Varun Goel to explore the 8 capability pillars and discover your edge potential."
+        description="Ready to unleash explosive business transformation? Connect with Varun Goel to explore the capability pillars and discover your edge potential."
       />
 
       {/* Hero */}
@@ -102,7 +102,7 @@ export default function Contact() {
               Connect: <span className="text-accent">Ignite Your Edge</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Ready to unleash explosive business transformation? Let's explore which of the 8 capability pillars 
+              Ready to unleash explosive business transformation? Let's explore which capability pillars 
               can drive your NovaTransform and discover the edge potential waiting to be unlocked.
             </p>
           </FadeIn>

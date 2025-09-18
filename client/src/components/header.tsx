@@ -143,7 +143,7 @@ export function Header() {
                     <div className="p-8">
                       <div className="mb-6">
                         <h3 className="font-display font-bold text-lg text-foreground mb-2">
-                          8 Capability Pillars
+                          Capability Pillars
                         </h3>
                         <p className="text-sm text-muted-foreground">
                           The NovaTransform Edge: Interconnected capabilities for explosive business transformation

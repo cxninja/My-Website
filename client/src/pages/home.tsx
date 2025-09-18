@@ -8,6 +8,7 @@ import { capabilities } from "@/data/capabilities";
 import edgyInsights from "@/data/edgy-insights.json";
 import testimonials from "@/data/testimonials.json";
 import { Check, Quote, Crown, BarChart3, Settings } from "lucide-react";
+import { Link } from "wouter";
 import { SiTechcrunch, SiGoogle, SiAmazon, SiIntel, SiSalesforce } from "react-icons/si";
 
 const credibilityLogos = [
@@ -37,13 +38,7 @@ const whyUsPoints = [
 ];
 
 export default function Home() {
-  const handleConnectClick = () => {
-    window.location.href = '/connect';
-  };
-
-  const handleEdgyInsightsNavigate = () => {
-    window.location.href = '/edgy-insights';
-  };
+  // Removed handleConnectClick and handleEdgyInsightsNavigate - using Link components now
 
   return (
     <>
@@ -83,7 +78,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
-              My <span className="text-emphasis">8 Capability Pillars</span>
+              My <span className="text-emphasis">Capability Pillars</span>
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
               The <span className="text-accent font-semibold">NovaTransform Edge</span>: Eight interconnected capabilities that unlock explosive business transformation and sustainable competitive advantage.
@@ -134,15 +129,16 @@ export default function Home() {
           </StaggerContainer>
 
           <FadeIn className="text-center">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={handleEdgyInsightsNavigate}
-              className="magnetic-button border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-4 font-semibold rounded-xl"
-              data-testid="button-view-all-edgy-insights"
-            >
-              Explore All Edgy Insights
-            </Button>
+            <Link href="/edgy-insights">
+              <Button
+                variant="outline"
+                size="lg"
+                className="magnetic-button border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-4 font-semibold rounded-xl"
+                data-testid="button-view-all-edgy-insights"
+              >
+                Explore All Edgy Insights
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>
@@ -224,16 +220,17 @@ export default function Home() {
               Ready to Unleash Your NovaTransform?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Let's explore which of the 8 capability pillars can drive your explosive business transformation. Every NovaTransform starts with bold action.
+              Let's explore which capability pillars can drive your explosive business transformation. Every NovaTransform starts with bold action.
             </p>
-            <Button
-              onClick={handleConnectClick}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-connect-footer"
-            >
-              Ignite Your Edge
-            </Button>
+            <Link href="/connect">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-connect-footer"
+              >
+                Ignite Your Edge
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>
