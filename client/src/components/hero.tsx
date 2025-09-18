@@ -84,7 +84,7 @@ export function Hero() {
                 </span>
               </h1>
               <p className="text-large text-muted-foreground max-w-xl leading-relaxed">
-                Consulting across <span className="font-semibold text-foreground">Digital Marketing</span>, <span className="font-semibold text-foreground">Manufacturing Analytics</span>, <span className="font-semibold text-foreground">Digital Transformation</span>, and <span className="font-semibold text-foreground">Customer Success</span>—<span className="text-emphasis">rooted in outcomes</span>.
+                My expertise spans <span className="font-semibold text-foreground">Digital Marketing</span>, <span className="font-semibold text-foreground">Manufacturing Analytics</span>, <span className="font-semibold text-foreground">Digital Transformation</span>, and <span className="font-semibold text-foreground">Customer Success</span>—<span className="text-emphasis">rooted in outcomes</span>.
               </p>
             </div>
           </FadeIn>
