@@ -72,7 +72,7 @@ export default function CaseStudies() {
               Edgy Insights: <span className="text-accent">Bursts of Real Impact</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              6 story-driven transformation narratives with visuals and takeaways. 
+              Story-driven transformation narratives with visuals and takeaways. 
               Each insight reveals lessons from explosive business transformations—your edge awaits.
             </p>
           </FadeIn>
