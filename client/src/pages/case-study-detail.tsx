@@ -1,4 +1,4 @@
-import { useParams } from "wouter";
+import { useParams, Link } from "wouter";
 import { SEO } from "@/lib/seo";
 import { FadeIn } from "@/components/motion/fade-in";
 import { MetricChip, AnimatedCounter } from "@/components/metric-chip";
@@ -17,21 +17,17 @@ export default function EdgyInsightDetail() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Edgy Insight Not Found</h1>
-          <Button onClick={() => window.location.href = '/edgy-insights'}>
-            ← Back to Edgy Insights
+          <Button asChild data-testid="button-back-to-edgy-insights-not-found">
+            <Link href="/edgy-insights">
+              ← Back to Edgy Insights
+            </Link>
           </Button>
         </div>
       </div>
     );
   }
 
-  const handleBackClick = () => {
-    window.location.href = '/edgy-insights';
-  };
 
-  const handleConnectClick = () => {
-    window.location.href = '/connect';
-  };
 
   return (
     <>
@@ -46,12 +42,14 @@ export default function EdgyInsightDetail() {
           <FadeIn>
             <Button 
               variant="ghost" 
-              onClick={handleBackClick}
+              asChild
               className="mb-6 p-0 hover:bg-transparent hover:text-accent"
               data-testid="button-back-to-edgy-insights"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Edgy Insights
+              <Link href="/edgy-insights">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Back to Edgy Insights
+              </Link>
             </Button>
 
             <div className="flex items-center gap-4 mb-6">
@@ -211,11 +209,13 @@ export default function EdgyInsightDetail() {
               Every edgy insight starts with bold action.
             </p>
             <Button
-              onClick={handleConnectClick}
+              asChild
               className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3"
               data-testid="button-connect-edgy-insight-cta"
             >
-              Ignite Your Edge
+              <Link href="/connect">
+                Ignite Your Edge
+              </Link>
             </Button>
           </section>
         </FadeIn>
