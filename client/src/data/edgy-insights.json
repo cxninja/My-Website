@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "retention-revolution",
+    "title": "Retention Revolution",
+    "industry": "SaaS",
+    "image": "/images/case-studies/software.png",
+    "capabilities": ["Customer Success", "AI Innovation"],
+    "year": 2024,
+    "summary": "AI predictions + team empathy drives transform volatility-driven churn into loyalty.",
+    "metrics": [
+      {"label": "Retention", "delta": 17, "unit": "pp"},
+      {"label": "Value Saved", "delta": 2000000, "unit": "$"},
+      {"label": "Churn Prediction", "delta": 95, "unit": "% accuracy"}
+    ],
+    "sections": {
+      "context": "A high-growth SaaS company faced severe volatility-driven churn as market conditions shifted. Traditional retention strategies were failing, and customer lifetime value was declining rapidly.",
+      "approach": [
+        "Implemented AI-powered churn prediction models with 95% accuracy",
+        "Developed empathy-driven engagement frameworks for at-risk customers", 
+        "Created proactive intervention workflows triggered by AI signals",
+        "Trained customer success teams on predictive engagement techniques"
+      ],
+      "solution": "Combined AI prediction capabilities with human empathy drives to create a retention revolution that turns churn signals into loyalty opportunities before customers even consider leaving.",
+      "outcomes": [
+        {"metric": "Customer Retention Rate", "before": 80, "after": 97, "unit": "%"},
+        {"metric": "Value Preserved", "before": 0, "after": 2000000, "unit": "$/year"}, 
+        {"metric": "Churn Prediction Accuracy", "before": 60, "after": 95, "unit": "%"},
+        {"metric": "Customer Satisfaction", "before": 72, "after": 94, "unit": "CSAT"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The retention revolution exceeded our expectations. We went from reactive firefighting to proactive relationship building. Our customers now view us as indispensable partners.",
+      "author": "Sarah Chen",
+      "title": "VP Customer Success, TechScale Solutions"
+    }
+  },
+  {
+    "slug": "marketing-edge",
+    "title": "Marketing Edge", 
+    "industry": "E-commerce",
+    "image": "/images/case-studies/retail.png",
+    "capabilities": ["Digital Marketing", "AI Innovation"],
+    "year": 2023,
+    "summary": "GTM PPC with AI tweaks cuts through market saturation with precision targeting.",
+    "metrics": [
+      {"label": "Leads", "delta": 40, "unit": "%"},
+      {"label": "Conversions", "delta": 35, "unit": "%"},
+      {"label": "CAC", "delta": -28, "unit": "%"}
+    ],
+    "sections": {
+      "context": "An e-commerce retailer struggled with market saturation and rising acquisition costs. Traditional broad-net marketing approaches were losing effectiveness in the competitive landscape.",
+      "approach": [
+        "Implemented AI-powered market analysis to identify underserved segments",
+        "Developed precision GTM strategy with micro-targeted PPC campaigns",
+        "Created dynamic personalization algorithms for campaign optimization",
+        "Established real-time performance monitoring and adjustment systems"
+      ],
+      "solution": "Precision-targeted marketing edge that uses AI to cut through market noise, focusing resources on high-conversion micro-segments rather than broad demographic targets.",
+      "outcomes": [
+        {"metric": "Marketing Qualified Leads", "before": 2840, "after": 3976, "unit": "/month"},
+        {"metric": "Conversion Rate", "before": 2.3, "after": 3.1, "unit": "%"},
+        {"metric": "Customer Acquisition Cost", "before": 125, "after": 90, "unit": "$"},
+        {"metric": "Return on Ad Spend", "before": 3.2, "after": 4.8, "unit": "x"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The marketing transformation was remarkable. We finally broke through the noise with precision that our competitors can't match. Our ROAS improved by 50% while reducing spend.",
+      "author": "Michael Torres",
+      "title": "CMO, RetailForward"
+    }
+  },
+  {
+    "slug": "transformation-thrust",
+    "title": "Transformation Thrust",
+    "industry": "Manufacturing",
+    "image": "/images/case-studies/manufacturing.png", 
+    "capabilities": ["Digital Transformation", "Cross-Industry Adaptability"],
+    "year": 2024,
+    "summary": "Phased integrations overcome legacy inertia, delivering efficiency revolution.",
+    "metrics": [
+      {"label": "Efficiency", "delta": 35, "unit": "%"},
+      {"label": "Manual Tasks", "delta": -50, "unit": "%"},
+      {"label": "Error Rate", "delta": -42, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A traditional manufacturing company faced legacy system inertia that was hampering growth. Manual processes dominated operations, creating bottlenecks and quality issues that threatened competitive positioning.",
+      "approach": [
+        "Conducted comprehensive digital maturity assessment across all operations",
+        "Designed phased transformation roadmap to minimize disruption",
+        "Implemented pilot programs in key bottleneck areas first",
+        "Built change management programs to ensure adoption and sustainability"
+      ],
+      "solution": "Bold pilot programs that prove transformation value before full-scale rollout, overcoming legacy inertia through demonstrated success rather than mandated change.",
+      "outcomes": [
+        {"metric": "Operational Efficiency", "before": 68, "after": 92, "unit": "%"},
+        {"metric": "Manual Processing Time", "before": 240, "after": 120, "unit": "hours/week"},
+        {"metric": "Process Error Rate", "before": 3.8, "after": 2.2, "unit": "%"},
+        {"metric": "Employee Productivity", "before": 100, "after": 135, "unit": "index"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The transformation approach was genius - starting with pilots that proved value made adoption inevitable. We're now a digital-first manufacturer competing with companies half our age.",
+      "author": "Jennifer Walsh",
+      "title": "COO, Industrial Dynamics Corp"
+    }
+  },
+  {
+    "slug": "team-scaling-saga", 
+    "title": "Team Scaling Saga",
+    "industry": "Technology",
+    "image": "/images/case-studies/software.png",
+    "capabilities": ["Leadership & Scaling", "Stakeholder Engagement"],
+    "year": 2023,
+    "summary": "Selfless training frameworks transform post-growth disarray into high-performing teams.",
+    "metrics": [
+      {"label": "Productivity", "delta": 25, "unit": "%"},
+      {"label": "Employee NPS", "delta": 43, "unit": "points"},
+      {"label": "Time-to-Impact", "delta": -40, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A rapidly growing tech company experienced post-growth disarray as team size tripled without corresponding structure. Communication broke down, productivity declined, and top talent considered leaving.",
+      "approach": [
+        "Implemented selfless leadership development focusing on team empowerment",
+        "Created structured onboarding and mentorship programs",
+        "Established clear communication channels and decision-making frameworks", 
+        "Developed performance measurement systems aligned with team growth"
+      ],
+      "solution": "Selfless training frameworks that invest in people development first, creating sustainable scaling through empowered teams rather than hierarchical control.",
+      "outcomes": [
+        {"metric": "Team Productivity", "before": 100, "after": 125, "unit": "index"},
+        {"metric": "Employee Net Promoter Score", "before": 24, "after": 67, "unit": "NPS"},
+        {"metric": "New Hire Time-to-Impact", "before": 90, "after": 54, "unit": "days"},
+        {"metric": "Leadership Pipeline Depth", "before": 2, "after": 8, "unit": "ready leaders"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The transformation was profound. We went from chaos to clarity, from individual contributors to a true team. People now actively seek leadership roles instead of avoiding them.",
+      "author": "David Kim",
+      "title": "CEO, InnovateTech Solutions"
+    }
+  },
+  {
+    "slug": "cross-industry-conquest",
+    "title": "Cross-Industry Conquest", 
+    "industry": "Healthcare",
+    "image": "/images/case-studies/healthcare.png",
+    "capabilities": ["Cross-Industry Adaptability", "Stakeholder Engagement"],
+    "year": 2024,
+    "summary": "Adaptable blending overcomes cultural friction to deliver unified wins across sectors.",
+    "metrics": [
+      {"label": "Cross-Function Collaboration", "delta": 58, "unit": "%"},
+      {"label": "Initiative Success", "delta": 34, "unit": "%"},
+      {"label": "Time-to-Market", "delta": -30, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A healthcare organization acquiring tech startups faced severe cultural friction between traditional healthcare practices and agile tech methodologies. Integration efforts were failing and value wasn't being realized.",
+      "approach": [
+        "Analyzed cultural patterns and friction points across both sectors",
+        "Developed adaptive frameworks that honored both cultures while driving integration",
+        "Created cross-functional teams with representatives from both backgrounds",
+        "Implemented gradual blending processes rather than forced assimilation"
+      ],
+      "solution": "Adaptable blending approach that treats cultural differences as strengths to be leveraged rather than obstacles to be overcome, creating hybrid vigor in cross-sector operations.",
+      "outcomes": [
+        {"metric": "Cross-Function Collaboration Score", "before": 42, "after": 84, "unit": "%"},
+        {"metric": "Initiative Success Rate", "before": 58, "after": 78, "unit": "%"},
+        {"metric": "Product Development Speed", "before": 180, "after": 126, "unit": "days avg"},
+        {"metric": "Employee Satisfaction", "before": 65, "after": 89, "unit": "%"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The cross-industry approach was transformational. Instead of forcing one culture on another, we created something entirely new that leveraged the best of both worlds.",
+      "author": "Dr. Amanda Rodriguez",
+      "title": "Chief Innovation Officer, HealthTech Ventures"
+    }
+  },
+  {
+    "slug": "stakeholder-sync",
+    "title": "Stakeholder Sync",
+    "industry": "Financial Services", 
+    "image": "/images/case-studies/fintech.png",
+    "capabilities": ["Stakeholder Engagement", "GTM Strategy"],
+    "year": 2024,
+    "summary": "Quiet loops of alignment transform decision-maker misalignments into unified direction.",
+    "metrics": [
+      {"label": "Buy-in Rate", "delta": 30, "unit": "pp"},
+      {"label": "Decision Speed", "delta": 45, "unit": "%"},
+      {"label": "Initiative Approval", "delta": 52, "unit": "%"}
+    ],
+    "sections": {
+      "context": "A financial services firm struggled with decision-maker misalignments across business units. Strategic initiatives were stalling due to competing priorities and lack of stakeholder consensus.",
+      "approach": [
+        "Mapped stakeholder influence networks and decision-making patterns",
+        "Developed quiet engagement loops that built alignment before formal presentations",
+        "Created pre-meeting alignment sessions to address concerns privately",
+        "Implemented systematic follow-up processes to maintain momentum"
+      ],
+      "solution": "Quiet influence loops that engage stakeholders individually before group decisions, transforming adversaries into allies through understanding rather than persuasion.",
+      "outcomes": [
+        {"metric": "Stakeholder Buy-in Rate", "before": 60, "after": 90, "unit": "%"},
+        {"metric": "Decision-Making Speed", "before": 45, "after": 25, "unit": "days avg"},
+        {"metric": "Initiative Approval Rate", "before": 42, "after": 64, "unit": "%"},
+        {"metric": "Cross-Unit Collaboration", "before": 35, "after": 78, "unit": "index"}
+      ]
+    },
+    "testimonial": {
+      "quote": "The stakeholder alignment transformation was remarkable. Decisions that used to take months of debate now happen in weeks, with everyone feeling heard and aligned.",
+      "author": "Robert Chen",
+      "title": "Chief Strategy Officer, Pinnacle Financial"
+    }
+  }
+]
