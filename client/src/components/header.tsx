@@ -136,43 +136,54 @@ export function Header() {
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
-                    className="w-96 p-0"
+                    className="w-[800px] p-0"
                     onMouseLeave={() => setIsExpertiseOpen(false)}
+                    align="center"
                   >
-                    <div className="p-6">
-                      <div className="grid grid-cols-1 gap-4">
+                    <div className="p-8">
+                      <div className="mb-6">
+                        <h3 className="font-display font-bold text-lg text-foreground mb-2">
+                          8 Capability Pillars
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          The NovaTransform Edge: Interconnected capabilities for explosive business transformation
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         {item.dropdown.map((subItem) => {
                           const IconComponent = subItem.icon;
                           return (
                             <DropdownMenuItem key={subItem.name} asChild className="p-0">
                               <Link 
                                 href={subItem.href} 
-                                className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent transition-colors group cursor-pointer" 
+                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent transition-colors group cursor-pointer border border-transparent hover:border-accent/20" 
                                 data-testid={`dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
                               >
-                                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
-                                  <IconComponent className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                                  <IconComponent className="w-4 h-4 text-accent group-hover:text-white transition-colors" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <h4 className="font-semibold text-sm text-foreground group-hover:text-white transition-colors">
+                                  <h4 className="font-semibold text-xs text-foreground group-hover:text-white transition-colors leading-tight">
                                     {subItem.name}
                                   </h4>
-                                  <p className="text-xs text-muted-foreground group-hover:text-white/90 mt-1 leading-relaxed transition-colors">
+                                  <p className="text-xs text-muted-foreground group-hover:text-white/90 mt-1 leading-tight transition-colors line-clamp-2">
                                     {subItem.description}
                                   </p>
                                 </div>
-                                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors flex-shrink-0 mt-1" />
                               </Link>
                             </DropdownMenuItem>
                           );
                         })}
                       </div>
-                      <div className="mt-6 pt-4 border-t border-border">
+                      
+                      <div className="mt-6 pt-4 border-t border-border flex justify-center">
                         <Link 
                           href="/expertise" 
-                          className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-accent/5 transition-colors group text-sm font-medium text-accent"
+                          className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-accent/5 transition-colors group text-sm font-medium text-accent"
                         >
-                          View All Capabilities
+                          <Target className="w-4 h-4" />
+                          View Full Capability Hub
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
                       </div>
