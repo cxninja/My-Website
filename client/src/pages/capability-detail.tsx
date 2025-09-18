@@ -45,9 +45,9 @@ export default function CapabilityDetail() {
               asChild
               className="mb-6 p-0 hover:bg-transparent hover:text-accent"
             >
-              <Link href="/expertise">
+              <Link href="/#capabilities">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to All Capabilities
+                Back to Capabilities
               </Link>
             </Button>
 
