@@ -166,8 +166,6 @@ export default function Toolkit() {
     );
   };
 
-  const featuredResources = toolkitResources.filter(r => r.featured);
-
   return (
     <>
       <Helmet>
@@ -198,31 +196,6 @@ export default function Toolkit() {
           </div>
         </div>
       </section>
-
-      {/* Featured Resources */}
-      {featuredResources.length > 0 && (
-        <section className="py-16 bg-secondary/5">
-          <div className="max-w-7xl mx-auto px-6">
-            <FadeIn>
-              <div className="text-center mb-12">
-                <div className="flex items-center justify-center gap-2 mb-4">
-                  <Star className="w-6 h-6 text-accent" />
-                  <h2 className="font-display text-3xl font-bold text-foreground">
-                    Featured Resources
-                  </h2>
-                </div>
-                <p className="text-lg text-muted-foreground">
-                  Most popular and comprehensive resources from the toolkit
-                </p>
-              </div>
-              
-              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                {featuredResources.slice(0, 6).map((resource, index) => renderResourceCard(resource, index))}
-              </StaggerContainer>
-            </FadeIn>
-          </div>
-        </section>
-      )}
 
       {/* Filters Section */}
       <section id="resources" className="py-8 border-b border-border">
