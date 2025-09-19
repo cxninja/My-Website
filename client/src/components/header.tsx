@@ -177,16 +177,6 @@ export function Header() {
                         })}
                       </div>
                       
-                      <div className="mt-6 pt-4 border-t border-border flex justify-center">
-                        <Link 
-                          href="/expertise" 
-                          className="flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-accent/5 transition-colors group text-sm font-medium text-accent"
-                        >
-                          <Target className="w-4 h-4" />
-                          View Full Capability Hub
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </div>
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -195,6 +185,7 @@ export function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => handleLinkClick(item.href, item.external)}
+                  onMouseEnter={() => setIsExpertiseOpen(false)}
                   className={`link-underline text-sm font-medium hover:text-accent transition-colors ${
                     isActiveLink(item.href) ? 'active' : ''
                   }`}
