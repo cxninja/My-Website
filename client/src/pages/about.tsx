@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Linkedin, Award, Target, Users, Zap } from "lucide-react";
+import { Link } from "wouter";
 
 const founderStory = {
   name: "Varun Goel",
-  bio: "With over 20 years of combined experience across operations and growth, our team brings pragmatic, data-led execution to every engagement. We've built and scaled organizations across multiple industries, understanding both the strategic vision and tactical realities of transformation.",
+  bio: "With over 20 years of combined experience across operations and growth, I bring pragmatic, data-led execution to every engagement. I've built and scaled organizations across multiple industries, understanding both the strategic vision and tactical realities of transformation.",
   experience: "20+ years across ops and growth"
 };
 
@@ -15,17 +16,17 @@ const values = [
   {
     icon: Target,
     title: "Outcome-Driven",
-    description: "Every recommendation is tied to measurable business outcomes. We don't just provide advice—we ensure results."
+    description: "Every recommendation is tied to measurable business outcomes. I don't just provide advice—I ensure results."
   },
   {
     icon: Users,
     title: "Partnership Mindset",
-    description: "We work alongside your team as partners, not external observers. Your success is our success."
+    description: "I work alongside your team as a partner, not an external observer. Your success is my success."
   },
   {
     icon: Zap,
     title: "Rapid Implementation",
-    description: "Speed matters in business. We focus on quick wins while building sustainable long-term solutions."
+    description: "Speed matters in business. I focus on quick wins while building sustainable long-term solutions."
   }
 ];
 
@@ -66,9 +67,6 @@ const certifications = [
 ];
 
 export default function About() {
-  const handleContactClick = () => {
-    window.location.href = '/contact';
-  };
 
   return (
     <>
@@ -86,7 +84,7 @@ export default function About() {
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
               I'm an operator who became a consultant. My experience building and scaling businesses 
-              informs every recommendation we make.
+              informs every recommendation I make.
             </p>
           </FadeIn>
         </div>
@@ -249,14 +247,15 @@ export default function About() {
               We'd love to learn about your challenges and discuss how our approach 
               can drive measurable results for your business.
             </p>
-            <Button
-              onClick={handleContactClick}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-contact-about-cta"
-            >
-              Get in Touch
-            </Button>
+            <Link href="/contact">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-contact-about-cta"
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>

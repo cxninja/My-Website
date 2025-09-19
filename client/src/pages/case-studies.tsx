@@ -5,39 +5,43 @@ import { CaseStudyCard } from "@/components/case-study-card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
-import caseStudies from "@/data/case-studies.json";
+import { Link } from "wouter";
+import edgyInsights from "@/data/edgy-insights.json";
 
-type CaseStudy = typeof caseStudies[0];
+type EdgyInsight = typeof edgyInsights[0];
 
-const industries = ["All", ...Array.from(new Set(caseStudies.map(cs => cs.industry)))];
-const capabilities = ["All", ...Array.from(new Set(caseStudies.flatMap(cs => cs.capabilities)))];
-const years = Array.from(new Set(caseStudies.map(cs => cs.year))).sort((a, b) => b - a);
+const industries = ["All", ...Array.from(new Set(edgyInsights.map(ei => ei.industry)))];
+const capabilities = ["All", ...Array.from(new Set(edgyInsights.flatMap(ei => ei.capabilities)))];
+const years = Array.from(new Set(edgyInsights.map(ei => ei.year))).sort((a, b) => b - a);
+
+// Calculate global max delta for proper filter range
+const globalMaxDelta = Math.max(...edgyInsights.flatMap(ei => ei.metrics.map(m => Math.abs(m.delta))));
 
 export default function CaseStudies() {
   const [industryFilter, setIndustryFilter] = useState("All");
   const [capabilityFilter, setCapabilityFilter] = useState("All");
   const [yearFilter, setYearFilter] = useState("All");
-  const [impactRange, setImpactRange] = useState([0, 100]);
+  const [impactRange, setImpactRange] = useState([0, globalMaxDelta]);
 
-  const filteredCaseStudies = useMemo(() => {
-    return caseStudies.filter((caseStudy) => {
+  const filteredEdgyInsights = useMemo(() => {
+    return edgyInsights.filter((insight) => {
       // Industry filter
-      if (industryFilter !== "All" && caseStudy.industry !== industryFilter) {
+      if (industryFilter !== "All" && insight.industry !== industryFilter) {
         return false;
       }
 
       // Capability filter
-      if (capabilityFilter !== "All" && !caseStudy.capabilities.includes(capabilityFilter)) {
+      if (capabilityFilter !== "All" && !insight.capabilities.includes(capabilityFilter)) {
         return false;
       }
 
       // Year filter
-      if (yearFilter !== "All" && caseStudy.year.toString() !== yearFilter) {
+      if (yearFilter !== "All" && insight.year.toString() !== yearFilter) {
         return false;
       }
 
       // Impact range filter (based on max delta in metrics)
-      const maxDelta = Math.max(...caseStudy.metrics.map(m => Math.abs(m.delta)));
+      const maxDelta = Math.max(...insight.metrics.map(m => Math.abs(m.delta)));
       if (maxDelta < impactRange[0] || maxDelta > impactRange[1]) {
         return false;
       }
@@ -50,14 +54,14 @@ export default function CaseStudies() {
     setIndustryFilter("All");
     setCapabilityFilter("All");
     setYearFilter("All");
-    setImpactRange([0, 100]);
+    setImpactRange([0, globalMaxDelta]);
   };
 
   return (
     <>
       <SEO 
-        title="Case Studies"
-        description="Explore our client success stories across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success."
+        title="Edgy Insights: 6 Transformation Narratives | Varun Goel"
+        description="Explore 6 story-driven insights showcasing real transformation bursts across industries. From retention revolutions to stakeholder sync - bursts of real impact."
       />
 
       {/* Hero */}
@@ -65,11 +69,11 @@ export default function CaseStudies() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Case Studies
+              Edgy Insights: <span className="text-accent">Bursts of Real Impact</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Real outcomes from strategic partnerships. Each engagement designed for measurable impact 
-              across our core service areas.
+              Story-driven transformation narratives with visuals and takeaways. 
+              Each insight reveals lessons from explosive business transformations—your edge awaits.
             </p>
           </FadeIn>
         </div>
@@ -149,14 +153,14 @@ export default function CaseStudies() {
 
             <div className="max-w-md">
               <label htmlFor="impact-range" className="block text-sm font-medium mb-2">
-                Impact Range: {impactRange[0]}% - {impactRange[1]}%
+                Impact Range: {impactRange[0].toLocaleString()} - {impactRange[1].toLocaleString()}
               </label>
               <Slider
                 value={impactRange}
                 onValueChange={setImpactRange}
-                max={100}
+                max={globalMaxDelta}
                 min={0}
-                step={5}
+                step={Math.max(1, Math.floor(globalMaxDelta / 100))}
                 className="w-full"
                 data-testid="slider-impact-range"
               />
@@ -170,22 +174,22 @@ export default function CaseStudies() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="mb-8">
             <p className="text-muted-foreground">
-              Showing {filteredCaseStudies.length} of {caseStudies.length} case studies
+              Showing {filteredEdgyInsights.length} of {edgyInsights.length} edgy insights
             </p>
           </FadeIn>
 
-          {filteredCaseStudies.length > 0 ? (
+          {filteredEdgyInsights.length > 0 ? (
             <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredCaseStudies.map((caseStudy, index) => (
+              {filteredEdgyInsights.map((insight, index) => (
                 <CaseStudyCard
-                  key={caseStudy.slug}
-                  title={caseStudy.title}
-                  industry={caseStudy.industry}
-                  year={caseStudy.year}
-                  summary={caseStudy.summary}
-                  metrics={caseStudy.metrics}
-                  slug={caseStudy.slug}
-                  image={caseStudy.image}
+                  key={insight.slug}
+                  title={insight.title}
+                  industry={insight.industry}
+                  year={insight.year}
+                  summary={insight.summary}
+                  metrics={insight.metrics}
+                  slug={insight.slug}
+                  image={insight.image}
                   delay={index * 0.1}
                 />
               ))}
@@ -193,9 +197,9 @@ export default function CaseStudies() {
           ) : (
             <FadeIn>
               <div className="text-center py-16">
-                <h3 className="font-semibold text-xl mb-2">No case studies found</h3>
+                <h3 className="font-semibold text-xl mb-2">No edgy insights found</h3>
                 <p className="text-muted-foreground mb-6">
-                  Try adjusting your filters to see more results.
+                  Try adjusting your filters to see more transformation stories.
                 </p>
                 <Button
                   onClick={handleResetFilters}
@@ -215,20 +219,21 @@ export default function CaseStudies() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Ready to Create Your Success Story?
+              Ready to Create Your NovaTransform?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Every case study started with a conversation. Let's discuss how we can help you 
-              achieve similar results in your industry.
+              Every edgy insight started with bold action. Let's discuss how to unleash 
+              similar explosive results in your transformation journey.
             </p>
-            <Button
-              onClick={() => window.location.href = '/contact'}
-              variant="secondary"
-              className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
-              data-testid="button-contact-case-studies-cta"
-            >
-              Start Your Story
-            </Button>
+            <Link href="/connect">
+              <Button
+                variant="secondary"
+                className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
+                data-testid="button-connect-edgy-insights-cta"
+              >
+                Ignite Your Edge
+              </Button>
+            </Link>
           </FadeIn>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "./motion/fade-in";
+import { Link } from "wouter";
 
 const heroImages = [
   {
@@ -52,9 +53,7 @@ export function Hero() {
     setCurrentImageIndex(index);
   };
 
-  const handleStartConversation = () => {
-    window.location.href = '/contact';
-  };
+  // Removed handleStartConversation - using Link component now
 
   
 
@@ -85,21 +84,22 @@ export function Hero() {
                 </span>
               </h1>
               <p className="text-large text-muted-foreground max-w-xl leading-relaxed">
-                Consulting across <span className="font-semibold text-foreground">Digital Marketing</span>, <span className="font-semibold text-foreground">Manufacturing Analytics</span>, <span className="font-semibold text-foreground">Digital Transformation</span>, and <span className="font-semibold text-foreground">Customer Success</span>—<span className="text-emphasis">rooted in outcomes</span>.
+                My expertise spans <span className="font-semibold text-foreground">Digital Marketing</span>, <span className="font-semibold text-foreground">Manufacturing Analytics</span>, <span className="font-semibold text-foreground">Digital Transformation</span>, and <span className="font-semibold text-foreground">Customer Success</span>—<span className="text-emphasis">rooted in outcomes</span>.
               </p>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2}>
             <div className="flex flex-col sm:flex-row gap-6 mt-8">
-              <Button
-                onClick={handleStartConversation}
-                size="lg"
-                className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground px-12 py-4 text-lg font-semibold rounded-xl"
-                data-testid="button-start-conversation"
-              >
-                Start a Conversation
-              </Button>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground px-12 py-4 text-lg font-semibold rounded-xl"
+                  data-testid="button-start-conversation"
+                >
+                  Start a Conversation
+                </Button>
+              </Link>
             </div>
           </FadeIn>
         </div>

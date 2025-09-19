@@ -26,10 +26,14 @@ type ContactFormData = {
 };
 
 const topicOptions = [
-  { value: "digital-marketing", label: "Digital Marketing" },
-  { value: "manufacturing-analytics", label: "Manufacturing Analytics" },
-  { value: "digital-transformation", label: "Digital Transformation" },
   { value: "customer-success", label: "Customer Success" },
+  { value: "digital-marketing", label: "Digital Marketing" },
+  { value: "digital-transformation", label: "Digital Transformation" },
+  { value: "gtm-strategy", label: "GTM Strategy" },
+  { value: "leadership-scaling", label: "Leadership Scaling" },
+  { value: "cross-industry", label: "Cross-Industry Experience" },
+  { value: "ai-innovation", label: "AI Innovation" },
+  { value: "stakeholder-engagement", label: "Stakeholder Engagement" },
   { value: "other", label: "Other" },
 ];
 
@@ -86,8 +90,8 @@ export default function Contact() {
   return (
     <>
       <SEO 
-        title="Contact Me"
-        description="Get in touch with Varun Goel to discuss your Digital Marketing, Manufacturing Analytics, Digital Transformation, or Customer Success challenges."
+        title="Connect: Ignite Your NovaTransform | Varun Goel"
+        description="Ready to unleash explosive business transformation? Connect with Varun Goel to explore the capability pillars and discover your edge potential."
       />
 
       {/* Hero */}
@@ -95,11 +99,11 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Contact Me
+              Connect: <span className="text-accent">Ignite Your Edge</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Ready to scale your impact? Let's discuss how we can help you achieve measurable outcomes 
-              across your most critical business challenges.
+              Ready to unleash explosive business transformation? Let's explore which capability pillars 
+              can drive your NovaTransform and discover the edge potential waiting to be unlocked.
             </p>
           </FadeIn>
         </div>
@@ -121,7 +125,7 @@ export default function Contact() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <h2 className="font-display font-bold text-2xl mb-6">Send us a message</h2>
+                        <h2 className="font-display font-bold text-2xl mb-6">Start Your NovaTransform</h2>
                         
                         <Form {...form}>
                           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

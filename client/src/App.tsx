@@ -10,16 +10,19 @@ import { Footer } from "@/components/footer";
 // Pages
 import { useScrollToTop } from "./hooks/use-scroll-to-top";
 import Home from "@/pages/home";
-import Services from "@/pages/services";
+import About from "@/pages/about";
+import Expertise from "@/pages/services"; // Reuse services page as expertise
 import DigitalMarketing from "@/pages/digital-marketing";
 import ManufacturingAnalytics from "@/pages/manufacturing-analytics";
 import DigitalTransformation from "@/pages/digital-transformation";
 import CustomerSuccess from "@/pages/customer-success";
-import CaseStudies from "@/pages/case-studies";
-import CaseStudyDetail from "@/pages/case-study-detail";
-import About from "@/pages/about";
+import EdgyInsights from "@/pages/case-studies"; // Reuse case-studies as edgy-insights
+import EdgyInsightDetail from "@/pages/case-study-detail";
 import Leadership from "@/pages/leadership";
-import Contact from "@/pages/contact";
+import Connect from "@/pages/contact"; // Reuse contact as connect
+import CapabilityDetail from "@/pages/capability-detail";
+import Innovations from "@/pages/innovations";
+import Toolkit from "@/pages/toolkit";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -30,16 +33,29 @@ function Router() {
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
-          <Route path="/services" component={Services} />
+          <Route path="/about" component={About} />
+          <Route path="/expertise" component={Expertise} />
+          
+          {/* Capability detail routes - single dynamic page for all */}
+          <Route path="/capability/:slug" component={CapabilityDetail} />
+          
+          <Route path="/edgy-insights" component={EdgyInsights} />
+          <Route path="/edgy-insights/:slug" component={EdgyInsightDetail} />
+          <Route path="/innovations" component={Innovations} />
+          <Route path="/toolkit" component={Toolkit} />
+          <Route path="/connect" component={Connect} />
+          
+          {/* Legacy redirects - keeping for backward compatibility */}
+          <Route path="/services" component={Expertise} />
           <Route path="/service/digital-marketing" component={DigitalMarketing} />
           <Route path="/service/manufacturing-analytics" component={ManufacturingAnalytics} />
           <Route path="/service/digital-transformation" component={DigitalTransformation} />
           <Route path="/service/customer-success" component={CustomerSuccess} />
-          <Route path="/case-studies" component={CaseStudies} />
-          <Route path="/case-studies/:slug" component={CaseStudyDetail} />
-          {/* <Route path="/about" component={About} /> */}
+          <Route path="/case-studies" component={EdgyInsights} />
+          <Route path="/case-studies/:slug" component={EdgyInsightDetail} />
+          <Route path="/contact" component={Connect} />
           <Route path="/meet-varun" component={Leadership} />
-          <Route path="/contact" component={Contact} />
+          
           <Route component={NotFound} />
         </Switch>
       </main>

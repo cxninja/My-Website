@@ -1,56 +1,81 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronDown, TrendingUp, BarChart3, Zap, Users, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronDown, TrendingUp, BarChart3, Zap, Users, ArrowRight, Target, Crown, Globe, Brain, Network } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { brand } from "@/config/brand";
 
-const servicesDropdown = [
+const capabilitiesDropdown = [
   { 
-    name: "Digital Marketing", 
-    href: "/service/digital-marketing", 
-    icon: TrendingUp, 
-    description: "Full-funnel measurement, CRO sprints, paid media systems"
+    name: "Customer Success", 
+    href: "/capability/customer-success", 
+    icon: Users, 
+    description: "Retention mastery (95%+): Churn prediction, relationship ecosystems"
   },
   { 
-    name: "Manufacturing Analytics", 
-    href: "/service/manufacturing-analytics", 
-    icon: BarChart3, 
-    description: "OEE dashboards, anomaly detection, line telemetry pipelines"
+    name: "Digital Marketing", 
+    href: "/capability/digital-marketing", 
+    icon: TrendingUp, 
+    description: "Growth campaigns (40%+ leads): SEO/PPC, AI personalization"
   },
   { 
     name: "Digital Transformation", 
-    href: "/service/digital-transformation", 
+    href: "/capability/digital-transformation", 
     icon: Zap, 
-    description: "Process automation, data integration, workflow optimization"
+    description: "Efficiency revolutions (35%+): CRM/AI integrations, agile pivots"
   },
   { 
-    name: "Customer Success", 
-    href: "/service/customer-success", 
-    icon: Users, 
-    description: "Health scoring, onboarding systems, churn prevention"
+    name: "GTM Strategy", 
+    href: "/capability/gtm-strategy", 
+    icon: Target, 
+    description: "Market dominance: Planning to launch, CEO-synced"
+  },
+  { 
+    name: "Leadership & Scaling", 
+    href: "/capability/leadership-scaling", 
+    icon: Crown, 
+    description: "Winning teams (5-50+, 25% productivity): Selfless builds"
+  },
+  { 
+    name: "Cross-Industry Adaptability", 
+    href: "/capability/cross-industry", 
+    icon: Globe, 
+    description: "Seamless shifts: Startup hustle to enterprise polish"
+  },
+  { 
+    name: "AI Innovation", 
+    href: "/capability/ai-innovation", 
+    icon: Brain, 
+    description: "Tool creation: SOW generators and beyond"
+  },
+  { 
+    name: "Stakeholder Engagement", 
+    href: "/capability/stakeholder-engagement", 
+    icon: Network, 
+    description: "Syncing deciders: CEO collaborations, influence without noise"
   }
 ];
 
 const navigation = [
   { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
   { 
-    name: "Services", 
-    href: "/services",
-    dropdown: servicesDropdown
+    name: "Expertise", 
+    href: "/expertise",
+    dropdown: capabilitiesDropdown
   },
-  { name: "Case Studies", href: "/case-studies" },
-  // { name: "About", href: "/about" },
-  { name: "Meet Varun", href: "/meet-varun" },
-  { name: "Contact", href: "/contact" },
+  { name: "Edgy Insights", href: "/edgy-insights" },
+  { name: "Innovations", href: "/innovations" },
+  { name: "Toolkit", href: "/toolkit" },
+  { name: "Connect", href: "/connect" },
   { name: "Blog", href: "https://google.com", external: true },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isExpertiseOpen, setIsExpertiseOpen] = useState(false);
   const [location] = useLocation();
 
   useEffect(() => {
@@ -98,59 +123,60 @@ export function Header() {
           <div className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => 
               item.dropdown ? (
-                <DropdownMenu key={item.name} open={isServicesOpen} onOpenChange={setIsServicesOpen}>
+                <DropdownMenu key={item.name} open={isExpertiseOpen} onOpenChange={setIsExpertiseOpen}>
                   <DropdownMenuTrigger asChild>
                     <button 
                       className={`link-underline text-sm font-medium hover:text-accent transition-colors flex items-center gap-1 ${
                         isActiveLink(item.href) ? 'active' : ''
                       }`}
-                      onMouseEnter={() => setIsServicesOpen(true)}
+                      onMouseEnter={() => setIsExpertiseOpen(true)}
                     >
                       {item.name}
                       <ChevronDown className="w-4 h-4" />
                     </button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent 
-                    className="w-96 p-0"
-                    onMouseLeave={() => setIsServicesOpen(false)}
+                    className="w-[800px] p-0"
+                    onMouseLeave={() => setIsExpertiseOpen(false)}
+                    align="center"
                   >
-                    <div className="p-6">
-                      <div className="grid grid-cols-1 gap-4">
+                    <div className="p-8">
+                      <div className="mb-6">
+                        <h3 className="font-display font-bold text-lg text-foreground mb-2">
+                          Capability Pillars
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          The NovaTransform Edge: Interconnected capabilities for explosive business transformation
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                         {item.dropdown.map((subItem) => {
                           const IconComponent = subItem.icon;
                           return (
                             <DropdownMenuItem key={subItem.name} asChild className="p-0">
                               <Link 
                                 href={subItem.href} 
-                                className="flex items-start gap-4 p-4 rounded-lg hover:bg-accent transition-colors group cursor-pointer" 
+                                className="flex items-start gap-3 p-3 rounded-lg hover:bg-accent transition-colors group cursor-pointer border border-transparent hover:border-accent/20" 
                                 data-testid={`dropdown-link-${subItem.name.toLowerCase().replace(/\s+/g, '-')}`}
                               >
-                                <div className="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
-                                  <IconComponent className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors">
+                                  <IconComponent className="w-4 h-4 text-accent group-hover:text-white transition-colors" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                  <h4 className="font-semibold text-sm text-foreground group-hover:text-white transition-colors">
+                                  <h4 className="font-semibold text-xs text-foreground group-hover:text-white transition-colors leading-tight">
                                     {subItem.name}
                                   </h4>
-                                  <p className="text-xs text-muted-foreground group-hover:text-white/90 mt-1 leading-relaxed transition-colors">
+                                  <p className="text-xs text-muted-foreground group-hover:text-white/90 mt-1 leading-tight transition-colors line-clamp-2">
                                     {subItem.description}
                                   </p>
                                 </div>
-                                <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-white transition-colors flex-shrink-0 mt-1" />
                               </Link>
                             </DropdownMenuItem>
                           );
                         })}
                       </div>
-                      <div className="mt-6 pt-4 border-t border-border">
-                        <Link 
-                          href="/services" 
-                          className="flex items-center justify-center gap-2 p-3 rounded-lg hover:bg-accent/5 transition-colors group text-sm font-medium text-accent"
-                        >
-                          View All Services
-                          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </div>
+                      
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -159,6 +185,7 @@ export function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => handleLinkClick(item.href, item.external)}
+                  onMouseEnter={() => setIsExpertiseOpen(false)}
                   className={`link-underline text-sm font-medium hover:text-accent transition-colors ${
                     isActiveLink(item.href) ? 'active' : ''
                   }`}

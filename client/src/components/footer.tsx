@@ -8,11 +8,12 @@ import { Linkedin, Mail, MapPin } from "lucide-react";
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Case Studies", href: "/case-studies" },
-  // { name: "About", href: "/about" },
-  { name: "Meet Varun", href: "/meet-varun" },
-  { name: "Contact", href: "/contact" },
+  { name: "About", href: "/about" },
+  { name: "Expertise", href: "/expertise" },
+  { name: "Edgy Insights", href: "/edgy-insights" },
+  { name: "Innovations", href: "/innovations" },
+  { name: "Toolkit", href: "/toolkit" },
+  { name: "Connect", href: "/connect" },
   { name: "Blog", href: "https://google.com" },
 ];
 
@@ -64,7 +65,7 @@ export function Footer() {
           <div>
             <img src="/images/NovaTransform_Large.png" alt="NovaTransform Logo" className="h-40 mb-4" />
             <p className="text-muted-foreground text-sm mb-4 max-w-md">
-              Senior-led consulting across Digital Marketing, Manufacturing Analytics, 
+              My expertise spans Digital Marketing, Manufacturing Analytics, 
               Digital Transformation, and Customer Success. Strategy. Systems. Scale.
             </p>
           </div>
@@ -92,12 +93,12 @@ export function Footer() {
           <div className="flex flex-col items-center">
             <Mail className="w-6 h-6 mb-2 text-accent" />
             <div className="font-medium">Email</div>
-            <div className="text-sm text-muted-foreground">hello@novatransform.com</div>
+            <div className="text-sm text-muted-foreground">varun@novatransform.com</div>
           </div>
           <div className="flex flex-col items-center">
             <Linkedin className="w-6 h-6 mb-2 text-accent" />
             <div className="font-medium">LinkedIn</div>
-            <div className="text-sm text-muted-foreground">@novatransform</div>
+            <div className="text-sm text-muted-foreground">@varungoel</div>
           </div>
           <div className="flex flex-col items-center">
             <MapPin className="w-6 h-6 mb-2 text-accent" />
