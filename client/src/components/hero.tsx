@@ -6,25 +6,25 @@ import { Link } from "wouter";
 
 const heroImages = [
   {
-    src: "images/IMG1.webp",
+    src: "images/IMG-Hero-Manual 2.webp",
     alt: "Meet Varun - Digital Marketing Strategy",
     service: "digital-marketing"
-  },
-  {
-    src: "images/IMG3.webp",
-    alt: "Meet Varun - Manufacturing Floor",
-    service: "manufacturing"
-  },
-  {
-    src: "images/IMG2.webp",
-    alt: "Meet Varun - Informal Coffee",
-    service: "transformation"
-  },
-  {
-    src: "images/IMG4.webp",
-    alt: "Meet Varun - Customer success",
-    service: "customer-success"
   }
+  // {
+  //   src: "images/IMG3.webp",
+  //   alt: "Meet Varun - Manufacturing Floor",
+  //   service: "manufacturing"
+  // },
+  // {
+  //   src: "images/IMG2.webp",
+  //   alt: "Meet Varun - Informal Coffee",
+  //   service: "transformation"
+  // },
+  // {
+  //   src: "images/IMG4.webp",
+  //   alt: "Meet Varun - Customer success",
+  //   service: "customer-success"
+  // }
 ];
 
 const rotatingWords = ["Scale.", "Grow.", "Excel.", "Succeed.", "Transform."];
@@ -84,7 +84,7 @@ export function Hero() {
                 </span>
               </h1>
               <p className="text-large text-muted-foreground max-w-xl leading-relaxed">
-                My expertise spans <span className="font-semibold text-foreground">Digital Marketing</span>, <span className="font-semibold text-foreground">Manufacturing Analytics</span>, <span className="font-semibold text-foreground">Digital Transformation</span>, and <span className="font-semibold text-foreground">Customer Success</span>—<span className="text-emphasis">rooted in outcomes</span>.
+                Across 19+ years in diverse industries , I've ignited transformations—from startup sprints to enterprise overhauls—using street-smart tactics and AI bursts to deliver outsized wins. <br/> <span className="font-semibold text-foreground">NovaTransform</span> is your edge: <span className="text-emphasis">Practical insights for real results</span>.
               </p>
             </div>
           </FadeIn>
@@ -121,7 +121,7 @@ export function Hero() {
               />
             </AnimatePresence>
 
-            {/* Service indicators */}
+            {/* Service indicators 
             <div className="absolute bottom-4 left-4 right-4 flex justify-center space-x-2">
               {heroImages.map((_, index) => (
                 <button
@@ -136,6 +136,7 @@ export function Hero() {
                 />
               ))}
             </div>
+            */}
           </div>
         </FadeIn>
       </div>

@@ -179,7 +179,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
-              <span className="text-emphasis">Client</span> Testimonials
+              <span className="text-emphasis">LinkedIn</span> Testimonials
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
               Hear from the leaders who've partnered with me to drive <span className="font-semibold text-foreground">meaningful change</span>.
