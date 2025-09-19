@@ -27,12 +27,12 @@ const whyUsPoints = [
   },
   {
     title: "Data-native", 
-    description: "Every recommendation backed by rigorous analysis. We measure what matters and optimize relentlessly.",
+    description: "Every recommendation backed by rigorous analysis. I measure what matters and optimize relentlessly.",
     icon: BarChart3
   },
   {
     title: "Operator mindset",
-    description: "We've built and scaled organizations. We understand the practical realities of implementation.",
+    description: "I've built and scaled organizations. I understand the practical realities of implementation.",
     icon: Settings
   }
 ];
@@ -143,15 +143,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Why Work With Me */}
       <section className="section-padding bg-secondary/30 section-divider">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <h2 className="heading-lg mb-6 accent-border inline-block pb-4">
-              Why <span className="text-emphasis">NovaTransform</span>
+              Why Work <span className="text-emphasis">With Me</span>
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
-              Three core principles that differentiate our approach and ensure <span className="font-semibold text-foreground">your success</span>.
+              Three core principles that differentiate my approach and ensure <span className="font-semibold text-foreground">your success</span>.
             </p>
           </FadeIn>
 
@@ -182,7 +182,7 @@ export default function Home() {
               <span className="text-emphasis">Client</span> Testimonials
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
-              Hear from the leaders who've partnered with us to drive <span className="font-semibold text-foreground">meaningful change</span>.
+              Hear from the leaders who've partnered with me to drive <span className="font-semibold text-foreground">meaningful change</span>.
             </p>
           </FadeIn>
 
