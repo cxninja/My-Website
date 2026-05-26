@@ -5,7 +5,13 @@ import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { SEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { capabilities } from "@/data/capabilities";
-import edgyInsights from "@/data/edgy-insights.json";
+import { useEffect, useState } from "react";
+import {
+  sanityClient,
+  ALL_EDGY_INSIGHTS_QUERY,
+  resolveFlexibleImage,
+  type EdgyInsightListItem,
+} from "@/lib/sanity";
 import testimonials from "@/data/testimonials.json";
 import { Check, Quote, Crown, BarChart3, Settings } from "lucide-react";
 import { Link } from "wouter";
@@ -38,7 +44,14 @@ const whyUsPoints = [
 ];
 
 export default function Home() {
-  // Removed handleConnectClick and handleEdgyInsightsNavigate - using Link components now
+  const [edgyInsights, setEdgyInsights] = useState<EdgyInsightListItem[]>([]);
+
+  useEffect(() => {
+    sanityClient
+      .fetch<EdgyInsightListItem[]>(ALL_EDGY_INSIGHTS_QUERY)
+      .then(setEdgyInsights)
+      .catch(() => setEdgyInsights([]));
+  }, []);
 
   return (
     <>
@@ -120,9 +133,13 @@ export default function Home() {
                 industry={insight.industry}
                 year={insight.year}
                 summary={insight.summary}
-                metrics={insight.metrics}
+                metrics={(insight.metrics ?? []).map((m) => ({
+                  label: m.label,
+                  delta: m.delta,
+                  unit: m.unit ?? "",
+                }))}
                 slug={insight.slug}
-                image={insight.image}
+                image={resolveFlexibleImage(insight.image, { width: 800, height: 450 }) ?? undefined}
                 delay={index * 0.1}
               />
             ))}
