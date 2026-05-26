@@ -23,6 +23,10 @@ import Connect from "@/pages/contact"; // Reuse contact as connect
 import CapabilityDetail from "@/pages/capability-detail";
 import Innovations from "@/pages/innovations";
 import Toolkit from "@/pages/toolkit";
+import Philosophy from "@/pages/philosophy";
+import Blog from "@/pages/blog";
+import BlogPost from "@/pages/blog-post";
+import BlogAuthor from "@/pages/blog-author";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -34,6 +38,7 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
+          <Route path="/philosophy" component={Philosophy} />
           <Route path="/expertise" component={Expertise} />
           
           {/* Capability detail routes - single dynamic page for all */}
@@ -44,7 +49,11 @@ function Router() {
           <Route path="/innovations" component={Innovations} />
           <Route path="/toolkit" component={Toolkit} />
           <Route path="/connect" component={Connect} />
-          
+          <Route path="/blog" component={Blog} />
+          <Route path="/blog/author/:slug" component={BlogAuthor} />
+          <Route path="/blog/:categorySlug/:slug" component={BlogPost} />
+          <Route path="/blog/:slug" component={BlogPost} />
+
           {/* Legacy redirects - keeping for backward compatibility */}
           <Route path="/services" component={Expertise} />
           <Route path="/service/digital-marketing" component={DigitalMarketing} />

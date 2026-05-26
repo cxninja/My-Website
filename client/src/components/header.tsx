@@ -60,16 +60,17 @@ const capabilitiesDropdown = [
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { 
-    name: "Expertise", 
+  { name: "Philosophy", href: "/philosophy" },
+  {
+    name: "Expertise",
     href: "/expertise",
     dropdown: capabilitiesDropdown
   },
   { name: "Edgy Insights", href: "/edgy-insights" },
-  { name: "Innovations", href: "/innovations" },
+  // { name: "Innovations", href: "/innovations" }, // hidden
   { name: "Toolkit", href: "/toolkit" },
   { name: "Connect", href: "/connect" },
-  { name: "Blog", href: "https://google.com", external: true },
+  { name: "Blog", href: "/blog" },
 ];
 
 export function Header() {
