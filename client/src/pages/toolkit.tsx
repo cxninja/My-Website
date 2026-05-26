@@ -1,371 +1,369 @@
 import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
-import { CardShell } from "@/components/ui/card-shell";
-import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Link } from "wouter";
-import { Filter, RotateCcw, Download, Clock, FileText, Star } from "lucide-react";
+import {
+  Search, Layers, Network, Tag, BarChart3, Star, X,
+  Download, ArrowRight, FileText, Clock,
+} from "lucide-react";
+import { FadeIn } from "@/components/motion/fade-in";
+import { FilterGroup } from "@/components/filter-group";
 import { toolkitResources, getToolkitFilters, ToolkitResource } from "@/data/toolkit";
 
 const { types, categories, capabilities, difficulties } = getToolkitFilters();
 
-// Create display-friendly labels
-const typeLabels = {
-  'pdf': 'PDF Guide',
-  'worksheet': 'Worksheet', 
-  'checklist': 'Checklist',
-  'template': 'Template',
-  'guide': 'Guide',
-  'framework': 'Framework'
+const typeLabels: Record<ToolkitResource["type"], string> = {
+  pdf: "PDF Guide",
+  worksheet: "Worksheet",
+  checklist: "Checklist",
+  template: "Template",
+  guide: "Guide",
+  framework: "Framework",
 };
 
-const categoryLabels = {
-  'customer-success': 'Customer Success',
-  'marketing': 'Marketing',
-  'transformation': 'Transformation',
-  'leadership': 'Leadership', 
-  'ai-innovation': 'AI Innovation',
-  'strategy': 'Strategy'
+const categoryLabels: Record<ToolkitResource["category"], string> = {
+  "customer-success": "Customer Success",
+  marketing: "Marketing",
+  transformation: "Transformation",
+  leadership: "Leadership",
+  "ai-innovation": "AI Innovation",
+  strategy: "Strategy",
 };
 
-const difficultyLabels = {
-  'beginner': 'Beginner',
-  'intermediate': 'Intermediate',
-  'advanced': 'Advanced'
+const difficultyLabels: Record<ToolkitResource["difficulty"], string> = {
+  beginner: "Beginner",
+  intermediate: "Intermediate",
+  advanced: "Advanced",
 };
+
+type FilterKind = "category" | "capability" | "type" | "difficulty";
+
+interface ActiveFilter {
+  kind: FilterKind;
+  value: string;
+  label: string;
+}
+
+function toggleSet(set: Set<string>, value: string): Set<string> {
+  const next = new Set(set);
+  if (next.has(value)) next.delete(value);
+  else next.add(value);
+  return next;
+}
+
+// FilterGroup lives in @/components/filter-group and is shared with /edgy-insights.
 
 export default function Toolkit() {
-  const [typeFilter, setTypeFilter] = useState<string>("All");
-  const [categoryFilter, setCategoryFilter] = useState<string>("All");
-  const [capabilityFilter, setCapabilityFilter] = useState<string>("All");
-  const [difficultyFilter, setDifficultyFilter] = useState<string>("All");
-  const [showFeaturedOnly, setShowFeaturedOnly] = useState<boolean>(false);
+  const [query, setQuery] = useState("");
+  const [selCategories, setSelCategories] = useState<Set<string>>(new Set());
+  const [selCapabilities, setSelCapabilities] = useState<Set<string>>(new Set());
+  const [selTypes, setSelTypes] = useState<Set<string>>(new Set());
+  const [selDifficulties, setSelDifficulties] = useState<Set<string>>(new Set());
+  const [featuredOnly, setFeaturedOnly] = useState(false);
 
-  const filteredResources = useMemo(() => {
-    return toolkitResources.filter((resource) => {
-      // Type filter
-      if (typeFilter !== "All" && resource.type !== typeFilter) {
-        return false;
-      }
+  const counts = useMemo(() => {
+    const byCat: Record<string, number> = {};
+    const byCap: Record<string, number> = {};
+    const byType: Record<string, number> = {};
+    const byDiff: Record<string, number> = {};
+    for (const r of toolkitResources) {
+      byCat[r.category] = (byCat[r.category] ?? 0) + 1;
+      byCap[r.capability] = (byCap[r.capability] ?? 0) + 1;
+      byType[r.type] = (byType[r.type] ?? 0) + 1;
+      byDiff[r.difficulty] = (byDiff[r.difficulty] ?? 0) + 1;
+    }
+    return { byCat, byCap, byType, byDiff };
+  }, []);
 
-      // Category filter
-      if (categoryFilter !== "All" && resource.category !== categoryFilter) {
-        return false;
-      }
-
-      // Capability filter
-      if (capabilityFilter !== "All" && resource.capability !== capabilityFilter) {
-        return false;
-      }
-
-      // Difficulty filter
-      if (difficultyFilter !== "All" && resource.difficulty !== difficultyFilter) {
-        return false;
-      }
-
-      // Featured filter
-      if (showFeaturedOnly && !resource.featured) {
-        return false;
-      }
-
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return toolkitResources.filter((r) => {
+      if (selCategories.size && !selCategories.has(r.category)) return false;
+      if (selCapabilities.size && !selCapabilities.has(r.capability)) return false;
+      if (selTypes.size && !selTypes.has(r.type)) return false;
+      if (selDifficulties.size && !selDifficulties.has(r.difficulty)) return false;
+      if (featuredOnly && !r.featured) return false;
+      if (q && !(r.title.toLowerCase().includes(q) || r.description.toLowerCase().includes(q))) return false;
       return true;
     });
-  }, [typeFilter, categoryFilter, capabilityFilter, difficultyFilter, showFeaturedOnly]);
+  }, [query, selCategories, selCapabilities, selTypes, selDifficulties, featuredOnly]);
 
-  const handleResetFilters = () => {
-    setTypeFilter("All");
-    setCategoryFilter("All");
-    setCapabilityFilter("All");
-    setDifficultyFilter("All");
-    setShowFeaturedOnly(false);
+  const activeFilters: ActiveFilter[] = [
+    ...Array.from(selCategories).map((v) => ({
+      kind: "category" as FilterKind, value: v, label: `Category: ${categoryLabels[v as ToolkitResource["category"]] ?? v}`,
+    })),
+    ...Array.from(selCapabilities).map((v) => ({
+      kind: "capability" as FilterKind, value: v, label: `Capability: ${v}`,
+    })),
+    ...Array.from(selTypes).map((v) => ({
+      kind: "type" as FilterKind, value: v, label: `Type: ${typeLabels[v as ToolkitResource["type"]] ?? v}`,
+    })),
+    ...Array.from(selDifficulties).map((v) => ({
+      kind: "difficulty" as FilterKind, value: v, label: `Level: ${difficultyLabels[v as ToolkitResource["difficulty"]] ?? v}`,
+    })),
+  ];
+
+  const removeFilter = (f: ActiveFilter) => {
+    if (f.kind === "category") setSelCategories(toggleSet(selCategories, f.value));
+    if (f.kind === "capability") setSelCapabilities(toggleSet(selCapabilities, f.value));
+    if (f.kind === "type") setSelTypes(toggleSet(selTypes, f.value));
+    if (f.kind === "difficulty") setSelDifficulties(toggleSet(selDifficulties, f.value));
   };
 
-  const getDifficultyBadgeVariant = (difficulty: ToolkitResource['difficulty']) => {
-    switch (difficulty) {
-      case 'beginner': return 'default';
-      case 'intermediate': return 'secondary';
-      case 'advanced': return 'outline';
-      default: return 'outline';
-    }
-  };
-
-  const renderResourceCard = (resource: ToolkitResource, index: number) => {
-    const IconComponent = resource.icon;
-    
-    const enhancedDescription = (
-      <div className="space-y-4">
-        <p className="text-sm">{resource.description}</p>
-        
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2">
-          <Badge variant="default">
-            {typeLabels[resource.type]}
-          </Badge>
-          <Badge variant="outline">
-            {categoryLabels[resource.category]}
-          </Badge>
-          <Badge variant={getDifficultyBadgeVariant(resource.difficulty)}>
-            {difficultyLabels[resource.difficulty]}
-          </Badge>
-          {resource.featured && (
-            <Badge variant="secondary">
-              <Star className="w-3 h-3 mr-1" />
-              Featured
-            </Badge>
-          )}
-        </div>
-
-        {/* Resource Details */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Clock className="w-3 h-3 text-muted-foreground" />
-              <span className="text-muted-foreground">{resource.timeToComplete}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FileText className="w-3 h-3 text-muted-foreground" />
-              <span className="text-muted-foreground">{resource.format}</span>
-            </div>
-          </div>
-          <div className="space-y-2">
-            <div className="text-muted-foreground">
-              Size: {resource.fileSize}
-            </div>
-            {resource.pages && (
-              <div className="text-muted-foreground">
-                Pages: {resource.pages}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Capability Connection */}
-        <div className="bg-accent/5 p-3 rounded-lg">
-          <p className="text-xs font-medium text-accent">
-            From: {resource.capability} Capability
-          </p>
-        </div>
-      </div>
-    );
-
-    return (
-      <CardShell
-        key={resource.id}
-        title={resource.title}
-        description={enhancedDescription}
-        icon={IconComponent}
-        ctaText="Download Free →"
-        href={resource.downloadUrl}
-        delay={index * 0.1}
-        dataTestId={`toolkit-card-${resource.id}`}
-        ariaLabel={`Download ${resource.title} for free`}
-        variant="default"
-      />
-    );
+  const clearAll = () => {
+    setSelCategories(new Set());
+    setSelCapabilities(new Set());
+    setSelTypes(new Set());
+    setSelDifficulties(new Set());
+    setFeaturedOnly(false);
+    setQuery("");
   };
 
   return (
     <>
       <Helmet>
-        <title>Toolkit: Free NovaTransform Resources | Varun Goel</title>
-        <meta name="description" content={`Download ${toolkitResources.length} free transformation resources, frameworks, and templates from Varun Goel's expertise toolkit.`} />
+        <title>AI Playbook — Frameworks & Artifacts | NovaTransform</title>
+        <meta
+          name="description"
+          content={`Downloadable blueprints, operational cadences, and evaluation matrices. ${toolkitResources.length} free transformation resources from Varun Goel.`}
+        />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-accent/5 via-transparent to-secondary/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-4xl mx-auto">
-            <FadeIn>
-              <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">
-                Your Transformation Toolkit: <span className="text-accent">Instant Edges</span>
-              </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Curated from my 19-year expertise—{toolkitResources.length} free, actionable resources to spark your nova. These aren't generics—they're battle-tested from cross-industry wins.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button size="lg" asChild>
-                  <Link href="#resources">Browse {toolkitResources.length} Resources</Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link href="/connect">Request Custom Toolkit</Link>
-                </Button>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      {/* Filters Section */}
-      <section id="resources" className="py-8 border-b border-border">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn>
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Filter className="w-5 h-5 text-accent" />
-                  <h2 className="font-semibold text-lg">Filter Toolkit</h2>
-                  <Badge variant="outline">
-                    {filteredResources.length} of {toolkitResources.length}
-                  </Badge>
-                </div>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  onClick={handleResetFilters}
-                  className="flex items-center gap-2"
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  Reset
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">Type</label>
-                  <Select value={typeFilter} onValueChange={setTypeFilter}>
-                    <SelectTrigger data-testid="select-type-filter">
-                      <SelectValue placeholder="All types" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="All">All Types</SelectItem>
-                      {types.map((type) => (
-                        <SelectItem key={type} value={type}>
-                          {typeLabels[type as keyof typeof typeLabels]}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Category</label>
-                  <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                    <SelectTrigger data-testid="select-category-filter">
-                      <SelectValue placeholder="All categories" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="All">All Categories</SelectItem>
-                      {categories.map((category) => (
-                        <SelectItem key={category} value={category}>
-                          {categoryLabels[category as keyof typeof categoryLabels]}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Capability</label>
-                  <Select value={capabilityFilter} onValueChange={setCapabilityFilter}>
-                    <SelectTrigger data-testid="select-capability-filter">
-                      <SelectValue placeholder="All capabilities" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="All">All Capabilities</SelectItem>
-                      {capabilities.map((capability) => (
-                        <SelectItem key={capability} value={capability}>
-                          {capability}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Difficulty</label>
-                  <Select value={difficultyFilter} onValueChange={setDifficultyFilter}>
-                    <SelectTrigger data-testid="select-difficulty-filter">
-                      <SelectValue placeholder="All levels" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="All">All Levels</SelectItem>
-                      {difficulties.map((difficulty) => (
-                        <SelectItem key={difficulty} value={difficulty}>
-                          {difficultyLabels[difficulty as keyof typeof difficultyLabels]}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2">Show</label>
-                  <Button
-                    variant={showFeaturedOnly ? "default" : "outline"}
-                    onClick={() => setShowFeaturedOnly(!showFeaturedOnly)}
-                    className="w-full justify-start"
-                    data-testid="toggle-featured-filter"
-                  >
-                    <Star className="w-4 h-4 mr-2" />
-                    Featured Only
-                  </Button>
-                </div>
-              </div>
-            </div>
+      <main className="relative w-full pt-32 pb-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
+        {/* Playbook Hero */}
+        <section className="py-16 flex flex-col items-start relative mb-8 border-b border-border pb-16">
+          <FadeIn delay={0.1}>
+            <span className="text-xs uppercase tracking-[0.3em] text-accent font-bold px-4 py-2 rounded-lg bg-accent/10 border border-accent/20">
+              The Laboratory
+            </span>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* Resources Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-              All Toolkit Resources
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Each resource is derived from real-world implementations and proven results across industries.
+          <FadeIn delay={0.25}>
+            <h1 className="mt-6 text-4xl md:text-5xl font-bold tracking-tight leading-[1.1] uppercase font-display mb-6">
+              Frameworks & <br />
+              <span className="text-muted-foreground">Artifacts.</span>
+            </h1>
+          </FadeIn>
+          <FadeIn delay={0.4}>
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+              Downloadable blueprints, operational cadences, and evaluation matrices used to deploy enterprise transformation at scale. Theory translated into executable artifacts.
             </p>
-          </div>
+          </FadeIn>
+        </section>
 
-          {filteredResources.length > 0 ? (
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
-              {filteredResources.map(renderResourceCard)}
-            </StaggerContainer>
-          ) : (
-            <FadeIn>
-              <div className="text-center py-16">
-                <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Filter className="w-8 h-8 text-muted-foreground" />
+        {/* Sidebar + Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Left: Filters */}
+          <aside className="col-span-1 lg:col-span-3">
+            <div className="lg:sticky lg:top-28 bg-secondary/60 border border-border rounded-2xl p-6">
+              {/* Search */}
+              <div className="mb-8">
+                <div className="relative">
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-4 h-4" />
+                  <input
+                    type="text"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search artifacts..."
+                    className="w-full bg-background border border-border rounded-lg py-3 pl-10 pr-4 text-sm placeholder:text-muted-foreground focus:outline-none focus:border-accent/50 transition-colors"
+                  />
                 </div>
-                <h3 className="font-semibold text-xl mb-2">No resources found</h3>
-                <p className="text-muted-foreground mb-4">Try adjusting your filters to see more results</p>
-                <Button onClick={handleResetFilters} variant="outline">
-                  <RotateCcw className="w-4 h-4 mr-2" />
-                  Reset Filters
-                </Button>
               </div>
-            </FadeIn>
-          )}
-        </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-secondary/5">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+              <FilterGroup
+                icon={Layers}
+                title="Category"
+                options={categories}
+                selected={selCategories}
+                onToggle={(v) => setSelCategories(toggleSet(selCategories, v))}
+                counts={counts.byCat}
+                labelMap={categoryLabels as unknown as Record<string, string>}
+                defaultOpen
+              />
+
+              <FilterGroup
+                icon={Network}
+                title="Capability"
+                options={capabilities}
+                selected={selCapabilities}
+                onToggle={(v) => setSelCapabilities(toggleSet(selCapabilities, v))}
+                counts={counts.byCap}
+              />
+
+              <FilterGroup
+                icon={Tag}
+                title="Type"
+                options={types}
+                selected={selTypes}
+                onToggle={(v) => setSelTypes(toggleSet(selTypes, v))}
+                counts={counts.byType}
+                labelMap={typeLabels as unknown as Record<string, string>}
+              />
+
+              <FilterGroup
+                icon={BarChart3}
+                title="Difficulty"
+                options={difficulties}
+                selected={selDifficulties}
+                onToggle={(v) => setSelDifficulties(toggleSet(selDifficulties, v))}
+                counts={counts.byDiff}
+                labelMap={difficultyLabels as unknown as Record<string, string>}
+              />
+
+              {/* Featured toggle */}
+              <button
+                onClick={() => setFeaturedOnly((v) => !v)}
+                className={`w-full flex items-center gap-2 justify-center text-sm rounded-lg px-3 py-2 border transition-colors ${
+                  featuredOnly
+                    ? "bg-accent text-accent-foreground border-accent"
+                    : "bg-background border-border text-foreground hover:border-accent/40"
+                }`}
+              >
+                <Star className="w-4 h-4" />
+                Featured only
+              </button>
+            </div>
+          </aside>
+
+          {/* Right: Grid */}
+          <div className="col-span-1 lg:col-span-9">
+            {/* Active filters */}
+            <div className="flex items-center gap-3 mb-6 overflow-x-auto pb-2">
+              <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold whitespace-nowrap">
+                {filtered.length} of {toolkitResources.length}
+              </span>
+              {activeFilters.length > 0 && (
+                <>
+                  <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold whitespace-nowrap">
+                    · Active:
+                  </span>
+                  {activeFilters.map((f) => (
+                    <button
+                      key={`${f.kind}:${f.value}`}
+                      onClick={() => removeFilter(f)}
+                      className="flex items-center gap-2 bg-secondary border border-border rounded-lg px-3 py-1.5 whitespace-nowrap hover:border-accent/40 transition-colors"
+                    >
+                      <span className="text-xs">{f.label}</span>
+                      <X className="w-3 h-3 text-muted-foreground" />
+                    </button>
+                  ))}
+                  <button
+                    onClick={clearAll}
+                    className="text-xs text-accent hover:text-foreground underline underline-offset-4 ml-2 whitespace-nowrap"
+                  >
+                    Clear all
+                  </button>
+                </>
+              )}
+            </div>
+
+            {filtered.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {filtered.map((r, i) => {
+                  const Icon = r.icon;
+                  return (
+                    <FadeIn key={r.id} delay={Math.min(i * 0.05, 0.4)}>
+                      <article className="group relative bg-secondary border border-border rounded-2xl p-6 flex flex-col h-full overflow-hidden hover:border-accent/40 transition-colors">
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-accent/10 to-transparent rounded-bl-[100%]" />
+
+                        <div className="flex justify-between items-start mb-6 relative z-10">
+                          <div className="w-12 h-12 rounded-lg bg-background border border-border flex items-center justify-center text-accent">
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          {r.featured ? (
+                            <span className="bg-accent/10 text-accent border border-accent/20 text-[10px] uppercase tracking-wider px-2 py-1 rounded font-mono">
+                              Featured
+                            </span>
+                          ) : (
+                            <span className="bg-muted text-muted-foreground border border-border text-[10px] uppercase tracking-wider px-2 py-1 rounded font-mono">
+                              {difficultyLabels[r.difficulty]}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="mb-4 flex-grow relative z-10">
+                          <h3 className="text-base md:text-lg font-bold mb-2 font-display">{r.title}</h3>
+                          <p className="text-sm text-muted-foreground line-clamp-3">{r.description}</p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2 mb-4 relative z-10">
+                          <span className="text-[10px] bg-background text-muted-foreground px-2 py-1 rounded border border-border font-mono">
+                            {typeLabels[r.type]}
+                          </span>
+                          <span className="text-[10px] bg-background text-muted-foreground px-2 py-1 rounded border border-border font-mono">
+                            {r.capability}
+                          </span>
+                          <span className="text-[10px] bg-background text-muted-foreground px-2 py-1 rounded border border-border font-mono">
+                            {r.format.split(/[+/]/)[0].trim()}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center gap-4 text-[11px] text-muted-foreground mb-4 relative z-10">
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" /> {r.timeToComplete}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <FileText className="w-3 h-3" /> {r.fileSize}
+                          </span>
+                          {r.pages && <span>{r.pages} pages</span>}
+                        </div>
+
+                        <div className="flex items-center justify-between pt-4 border-t border-border relative z-10">
+                          <Link
+                            href={r.downloadUrl}
+                            className="text-sm font-bold tracking-wide flex items-center gap-2 hover:text-accent transition-colors"
+                          >
+                            Request access <ArrowRight className="w-3 h-3" />
+                          </Link>
+                          <Link
+                            href={r.downloadUrl}
+                            className="w-8 h-8 rounded-lg bg-background hover:bg-accent hover:text-accent-foreground text-muted-foreground flex items-center justify-center transition-colors border border-border"
+                            aria-label={`Download ${r.title}`}
+                          >
+                            <Download className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
+                      </article>
+                    </FadeIn>
+                  );
+                })}
+              </div>
+            ) : (
+              <FadeIn>
+                <div className="text-center py-16 border border-dashed border-border rounded-2xl">
+                  <div className="w-16 h-16 bg-muted rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Search className="w-7 h-7 text-muted-foreground" />
+                  </div>
+                  <h3 className="font-semibold text-xl mb-2">No artifacts found</h3>
+                  <p className="text-muted-foreground mb-4">Try adjusting filters or clearing the search.</p>
+                  <Button onClick={clearAll} variant="outline">Clear all filters</Button>
+                </div>
+              </FadeIn>
+            )}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <section className="mt-24">
           <FadeIn>
-            <div className="bg-gradient-to-r from-accent/10 to-secondary/10 p-8 rounded-2xl">
-              <h3 className="font-display text-2xl font-bold text-foreground mb-4">Need Something Specific?</h3>
-              <p className="text-lg text-muted-foreground mb-6">
-                Can't find exactly what you need? I create custom toolkits tailored to your specific transformation challenges and industry context.
+            <div className="bg-gradient-to-r from-accent/10 to-secondary p-8 md:p-12 rounded-2xl border border-border text-center">
+              <h3 className="font-display text-xl md:text-2xl font-bold mb-3">Need something specific?</h3>
+              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Can't find exactly what you need? I create custom playbooks tailored to your transformation challenges and industry context.
               </p>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-3">
                 <Button asChild>
-                  <Link href="/connect">Request Custom Toolkit</Link>
+                  <Link href="/connect">Request custom playbook</Link>
                 </Button>
+                {/* Innovations link hidden
                 <Button variant="outline" asChild>
-                  <Link href="/innovations">Explore AI Tools</Link>
+                  <Link href="/innovations">Explore AI tools</Link>
                 </Button>
-                <Button variant="outline" asChild>
-                  <Link href="/#capabilities">View All Capabilities</Link>
-                </Button>
+                */}
               </div>
             </div>
           </FadeIn>
-        </div>
-      </section>
+        </section>
+      </main>
     </>
   );
 }
