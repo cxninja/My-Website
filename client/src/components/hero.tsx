@@ -6,25 +6,10 @@ import { Link } from "wouter";
 
 const heroImages = [
   {
-    src: "images/IMG-Hero-Manual 2.webp",
-    alt: "Meet Varun - Digital Marketing Strategy",
-    service: "digital-marketing"
+    src: "/images/varun.webp",
+    alt: "Varun Goel — Founder, NovaTransform",
+    service: "varun"
   }
-  // {
-  //   src: "images/IMG3.webp",
-  //   alt: "Meet Varun - Manufacturing Floor",
-  //   service: "manufacturing"
-  // },
-  // {
-  //   src: "images/IMG2.webp",
-  //   alt: "Meet Varun - Informal Coffee",
-  //   service: "transformation"
-  // },
-  // {
-  //   src: "images/IMG4.webp",
-  //   alt: "Meet Varun - Customer success",
-  //   service: "customer-success"
-  // }
 ];
 
 const rotatingWords = ["Scale.", "Grow.", "Excel.", "Succeed.", "Transform."];
@@ -104,40 +89,30 @@ export function Hero() {
           </FadeIn>
         </div>
 
-        {/* Rotating Service Images */}
-        <FadeIn delay={0.4} className="relative h-96 lg:h-[500px]">
-          <div className="absolute inset-0 rounded-2xl overflow-hidden shadow-2xl">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentImageIndex}
-                src={heroImages[currentImageIndex].src}
-                alt={heroImages[currentImageIndex].alt}
-                className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                data-testid={`hero-image-${heroImages[currentImageIndex].service}`}
-              />
-            </AnimatePresence>
-
-            {/* Service indicators 
-            <div className="absolute bottom-4 left-4 right-4 flex justify-center space-x-2">
-              {heroImages.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleIndicatorClick(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex 
-                      ? 'bg-accent' 
-                      : 'bg-white/50 hover:bg-white/70'
-                  }`}
-                  data-testid={`image-indicator-${index}`}
-                />
-              ))}
-            </div>
-            */}
-          </div>
+        {/* Portrait */}
+        <FadeIn delay={0.4} className="relative h-96 lg:h-[560px] group">
+          {/* Soft circular backdrop so the cutout has visual ground */}
+          <div
+            className="absolute inset-x-0 bottom-0 w-[85%] aspect-square mx-auto rounded-full bg-gradient-to-br from-accent/20 via-accent/5 to-transparent blur-2xl"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute left-1/2 -translate-x-1/2 bottom-0 w-[78%] aspect-square rounded-full bg-gradient-to-br from-accent/10 to-transparent"
+            aria-hidden="true"
+          />
+          <AnimatePresence mode="wait">
+            <motion.img
+              key={currentImageIndex}
+              src={heroImages[currentImageIndex].src}
+              alt={heroImages[currentImageIndex].alt}
+              className="relative z-10 w-full h-full object-contain object-bottom filter grayscale group-hover:grayscale-0 transition-all duration-500 drop-shadow-2xl"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              data-testid={`hero-image-${heroImages[currentImageIndex].service}`}
+            />
+          </AnimatePresence>
         </FadeIn>
       </div>
     </section>
