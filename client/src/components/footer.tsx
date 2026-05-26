@@ -11,7 +11,7 @@ const quickLinks = [
   { name: "About", href: "/about" },
   { name: "Expertise", href: "/expertise" },
   { name: "Edgy Insights", href: "/edgy-insights" },
-  { name: "Innovations", href: "/innovations" },
+  // { name: "Innovations", href: "/innovations" }, // hidden
   { name: "Toolkit", href: "/toolkit" },
   { name: "Connect", href: "/connect" },
   { name: "Blog", href: "https://google.com" },
