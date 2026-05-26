@@ -9,6 +9,10 @@
 [functions]
   directory = "netlify/functions"
 
+[[edge_functions]]
+  function = "blog-head"
+  path = "/blog/*"
+
 
 [[redirects]]
   from = "/api/*"
