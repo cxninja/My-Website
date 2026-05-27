@@ -1,34 +1,56 @@
 [
   {
-    "id": "Yuko-Sato",
-    "quote": "Varun was a leader with excelled in analyzing data and translating insights into actionable strategies. With his sharp analytical skills and sound judgment, the team consistently devised effective plans under his guidance. Particularly, his extensive knowledge of APAC market proved invaluable in supporting successes in the region. Respected and trusted by his team, Varun’s leadership and humanity were instrumental in fostering a positive work environment.",
-    "author": "Yuko Sato",
-    "title": "Head of Customer Success",
-    "company": "Zscaler",
-    "avatar": "/api/placeholder/60/60"
+    "id": "yuko-sato",
+    "quote": "Varun was a leader who excelled in analyzing data and translating insights into actionable strategies. With his sharp analytical skills and sound judgment, the team consistently devised effective plans under his guidance. Particularly, his extensive knowledge of APAC market proved invaluable in supporting successes in the region. Respected and trusted by his team, Varun's leadership and humanity were instrumental in fostering a positive work environment.",
+    "author": "Yuko Sato, MBA",
+    "title": "Customer Success",
+    "company": "Zendesk",
+    "relationship": "Worked with Varun on the same team",
+    "date": "May 2024"
   },
   {
-    "id": "Lindsay-Gonzalez", 
-    "quote": "I have worked with Varun and his team collaboratively to execute and streamline SEO (Search Engine Optimization) strategies for a number of clients. Varun has consistently delivered strong results and has remained flexible in the ever-changing digital space. He and his team successfully communicate the status of various projects in an organized fashion, and work through obstacles efficiently. His expertise in online marketing is strong and has helped us expand our SEO work tremendously.",
+    "id": "felicity-scheltinga",
+    "quote": "I enjoyed collaborating with Varun at Zendesk. I have been inspired by his passion for continuous improvement and his ability to represent his region. He's an all-around great guy that is supportive and always so respectful in his interactions and have no hesitation recommending him to potential employers.",
+    "author": "Felicity Scheltinga",
+    "title": "Former Senior Principal CSM, Zendesk · Founder, The Growth Canopy",
+    "company": "Zendesk",
+    "relationship": "Worked with Varun on the same team",
+    "date": "June 2023"
+  },
+  {
+    "id": "aditya-varshney",
+    "quote": "Varun is a person who looks for a workable resolution in any situation or problem presented to him. He has a simple and bottom-up approach which helps him to analyze a situation in a linear and logical way. He has an impeccable combination of carrying business acumen with stakeholder relationships. As an individual, he is humble, yet resolved in his behavior towards his colleagues and subordinates. He can be counted upon as a resourceful leader in any enterprise.",
+    "author": "Aditya Kumar Varshney",
+    "title": "APAC CX & MarTech Leader · Head of Premium Customer Success",
+    "company": "Adobe",
+    "relationship": "Reported to Varun directly",
+    "date": "September 2017"
+  },
+  {
+    "id": "rakesh-saini",
+    "quote": "Working with Varun has been a great experience, especially seeing how he bridges the gap between client success, business strategy, and technology execution so seamlessly. Varun has an outstanding ability to understand client needs deeply, frame the right solutions, and lead initiatives that drive both revenue growth and long-term relationships. His leadership in client success and digital transformation has consistently set a high standard for cross-functional collaboration.",
+    "author": "Rakesh Saini",
+    "title": "Full-stack + GenAI Architect · 15+ yrs · AI Systems & Enterprise Web Apps",
+    "company": "Intelegencia",
+    "relationship": "Senior to Rakesh, not direct manager",
+    "date": "April 2025"
+  },
+  {
+    "id": "ira-csm",
+    "quote": "I had the pleasure of working under Varun Goel, where he consistently demonstrated exceptional leadership in client success and engagement. His ability to foster strong client relationships while driving measurable business outcomes truly set the standard for excellence within our team. What I admired most was his commitment to both team development and client satisfaction. He empowered us to take ownership, think creatively, and deliver consistent value.",
+    "author": "Ira",
+    "title": "Certified PMP · QA Analyst · Project Co-ordinator",
+    "company": "Intelegencia",
+    "relationship": "Reported to Varun directly",
+    "date": "April 2025"
+  },
+  {
+    "id": "lindsay-gonzalez",
+    "quote": "I have worked with Varun and his team collaboratively to execute and streamline SEO strategies for a number of clients. Varun has consistently delivered strong results and has remained flexible in the ever-changing digital space. He and his team successfully communicate the status of various projects in an organized fashion, and work through obstacles efficiently. His expertise in online marketing is strong and has helped us expand our SEO work tremendously.",
     "author": "Lindsay Gonzalez",
-    "title": "Founder",
-    "company": "SWIM",
-    "avatar": "/api/placeholder/60/60"
-  },
-  {
-    "id": "lisa-rodriguez",
-    "quote": "The transformation exceeded our expectations. Patient satisfaction scores improved dramatically while we increased our capacity by nearly 30%.",
-    "author": "Dr. Lisa Rodriguez",
-    "title": "Chief Medical Officer",
-    "company": "Regional Health System",
-    "avatar": "/api/placeholder/60/60"
-  },
-  {
-    "id": "james-patterson",
-    "quote": "The inventory optimization system transformed our operations. We reduced stockouts by 41% while significantly lowering our carrying costs.",
-    "author": "James Patterson",
-    "title": "Director of Supply Chain",
-    "company": "RetailPlus",
-    "avatar": "/api/placeholder/60/60"
+    "title": "People & Ops Lead @ Unstructured · Founder @ SWIM",
+    "company": "SWIM (client)",
+    "relationship": "Client of Varun's",
+    "date": "March 2012"
   }
 ]

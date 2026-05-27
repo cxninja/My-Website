@@ -1,4 +1,5 @@
 import { useParams } from "wouter";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
@@ -28,13 +29,34 @@ export default function CapabilityDetail() {
   }
 
   const IconComponent = capability.icon;
+  const canonicalPath = `/practice/${capability.id}`;
+
+  // Service JSON-LD — eligible for rich Service results in Google SERPs.
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: capability.title,
+    description: capability.description,
+    serviceType: capability.title,
+    url: `https://novatransform.com${canonicalPath}`,
+    provider: {
+      "@type": "Organization",
+      name: "NovaTransform",
+      url: "https://novatransform.com/",
+    },
+    areaServed: "Worldwide",
+  };
 
   return (
     <>
-      <SEO 
-        title={`${capability.title} | NovaTransform Capability | Varun Goel`}
+      <SEO
+        title={`${capability.title} Consulting`}
         description={capability.description}
+        path={canonicalPath}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(serviceJsonLd)}</script>
+      </Helmet>
 
       {/* Header */}
       <section className="pt-24 pb-8 bg-secondary/30">
@@ -45,9 +67,9 @@ export default function CapabilityDetail() {
               asChild
               className="mb-6 p-0 hover:bg-transparent hover:text-accent"
             >
-              <Link href="/#capabilities">
+              <Link href="/practice">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Capabilities
+                Back to Practice
               </Link>
             </Button>
 
@@ -244,7 +266,7 @@ export default function CapabilityDetail() {
               .filter(c => c.id !== capability.id)
               .slice(0, 4)
               .map((relatedCapability) => (
-              <Link key={relatedCapability.id} href={`/capability/${relatedCapability.id}`}>
+              <Link key={relatedCapability.id} href={`/practice/${relatedCapability.id}`}>
                 <Badge
                   variant="outline"
                   className="px-4 py-2 cursor-pointer hover:bg-accent hover:text-accent-foreground transition-colors"

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { CaseStudyCard } from "@/components/case-study-card";
@@ -106,12 +107,32 @@ export default function CaseStudies() {
     setImpactRange([0, maxDelta]);
   };
 
+  // CollectionPage JSON-LD with ItemList of case studies for richer SERP coverage.
+  const collectionJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Case Studies — NovaTransform",
+    url: "https://novatransform.com/case-studies",
+    description:
+      "Story-driven transformation case studies across industries, with metrics and lessons.",
+    hasPart: (insights ?? []).slice(0, 20).map((i) => ({
+      "@type": "Article",
+      headline: i.title,
+      url: `https://novatransform.com/case-studies/${i.slug}`,
+      articleSection: i.industry,
+    })),
+  };
+
   return (
     <>
       <SEO
-        title="Edgy Insights: Transformation Narratives | Varun Goel"
-        description="Story-driven transformation insights across industries. Bursts of real impact, every one backed by numbers."
+        title="Case Studies — Transformation Stories"
+        description="Story-driven case studies across industries — every one backed by numbers and the lessons that translate to your business."
+        path="/case-studies"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(collectionJsonLd)}</script>
+      </Helmet>
 
       <section className="pt-24 pb-12 bg-secondary/30">
         <div className="max-w-4xl mx-auto px-6 text-center">

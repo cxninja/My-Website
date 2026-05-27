@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { FadeIn } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
@@ -87,12 +88,42 @@ export default function Contact() {
     setIsSubmitted(false);
   };
 
+  // Organization + ContactPoint JSON-LD so Google can surface contact details
+  // directly in the Knowledge Panel / business listing.
+  const contactJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "NovaTransform",
+    url: "https://novatransform.com/",
+    logo: "https://novatransform.com/images/MainLogo.png",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN",
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "hello@novatransform.com",
+        areaServed: "Worldwide",
+        availableLanguage: ["English"],
+      },
+    ],
+    sameAs: ["https://www.linkedin.com/company/novatransform"],
+  };
+
   return (
     <>
-      <SEO 
-        title="Connect: Ignite Your NovaTransform | Varun Goel"
-        description="Ready to unleash explosive business transformation? Connect with Varun Goel to explore the capability pillars and discover your edge potential."
+      <SEO
+        title="Contact NovaTransform"
+        description="Book a 30-minute discovery call with Varun Goel. Talk about your transformation, growth, or customer success challenge — no deck, no pitch."
+        path="/contact"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(contactJsonLd)}</script>
+      </Helmet>
 
       {/* Hero */}
       <section className="pt-24 pb-16 bg-secondary/30">

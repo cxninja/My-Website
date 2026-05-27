@@ -1,4 +1,5 @@
 import { Switch, Route } from "wouter";
+import { MotionConfig } from "framer-motion";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
@@ -88,10 +89,15 @@ function App() {
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
+        {/* reducedMotion="user" makes every framer-motion animation in the tree
+            respect the user's OS-level "Reduce motion" preference automatically.
+            One provider replaces having to guard each animation individually. */}
+        <MotionConfig reducedMotion="user">
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </MotionConfig>
       </QueryClientProvider>
     </HelmetProvider>
   );

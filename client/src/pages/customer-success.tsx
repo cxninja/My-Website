@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,10 +67,13 @@ const successMetrics = [
 export default function CustomerSuccess() {
   return (
     <>
-      <Helmet>
-        <title>Customer Success Consulting - NovaTransform</title>
-        <meta name="description" content="Transform your customer success with predictive health scoring, systematic onboarding, and churn prevention. Reduce churn by 25% while increasing expansion revenue." />
-      </Helmet>
+      {/* Legacy route. Canonical points at /practice/customer-success so Google
+          credits the new URL and avoids treating this as duplicate content. */}
+      <SEO
+        title="Customer Success Consulting"
+        description="Transform your customer success with predictive health scoring, systematic onboarding, and churn prevention. Reduce churn by 25% while increasing expansion revenue."
+        path="/practice/customer-success"
+      />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-secondary/30 to-secondary/10">

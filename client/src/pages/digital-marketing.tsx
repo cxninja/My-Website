@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -46,10 +46,12 @@ const deliverables = [
 export default function DigitalMarketing() {
   return (
     <>
-      <Helmet>
-        <title>Digital Marketing Consulting - NovaTransform</title>
-        <meta name="description" content="Transform your marketing with data-driven attribution, conversion optimization, and systematic growth programs. Reduce CAC by 30% while increasing MQLs by 50%." />
-      </Helmet>
+      {/* Legacy route. Canonical points at /practice/digital-marketing. */}
+      <SEO
+        title="Digital Marketing Consulting"
+        description="Transform your marketing with data-driven attribution, conversion optimization, and systematic growth programs. Reduce CAC by 30% while increasing MQLs by 50%."
+        path="/practice/digital-marketing"
+      />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-secondary/30 to-secondary/10">

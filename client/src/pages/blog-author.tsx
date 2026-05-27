@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRoute } from "wouter";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import { ArrowLeft, Linkedin, Twitter, Github, Globe, Mail, Award, Clock } from "lucide-react";
 import {
@@ -115,9 +116,14 @@ export default function BlogAuthor() {
 
   return (
     <>
+      <SEO
+        title={`${author.name} — Blog`}
+        description={author.bio ?? `Articles by ${author.name} on the NovaTransform blog.`}
+        image={avatarUrl ?? undefined}
+        path={`/blog/author/${author.slug}`}
+        type="profile"
+      />
       <Helmet>
-        <title>{`${author.name} — NovaTransform Blog`}</title>
-        {author.bio && <meta name="description" content={author.bio} />}
         <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
       </Helmet>
 

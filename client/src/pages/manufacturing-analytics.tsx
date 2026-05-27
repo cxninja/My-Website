@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -52,10 +52,14 @@ const metrics = [
 export default function ManufacturingAnalytics() {
   return (
     <>
-      <Helmet>
-        <title>Manufacturing Analytics Consulting - NovaTransform</title>
-        <meta name="description" content="Transform your manufacturing operations with predictive analytics, OEE monitoring, and real-time quality control. Reduce downtime by 35% and improve OEE by 15 points." />
-      </Helmet>
+      {/* Legacy orphan route — not linked from /practice. Canonical points at the
+          Practice overview so this page doesn't compete in search. Delete when
+          ready, since no /practice/manufacturing-analytics equivalent exists. */}
+      <SEO
+        title="Manufacturing Analytics Consulting"
+        description="Transform your manufacturing operations with predictive analytics, OEE monitoring, and real-time quality control. Reduce downtime by 35% and improve OEE by 15 points."
+        path="/practice"
+      />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-secondary/30 to-secondary/10">

@@ -8,8 +8,8 @@ import { Link } from "wouter";
 
 const founderStory = {
   name: "Varun Goel",
-  bio: "With over 20 years of combined experience across operations and growth, I bring pragmatic, data-led execution to every engagement. I've built and scaled organizations across multiple industries, understanding both the strategic vision and tactical realities of transformation.",
-  experience: "20+ years across ops and growth"
+  bio: "NovaTransform is the advisory brand for 19+ years of senior operating experience — across Adobe (APAC Customer Success), Zendesk (CSM leadership), and Intelegencia (current AVP, Client Success & Digital Marketing Group). The methodology is what travels. NovaTransform is how it gets packaged.",
+  experience: "19+ years across ops, growth, and customer success"
 };
 
 const values = [
@@ -30,49 +30,60 @@ const values = [
   }
 ];
 
+// Career milestones drawn from LinkedIn employment record — kept honest so it
+// reconciles with the detailed role list on /leadership.
 const timeline = [
   {
-    year: "2020",
-    title: "Founded NovaTransform",
-    description: "Established with the mission to bridge the gap between strategy and execution for mid-market companies."
-  },
-  {
-    year: "2021",
-    title: "First Major Client Success",
-    description: "Delivered 40% improvement in manufacturing OEE for precision parts manufacturer, establishing our methodology."
-  },
-  {
-    year: "2022",
-    title: "Digital Marketing Practice Launch",
-    description: "Expanded services to include full-funnel marketing optimization, helping SaaS companies scale demand generation."
+    year: "2025",
+    title: "AVP — Client Success & Digital Marketing Group, Intelegencia",
+    description: "Leading global client strategy, delivery, and transformation across SaaS and manufacturing-aligned services. Driving the digital marketing practice for global customers."
   },
   {
     year: "2023",
-    title: "Customer Success Expertise",
-    description: "Added customer lifecycle management and churn prevention to our core service offerings."
+    title: "Senior Director, Client Success — Intelegencia",
+    description: "Returned to Intelegencia to lead Client Success across manufacturing analytics and digital transformation engagements."
   },
   {
-    year: "2024",
-    title: "Industry Recognition",
-    description: "Recognized as a leading boutique consultancy for outcome-focused transformation projects."
+    year: "2020",
+    title: "Customer Success Leader, Zendesk",
+    description: "Led customer success across India, SAARC, and APAC enterprise accounts — retention, expansion, and executive engagement at scale."
+  },
+  {
+    year: "2016",
+    title: "Manager — Customer Success (APAC), Adobe",
+    description: "Built and led the APAC Customer Success team for Adobe Experience Cloud, Document Cloud, and Creative Cloud across enterprise accounts."
+  },
+  {
+    year: "2009",
+    title: "Associate Director, Client Services — Intelegencia",
+    description: "Led global delivery across software, QA, and content teams — 180+ team members serving clients across APAC, EMEA, and the US over 7 years."
+  },
+  {
+    year: "2005",
+    title: "Earlier — Sales & Business Development",
+    description: "Started in pre-sales and BD across ISHIR, MAG Studios, and Porteck — the foundation for a career built on customer relationships."
   }
 ];
 
+// Real credentials from LinkedIn. Keep in sync with /leadership certifications.
 const certifications = [
-  "Google Analytics Certified",
-  "Salesforce Certified Administrator",
-  "AWS Solutions Architect",
-  "Lean Six Sigma Black Belt",
-  "Certified Customer Success Manager"
+  "Project Management Professional (PMP)® — PMI, 2024",
+  "Leading Business Transformation in the Age of AI — ISB, 2020",
+  "CSM Advanced Certified Professional — Gainsight, 2020",
+  "Digital Marketing — IIM Lucknow, 2019",
+  "Zendesk Messaging — 2023",
+  "ValueSelling Framework — ValueSelling Associates",
+  "Lean Six Sigma Green Belt — Exemplar Global"
 ];
 
 export default function About() {
 
   return (
     <>
-      <SEO 
-        title="About Us"
-        description="Learn about NovaTransform's leadership team, values, and approach to delivering measurable outcomes through strategic consulting."
+      <SEO
+        title="About NovaTransform & Varun Goel"
+        description="Learn about NovaTransform's leadership, values, and approach to delivering measurable outcomes through strategic consulting."
+        path="/about"
       />
 
       {/* Hero */}
@@ -157,7 +168,7 @@ export default function About() {
               My Journey
             </h2>
             <p className="text-lg text-muted-foreground">
-              Key milestones in building a consulting practice focused on measurable outcomes.
+              19+ years across customer success, operations, and growth — at Intelegencia, Adobe, and Zendesk.
             </p>
           </FadeIn>
 

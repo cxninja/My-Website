@@ -1,7 +1,24 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useRoute } from "wouter";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+
+// Tiny PortableText → plain text serializer for FAQPage schema answers.
+// Only extracts text from `block` children; ignores embedded images/etc.
+function portableToPlainText(value: any[] | undefined): string {
+  if (!value) return "";
+  return value
+    .filter((b) => b?._type === "block" && Array.isArray(b.children))
+    .map((b) =>
+      b.children
+        .filter((c: any) => typeof c?.text === "string")
+        .map((c: any) => c.text)
+        .join("")
+    )
+    .join("\n\n")
+    .trim();
+}
 import {
   ArrowLeft,
   Clock,
@@ -596,15 +613,33 @@ export default function BlogPost() {
     post.publishedAt &&
     new Date(post.updatedAt).getTime() - new Date(post.publishedAt).getTime() > 86400_000;
 
+  // FAQPage JSON-LD when the post has FAQs — drives rich SERP snippets.
+  const faqJsonLd =
+    post.faqs && post.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: post.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: portableToPlainText(f.answer),
+            },
+          })),
+        }
+      : null;
+
   return (
     <>
+      <SEO
+        title={`${title} — Blog`}
+        description={description}
+        image={heroUrl ?? undefined}
+        path={postUrl({ slug: post.slug, categories: post.categories })}
+        type="article"
+      />
       <Helmet>
-        <title>{`${title} — NovaTransform Blog`}</title>
-        {description && <meta name="description" content={description} />}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={title} />
-        {description && <meta property="og:description" content={description} />}
-        {heroUrl && <meta property="og:image" content={heroUrl} />}
         <meta property="article:published_time" content={post.publishedAt} />
         {post.updatedAt && <meta property="article:modified_time" content={post.updatedAt} />}
         {post.author?.name && <meta property="article:author" content={post.author.name} />}
@@ -615,6 +650,9 @@ export default function BlogPost() {
           <meta key={k} property="article:tag" content={k} />
         ))}
         <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+        {faqJsonLd && (
+          <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
+        )}
       </Helmet>
 
       {/* ── Hero: full-bleed image with overlaid text ─────────────────── */}

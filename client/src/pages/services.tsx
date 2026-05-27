@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
@@ -26,13 +27,28 @@ const engagementModel = [
 ];
 
 export default function Services() {
+  // ItemList of all 8 services — helps Google understand the practice lineup.
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: capabilities.map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://novatransform.com/practice/${c.id}`,
+      name: c.title,
+    })),
+  };
 
   return (
     <>
-      <SEO 
-        title="Expertise: Capability Pillars of NovaTransform Edge | Varun Goel"
-        description="Varun Goel's core capabilities: Customer Success, Digital Marketing, Digital Transformation, GTM Strategy, Leadership & Scaling, Cross-Industry Adaptability, AI Innovation, and Stakeholder Engagement."
+      <SEO
+        title="The Practice — Consulting Services"
+        description="Eight capability practices spanning customer success, digital marketing, transformation, GTM, leadership scaling, cross-industry adaptability, AI innovation, and stakeholder engagement."
+        path="/practice"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
+      </Helmet>
 
       {/* Hero */}
       <section className="pt-24 pb-20 bg-secondary/30">

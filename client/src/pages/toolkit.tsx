@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import {
@@ -119,14 +120,30 @@ export default function Toolkit() {
     setQuery("");
   };
 
+  // ItemList JSON-LD for the resource catalogue.
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Toolkit — Frameworks & Artifacts",
+    url: "https://novatransform.com/toolkit",
+    numberOfItems: toolkitResources.length,
+    itemListElement: toolkitResources.slice(0, 25).map((r, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: r.title,
+      description: r.description,
+    })),
+  };
+
   return (
     <>
+      <SEO
+        title="Toolkit — Free Frameworks, Playbooks & Templates"
+        description={`Downloadable blueprints, operational cadences, and evaluation matrices. ${toolkitResources.length} free transformation resources from Varun Goel.`}
+        path="/toolkit"
+      />
       <Helmet>
-        <title>AI Playbook — Frameworks & Artifacts | NovaTransform</title>
-        <meta
-          name="description"
-          content={`Downloadable blueprints, operational cadences, and evaluation matrices. ${toolkitResources.length} free transformation resources from Varun Goel.`}
-        />
+        <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
       </Helmet>
 
       <main className="relative w-full pt-32 pb-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-24">
@@ -226,6 +243,10 @@ export default function Toolkit() {
 
           {/* Right: Grid */}
           <div className="col-span-1 lg:col-span-9">
+            {/* H2 anchors the resource grid in the page heading hierarchy
+                (H1 hero → H2 here → H3 card titles). Visually hidden because
+                the section is self-describing for sighted users. */}
+            <h2 className="sr-only">Browse all resources</h2>
             {/* Active filters */}
             <div className="flex items-center gap-3 mb-6 overflow-x-auto pb-2">
               <span className="text-xs text-muted-foreground uppercase tracking-widest font-bold whitespace-nowrap">

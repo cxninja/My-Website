@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -67,10 +67,12 @@ const transformationAreas = [
 export default function DigitalTransformation() {
   return (
     <>
-      <Helmet>
-        <title>Digital Transformation Consulting - NovaTransform</title>
-        <meta name="description" content="Transform your business with integrated systems, automated workflows, and data-driven processes. Reduce manual work by 60% while improving decision speed and accuracy." />
-      </Helmet>
+      {/* Legacy route. Canonical points at /practice/digital-transformation. */}
+      <SEO
+        title="Digital Transformation Consulting"
+        description="Transform your business with integrated systems, automated workflows, and data-driven processes. Reduce manual work by 60% while improving decision speed and accuracy."
+        path="/practice/digital-transformation"
+      />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 bg-gradient-to-br from-secondary/30 to-secondary/10">

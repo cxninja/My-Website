@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Link } from "wouter";
@@ -24,31 +25,31 @@ const leaderProfile = {
   experience: "20+ years",
   specialization: "B2B SaaS & Manufacturing Technology",
   summary:
-    "Client Success & Operations leader with 20+ years in B2B SaaS and manufacturing technology, delivering 98% portfolio retention, multi-million-dollar expansions, and measurable time-to-value gains through adoption programs, operational efficiency, and data-driven strategies.",
+    "RevOps and Customer Success leader with nearly two decades of experience driving revenue, adoption, and efficiency across B2B SaaS, manufacturing analytics, and digital services. I bridge sales and delivery with AI-driven playbooks to accelerate time-to-value for enterprise clients.",
 
   keyAchievements: [
     {
-      metric: "98%",
-      label: "Portfolio Retention",
-      description:
-        "Consistently maintained high client retention rates across enterprise accounts",
-    },
-    {
-      metric: "20+",
+      metric: "19+",
       label: "Years Experience",
       description:
-        "Deep expertise in B2B SaaS and manufacturing technology sectors",
+        "Deep expertise in B2B SaaS, manufacturing analytics, and digital services since 2005",
+    },
+    {
+      metric: "180+",
+      label: "Team Members Led",
+      description:
+        "Managed global delivery teams across software, QA, and content at Intelegencia (2009 — 2016)",
+    },
+    {
+      metric: "High",
+      label: "Portfolio Retention",
+      description:
+        "Consistently strong client retention across enterprise accounts at Adobe, Zendesk, and Intelegencia",
     },
     {
       metric: "Multi-Million",
       label: "Dollar Expansions",
-      description: "Led strategic account growth and expansion initiatives",
-    },
-    {
-      metric: "180+",
-      label: "Team Members",
-      description:
-        "Managed large global delivery teams across software, QA, and content",
+      description: "Led strategic account growth and expansion across APAC, EMEA, and US markets",
     },
   ],
 
@@ -82,35 +83,60 @@ const leaderProfile = {
   professionalExperience: [
     {
       company: "Intelegencia",
-      role: "AVP - Client Success",
-      period: "Jan 2025 - Present",
+      role: "AVP — Client Success & Digital Marketing Group",
+      period: "Jan 2025 — Present",
       description:
-        "Leading global client strategy, delivery, and transformation across SaaS and manufacturing-aligned services",
+        "Leading global client strategy, delivery, and transformation across SaaS and manufacturing-aligned services. Driving portfolio growth, operational efficiency, and the digital marketing practice for global customers. Managing key partnerships like Sight Machine to enable digital transformation in industrial environments.",
       skills: [
         "Customer Success",
         "Manufacturing Analytics",
         "Digital Transformation",
+        "Digital Marketing",
       ],
+    },
+    {
+      company: "Intelegencia",
+      role: "Senior Director, Client Success",
+      period: "Jul 2023 — Jan 2025",
+      description:
+        "Returned to Intelegencia to lead Client Success across manufacturing analytics and digital transformation engagements, ahead of promotion to AVP.",
+      skills: ["Customer Success Management", "Manufacturing Analytics", "Account Growth"],
     },
     {
       company: "Zendesk",
       role: "Customer Success Leader",
-      period: "Jul 2020 - Jul 2023",
+      period: "Jul 2020 — Jul 2023",
       description:
-        "Led customer success across India, SAARC, and APAC enterprise accounts with focus on retention and expansion",
+        "Led customer success across India, SAARC, and APAC enterprise accounts with focus on retention, expansion, and executive engagement. Built scalable engagement models through structured success planning, stakeholder alignment, and partner collaboration. Spearheaded CS Office Hours, ValueSelling Workshops, internal tooling improvements, and cross-functional programs.",
       skills: ["Customer Retention", "Post-Sales Management", "Account Growth"],
     },
     {
       company: "Adobe",
-      role: "Manager - Customer Success (APAC)",
-      period: "Aug 2016 - Jul 2020",
+      role: "Manager — Customer Success (APAC)",
+      period: "Aug 2016 — Jul 2020",
       description:
-        "Built and led APAC Customer Success team for Adobe Experience Cloud, Document Cloud, and Creative Cloud",
+        "Built and led the APAC Customer Success team for Adobe Experience Cloud, Document Cloud, and Creative Cloud across enterprise accounts. Partnered with senior stakeholders to drive enablement, retention, and strategic product adoption. Took on a hybrid role leading customer success and owning sales enablement for Adobe Digital Learning Services across SEA and Greater China.",
       skills: [
         "Post-Sales Management",
         "Operations Management",
         "Team Leadership",
       ],
+    },
+    {
+      company: "Intelegencia",
+      role: "Associate Director, Client Services",
+      period: "Jun 2009 — Aug 2016",
+      description:
+        "Led global delivery across software, QA, and content teams — managing 180+ members serving clients across APAC, EMEA, and the US over seven years. Launched new service lines including QA, and scaled them into profit-driving units through process improvements and strong client partnerships.",
+      skills: ["Service Delivery", "Operations Management", "Team Leadership"],
+    },
+    {
+      company: "Earlier roles",
+      role: "Sales & Business Development — Porteck, MAG Studios, ISHIR",
+      period: "Nov 2005 — Jun 2009",
+      description:
+        "Built the foundation: pre-sales, business development, and client engagement across IT services, digital asset management, and application development — serving US, EMEA, and APAC markets.",
+      skills: ["Business Development", "Pre-Sales", "Client Engagement"],
     },
   ],
 
@@ -131,24 +157,84 @@ const leaderProfile = {
     {
       title: "Project Management Professional (PMP)®",
       issuer: "Project Management Institute",
-      year: "2024-2027",
+      year: "2024 — 2027",
+    },
+    {
+      title: "Leading Business Transformation in the Age of AI",
+      issuer: "Indian School of Business",
+      year: "2020",
+    },
+    {
+      title: "CSM Advanced Certified Professional",
+      issuer: "Gainsight",
+      year: "2020",
+    },
+    {
+      title: "Digital Marketing",
+      issuer: "Indian Institute of Management, Lucknow",
+      year: "2019",
     },
     {
       title: "Zendesk Messaging",
       issuer: "Zendesk",
       year: "2023",
     },
+    {
+      title: "ValueSelling Framework",
+      issuer: "ValueSelling Associates",
+      year: "",
+    },
+    {
+      title: "Lean Six Sigma Green Belt",
+      issuer: "Exemplar Global",
+      year: "",
+    },
   ],
 };
 
 export default function Leadership() {
 
+  // Person JSON-LD — anchors Varun's personal-brand entity for Google Knowledge Panel.
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: leaderProfile.name,
+    jobTitle: leaderProfile.title,
+    url: "https://novatransform.com/leadership",
+    image: "https://novatransform.com/images/varun.webp",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Noida",
+      addressRegion: "Uttar Pradesh",
+      addressCountry: "IN",
+    },
+    description: leaderProfile.summary,
+    knowsAbout: [
+      "Customer Success",
+      "Digital Transformation",
+      "B2B SaaS",
+      "Manufacturing Technology",
+      "AI Innovation",
+      "Go-to-Market Strategy",
+    ],
+    worksFor: {
+      "@type": "Organization",
+      name: "NovaTransform",
+      url: "https://novatransform.com/",
+    },
+  };
+
   return (
     <>
       <SEO
-        title="Leadership - Varun Goel"
+        title="Varun Goel — Customer Success & Digital Transformation Leader"
         description="Meet Varun Goel, Head of Client Success & Digital Transformation with 20+ years of experience in B2B SaaS and manufacturing technology."
+        path="/leadership"
+        image="/images/varun.webp"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
+      </Helmet>
 
       {/* Hero Section */}
       <section className="pt-24 pb-16 bg-secondary/30">
