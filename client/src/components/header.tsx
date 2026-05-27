@@ -107,7 +107,7 @@ export function Header() {
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'header-blur bg-background/80 border-b border-border' 
+          ? 'header-blur bg-background/80 shadow-[0_1px_0_0_rgba(0,0,0,0.04)]'
           : 'bg-transparent'
       }`}
       data-testid="header"
