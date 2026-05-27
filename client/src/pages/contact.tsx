@@ -16,6 +16,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactSchema } from "@shared/schema";
 import { Mail, Linkedin, MapPin, CheckCircle, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { SITE_ORIGIN } from "@/config/site";
 
 type ContactFormData = {
   name: string;
@@ -94,8 +95,8 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "NovaTransform",
-    url: "https://novatransform.com/",
-    logo: "https://novatransform.com/images/MainLogo.png",
+    url: `${SITE_ORIGIN}/`,
+    logo: `${SITE_ORIGIN}/images/MainLogo.png`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Noida",

@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { capabilities } from "@/data/capabilities";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { SITE_ORIGIN } from "@/config/site";
 
 const engagementModel = [
   {
@@ -34,7 +35,7 @@ export default function Services() {
     itemListElement: capabilities.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://novatransform.com/practice/${c.id}`,
+      url: `${SITE_ORIGIN}/practice/${c.id}`,
       name: c.title,
     })),
   };
@@ -54,12 +55,13 @@ export default function Services() {
       <section className="pt-24 pb-20 bg-secondary/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
-            <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Expertise: <span className="text-accent">Capability Pillars of NovaTransform Edge</span>
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">The Practice</span>
+            <h1 className="mt-4 font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
+              {capabilities.length} practices.<br />
+              <span className="text-muted-foreground">One operator behind all of them.</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
-              Deepened across industries, these pillars deliver frameworks honed in real fires. 
-              Each capability represents years of cross-industry experience distilled into actionable edges.
+            <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Each practice is a self-contained engagement with its own methodology, deliverables, and proof points. Pick the one that maps to your most acute problem; the others are there when you're ready.
             </p>
           </FadeIn>
         </div>
@@ -70,10 +72,10 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center mb-12">
             <h2 className="font-display font-bold text-2xl md:text-3xl mb-4">
-              NovaTransform Methodology
+              The methodology
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A proven approach that combines strategic thinking with tactical execution, delivering transformational results through systematic frameworks.
+              Four phases that run on every engagement, regardless of which practice you pick. Designed for a measurable win inside 90 days, compounding from there.
             </p>
           </FadeIn>
 
@@ -128,14 +130,26 @@ export default function Services() {
                       <span className="text-muted-foreground ml-2 italic">"{capability.edgyInsight}"</span>
                     </div>
                   </div>
-                  <Link href="/contact">
-                    <Button
-                      className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground"
-                      data-testid={`button-connect-${capability.id}`}
-                    >
-                      Leverage This Capability
-                    </Button>
-                  </Link>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href={`/practice/${capability.id}`}>
+                      <Button
+                        className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground rounded-xl"
+                        data-testid={`button-explore-${capability.id}`}
+                      >
+                        Explore this practice
+                        <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+                      </Button>
+                    </Link>
+                    <Link href="/contact">
+                      <Button
+                        variant="outline"
+                        className="rounded-xl"
+                        data-testid={`button-connect-${capability.id}`}
+                      >
+                        Talk to me
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </FadeIn>
 
@@ -220,11 +234,10 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Ready to Unleash Your NovaTransform?
+              Not sure which practice fits?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Let's identify which capabilities can deliver the most explosive impact for your transformation. 
-              Every nova starts with understanding your unique edge potential.
+              A 30-minute discovery call. Talk through what you're facing and we'll figure out which practice (or combination) actually moves the needle.
             </p>
             <Link href="/contact">
               <Button
@@ -232,7 +245,7 @@ export default function Services() {
                 className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
                 data-testid="button-connect-capabilities-cta"
               >
-                Ignite Your Transformation
+                Book a discovery call
               </Button>
             </Link>
           </FadeIn>

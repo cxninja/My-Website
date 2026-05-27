@@ -9,6 +9,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { ArrowLeft, Quote, Sparkles } from "lucide-react";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import { SITE_ORIGIN } from "@/config/site";
 import {
   sanityClient,
   EDGY_INSIGHT_BY_SLUG_QUERY,
@@ -178,9 +179,9 @@ export default function EdgyInsightDetail() {
     publisher: {
       "@type": "Organization",
       name: "NovaTransform",
-      logo: { "@type": "ImageObject", url: "https://novatransform.com/images/MainLogo.png" },
+      logo: { "@type": "ImageObject", url: `${SITE_ORIGIN}/images/MainLogo.png` },
     },
-    mainEntityOfPage: `https://novatransform.com${canonicalPath}`,
+    mainEntityOfPage: `${SITE_ORIGIN}${canonicalPath}`,
   };
 
   return (

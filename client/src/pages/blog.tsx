@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { Search, Clock, TrendingUp, Sparkles, X } from "lucide-react";
+import { SITE_ORIGIN } from "@/config/site";
 import {
   sanityClient,
   POSTS_QUERY,
@@ -227,13 +228,13 @@ export default function Blog() {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "NovaTransform Blog",
-    url: "https://novatransform.com/blog",
+    url: `${SITE_ORIGIN}/blog`,
     description:
       "Field notes on transformation, AI, retention, and scaling, from Varun Goel and the NovaTransform team.",
     blogPost: (posts ?? []).slice(0, 10).map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
-      url: `https://novatransform.com${p.categories?.[0]?.slug ? `/blog/${p.categories[0].slug}/${p.slug}` : `/blog/${p.slug}`}`,
+      url: `${SITE_ORIGIN}${p.categories?.[0]?.slug ? `/blog/${p.categories[0].slug}/${p.slug}` : `/blog/${p.slug}`}`,
       datePublished: p.publishedAt,
       author: p.author ? { "@type": "Person", name: p.author.name } : undefined,
     })),

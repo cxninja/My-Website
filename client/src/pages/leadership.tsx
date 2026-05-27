@@ -4,6 +4,7 @@ import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { SITE_ORIGIN } from "@/config/site";
 import {
   Target,
   TrendingUp,
@@ -216,8 +217,8 @@ export default function Leadership() {
     "@type": "Person",
     name: leaderProfile.name,
     jobTitle: currentRole.role,
-    url: "https://novatransform.com/leadership",
-    image: "https://novatransform.com/images/founder.jpg",
+    url: `${SITE_ORIGIN}/leadership`,
+    image: `${SITE_ORIGIN}/images/founder.jpg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Noida",

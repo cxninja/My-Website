@@ -3,6 +3,7 @@ import { Link, useRoute } from "wouter";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
+import { SITE_ORIGIN } from "@/config/site";
 
 // Tiny PortableText → plain text serializer for FAQPage schema answers.
 // Only extracts text from `block` children; ignores embedded images/etc.
@@ -589,7 +590,7 @@ export default function BlogPost() {
       ? {
           "@type": "Person",
           name: post.author.name,
-          url: `https://novatransform.com/blog/author/${post.author.slug}`,
+          url: `${SITE_ORIGIN}/blog/author/${post.author.slug}`,
           jobTitle: post.author.role,
           image: authorAvatarUrl ?? undefined,
           sameAs: post.author.socialLinks?.filter((s) => s.platform !== "email").map((s) => s.url),
@@ -600,7 +601,7 @@ export default function BlogPost() {
       name: "NovaTransform",
       logo: {
         "@type": "ImageObject",
-        url: "https://novatransform.com/images/MainLogo.png",
+        url: `${SITE_ORIGIN}/images/MainLogo.png`,
       },
     },
     keywords: post.seo?.keywords?.join(", "),

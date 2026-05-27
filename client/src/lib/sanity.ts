@@ -261,3 +261,8 @@ const EDGY_INSIGHT_FULL_PROJECTION = `{
 export const ALL_EDGY_INSIGHTS_QUERY = `*[_type == "edgyInsight" && defined(slug.current) && ${NOT_DRAFT}] | order(coalesce(priority, 5) asc, year desc) ${EDGY_INSIGHT_LIST_PROJECTION}`;
 
 export const EDGY_INSIGHT_BY_SLUG_QUERY = `*[_type == "edgyInsight" && slug.current == $slug && ${NOT_DRAFT}][0] ${EDGY_INSIGHT_FULL_PROJECTION}`;
+
+// Edgy insights tagged with a given capability slug (used on /practice/:slug).
+// `capabilities` is a string[] on the document; GROQ's `in` operator filters
+// docs where the array includes the requested slug.
+export const EDGY_INSIGHTS_BY_CAPABILITY_QUERY = `*[_type == "edgyInsight" && defined(slug.current) && ${NOT_DRAFT} && $capabilitySlug in capabilities] | order(coalesce(priority, 5) asc, year desc) [0...3] ${EDGY_INSIGHT_LIST_PROJECTION}`;

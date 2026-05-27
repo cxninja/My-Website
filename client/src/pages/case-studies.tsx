@@ -8,6 +8,7 @@ import { Slider } from "@/components/ui/slider";
 import { FilterGroup, FilterSection } from "@/components/filter-group";
 import { Link } from "wouter";
 import { Layers, Network, Calendar, TrendingUp, X } from "lucide-react";
+import { SITE_ORIGIN } from "@/config/site";
 import {
   sanityClient,
   ALL_EDGY_INSIGHTS_QUERY,
@@ -112,13 +113,13 @@ export default function CaseStudies() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Case Studies | NovaTransform",
-    url: "https://novatransform.com/case-studies",
+    url: `${SITE_ORIGIN}/case-studies`,
     description:
       "Story-driven transformation case studies across industries, with metrics and lessons.",
     hasPart: (insights ?? []).slice(0, 20).map((i) => ({
       "@type": "Article",
       headline: i.title,
-      url: `https://novatransform.com/case-studies/${i.slug}`,
+      url: `${SITE_ORIGIN}/case-studies/${i.slug}`,
       articleSection: i.industry,
     })),
   };

@@ -46,11 +46,12 @@ import {
   type PostListItem,
 } from "@/lib/sanity";
 import testimonials from "@/data/testimonials.json";
+import { SITE_ORIGIN } from "@/config/site";
 
 // ─── Static data ─────────────────────────────────────────────────────────────
 
 // Impact numbers reused from the capability claims already shown in the header.
-// Keep these in sync with /capability/* descriptions.
+// Keep these in sync with /practice/* descriptions.
 const impactStats = [
   { value: "19+", label: "Years across ops & growth" },
   { value: "95%+", label: "Customer retention" },
@@ -221,7 +222,7 @@ export default function Home() {
     itemListElement: capabilities.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `https://novatransform.com/capability/${c.id}`,
+      url: `${SITE_ORIGIN}/practice/${c.id}`,
       name: c.title,
     })),
   };
@@ -232,12 +233,12 @@ export default function Home() {
     "@type": "Person",
     name: "Varun Goel",
     jobTitle: "Founder, NovaTransform",
-    url: "https://novatransform.com/",
-    image: "https://novatransform.com/images/varun.webp",
+    url: `${SITE_ORIGIN}/`,
+    image: `${SITE_ORIGIN}/images/varun.webp`,
     worksFor: {
       "@type": "Organization",
       name: "NovaTransform",
-      url: "https://novatransform.com/",
+      url: `${SITE_ORIGIN}/`,
     },
     knowsAbout: capabilities.map((c) => c.title),
   };
@@ -304,7 +305,7 @@ export default function Home() {
                 title={capability.title}
                 description={capability.description}
                 icon={capability.icon}
-                href={`/capability/${capability.id}`}
+                href={`/practice/${capability.id}`}
                 delay={index * 0.1}
               />
             ))}

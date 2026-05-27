@@ -10,6 +10,7 @@ import {
 import { FadeIn } from "@/components/motion/fade-in";
 import { FilterGroup } from "@/components/filter-group";
 import { toolkitResources, getToolkitFilters, ToolkitResource } from "@/data/toolkit";
+import { SITE_ORIGIN } from "@/config/site";
 
 const { types, categories, capabilities, difficulties } = getToolkitFilters();
 
@@ -125,7 +126,7 @@ export default function Toolkit() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Toolkit | Frameworks & Artifacts",
-    url: "https://novatransform.com/toolkit",
+    url: `${SITE_ORIGIN}/toolkit`,
     numberOfItems: toolkitResources.length,
     itemListElement: toolkitResources.slice(0, 25).map((r, i) => ({
       "@type": "ListItem",

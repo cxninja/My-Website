@@ -1,7 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { brand } from "@/config/brand";
+import { SITE_ORIGIN } from "@/config/site";
 
-const SITE_URL = "https://novatransform.com";
+const SITE_URL = SITE_ORIGIN;
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 interface SEOProps {
