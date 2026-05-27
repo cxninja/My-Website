@@ -598,7 +598,7 @@ export default function BlogPost() {
       : undefined,
     publisher: {
       "@type": "Organization",
-      name: "NovaTransform",
+      name: "Varun Goel",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_ORIGIN}/images/MainLogo.png`,

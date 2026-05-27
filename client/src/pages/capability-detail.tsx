@@ -55,9 +55,9 @@ export default function CapabilityDetail() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Capability Not Found</h1>
           <Button asChild>
-            <Link href="/practice">
+            <Link href="/expertise">
               <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
-              Back to Practice
+              Back to Expertise
             </Link>
           </Button>
         </div>
@@ -66,7 +66,7 @@ export default function CapabilityDetail() {
   }
 
   const IconComponent = capability.icon;
-  const canonicalPath = `/practice/${capability.id}`;
+  const canonicalPath = `/expertise/${capability.id}`;
 
   const serviceJsonLd = {
     "@context": "https://schema.org",
@@ -77,7 +77,7 @@ export default function CapabilityDetail() {
     url: `${SITE_ORIGIN}${canonicalPath}`,
     provider: {
       "@type": "Organization",
-      name: "NovaTransform",
+      name: "Varun Goel",
       url: `${SITE_ORIGIN}/`,
     },
     areaServed: "Worldwide",
@@ -120,7 +120,7 @@ export default function CapabilityDetail() {
           </li>
           <ChevronRight className="w-3 h-3" aria-hidden="true" />
           <li>
-            <Link href="/practice" className="hover:text-accent transition-colors">Practice</Link>
+            <Link href="/expertise" className="hover:text-accent transition-colors">Expertise</Link>
           </li>
           <ChevronRight className="w-3 h-3" aria-hidden="true" />
           <li className="text-foreground font-medium" aria-current="page">{capability.title}</li>
@@ -215,7 +215,7 @@ export default function CapabilityDetail() {
                 When this becomes the priority
               </h2>
               <p className="mt-3 text-muted-foreground max-w-2xl">
-                If two or more of these are true, this is the practice to engage on first.
+                If two or more of these are true, this is where to start.
               </p>
             </FadeIn>
 
@@ -313,7 +313,7 @@ export default function CapabilityDetail() {
               What's inside
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl">
-              The components I cover under this practice.
+              The components I cover under this capability.
             </p>
           </FadeIn>
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -468,7 +468,7 @@ export default function CapabilityDetail() {
           <FadeIn className="text-center mb-10">
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Continue</span>
             <h2 className="mt-3 font-display font-bold text-3xl md:text-4xl tracking-tight">
-              Related practices
+              Related expertise
             </h2>
           </FadeIn>
 
@@ -477,7 +477,7 @@ export default function CapabilityDetail() {
               const RcIcon = rc.icon;
               return (
                 <FadeIn key={rc.id}>
-                  <Link href={`/practice/${rc.id}`}>
+                  <Link href={`/expertise/${rc.id}`}>
                     <article className="group h-full bg-background border border-border rounded-2xl p-6 hover:border-accent/40 hover:-translate-y-1 transition-all duration-300 cursor-pointer">
                       <div className="w-11 h-11 rounded-xl bg-accent/10 text-accent ring-1 ring-accent/15 flex items-center justify-center mb-4 group-hover:bg-accent group-hover:text-accent-foreground group-hover:ring-accent transition-all duration-300">
                         <RcIcon className="w-5 h-5" strokeWidth={1.75} aria-hidden="true" />
@@ -498,8 +498,8 @@ export default function CapabilityDetail() {
 
           <div className="text-center mt-10">
             <Button variant="outline" asChild className="rounded-xl">
-              <Link href="/practice">
-                View all {capabilities.length} practices
+              <Link href="/expertise">
+                View all {capabilities.length} capabilities
                 <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
               </Link>
             </Button>

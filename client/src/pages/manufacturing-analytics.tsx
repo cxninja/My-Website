@@ -52,13 +52,13 @@ const metrics = [
 export default function ManufacturingAnalytics() {
   return (
     <>
-      {/* Legacy orphan route. Not linked from /practice. Canonical points at the
+      {/* Legacy orphan route. Not linked from /expertise. Canonical points at the
           Practice overview so this page doesn't compete in search. Delete when
-          ready, since no /practice/manufacturing-analytics equivalent exists. */}
+          ready, since no /expertise/manufacturing-analytics equivalent exists. */}
       <SEO
         title="Manufacturing Analytics Consulting"
         description="Transform your manufacturing operations with predictive analytics, OEE monitoring, and real-time quality control. Reduce downtime by 35% and improve OEE by 15 points."
-        path="/practice"
+        path="/expertise"
       />
       
       {/* Hero Section */}

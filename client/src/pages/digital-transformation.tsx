@@ -67,11 +67,11 @@ const transformationAreas = [
 export default function DigitalTransformation() {
   return (
     <>
-      {/* Legacy route. Canonical points at /practice/digital-transformation. */}
+      {/* Legacy route. Canonical points at /expertise/digital-transformation. */}
       <SEO
         title="Digital Transformation Consulting"
         description="Transform your business with integrated systems, automated workflows, and data-driven processes. Reduce manual work by 60% while improving decision speed and accuracy."
-        path="/practice/digital-transformation"
+        path="/expertise/digital-transformation"
       />
       
       {/* Hero Section */}

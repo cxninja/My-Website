@@ -118,7 +118,7 @@ export default function Philosophy() {
     <>
       <SEO
         title="Philosophy & Identity"
-        description="The manifesto, principles, and inflection points behind NovaTransform's approach to AI-native enterprise transformation."
+        description="The manifesto, principles, and inflection points behind my approach to AI-native enterprise transformation."
         path="/philosophy"
       />
 

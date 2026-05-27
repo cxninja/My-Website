@@ -165,8 +165,8 @@ export default function Innovations() {
   return (
     <>
       <Helmet>
-        <title>Innovations: NovaTransform's AI Edges | Varun Goel</title>
-        <meta name="description" content="Explore NovaTransform's comprehensive innovation portfolio - AI-powered tools, automation solutions, and strategic frameworks for business transformation." />
+        <title>Innovations | Varun Goel</title>
+        <meta name="description" content="Explore my innovation portfolio: AI-powered tools, automation solutions, and strategic frameworks for business transformation." />
         {/* Phase 2 page. Hidden from nav, excluded from sitemap, kept noindex
             until launch. Flip to "index, follow" when ready to go public. */}
         <meta name="robots" content="noindex, nofollow" />
@@ -178,7 +178,7 @@ export default function Innovations() {
           <div className="text-center max-w-4xl mx-auto">
             <FadeIn>
               <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6">
-                NovaTransform Innovations: <span className="text-accent">Burst Ahead</span>
+                Innovations: <span className="text-accent">Burst Ahead</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 From prototypes to production-ready tools. Discover {innovations.length} innovations designed to transform your workflow with AI precision and strategic insight.
@@ -188,7 +188,7 @@ export default function Innovations() {
                   <Link href="/contact">Join Innovation Program</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/practice">Explore Capabilities</Link>
+                  <Link href="/expertise">Explore Capabilities</Link>
                 </Button>
               </div>
             </FadeIn>
@@ -336,7 +336,7 @@ export default function Innovations() {
                   <Link href="/toolkit">Get Free Toolkit</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/practice">Explore All Capabilities</Link>
+                  <Link href="/expertise">Explore All Capabilities</Link>
                 </Button>
               </div>
             </div>

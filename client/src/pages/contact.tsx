@@ -94,7 +94,7 @@ export default function Contact() {
   const contactJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "NovaTransform",
+    name: "Varun Goel",
     url: `${SITE_ORIGIN}/`,
     logo: `${SITE_ORIGIN}/images/MainLogo.png`,
     address: {
@@ -118,7 +118,7 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact NovaTransform"
+        title="Contact Varun Goel"
         description="Book a 30-minute discovery call with Varun Goel. Talk about your transformation, growth, or customer success challenge. No deck, no pitch."
         path="/contact"
       />
@@ -131,11 +131,10 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h1 className="font-display font-bold text-4xl md:text-5xl mb-6">
-              Connect: <span className="text-accent">Ignite Your Edge</span>
+              Let's <span className="text-accent">talk</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Ready to unleash explosive business transformation? Let's explore which capability pillars 
-              can drive your NovaTransform and discover the edge potential waiting to be unlocked.
+              Tell me what you're facing. We'll figure out which of my practices (or combination) actually moves the needle for your business. No deck, no pitch, just a working conversation.
             </p>
           </FadeIn>
         </div>
@@ -157,7 +156,7 @@ export default function Contact() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                       >
-                        <h2 className="font-display font-bold text-2xl mb-6">Start Your NovaTransform</h2>
+                        <h2 className="font-display font-bold text-2xl mb-6">Send me a message</h2>
                         
                         <Form {...form}>
                           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -271,7 +270,7 @@ export default function Contact() {
                                   <FormLabel>Message *</FormLabel>
                                   <FormControl>
                                     <Textarea 
-                                      placeholder="How can we help you?" 
+                                      placeholder="How can I help you?"
                                       rows={4}
                                       {...field} 
                                       data-testid="textarea-contact-message"

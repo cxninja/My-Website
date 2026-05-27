@@ -28,14 +28,14 @@ const engagementModel = [
 ];
 
 export default function Services() {
-  // ItemList of all 8 services. Helps Google understand the practice lineup.
+  // ItemList of all 8 capabilities. Helps Google understand the lineup.
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     itemListElement: capabilities.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE_ORIGIN}/practice/${c.id}`,
+      url: `${SITE_ORIGIN}/expertise/${c.id}`,
       name: c.title,
     })),
   };
@@ -43,9 +43,9 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="The Practice | Consulting Services"
-        description="Eight capability practices spanning customer success, digital marketing, transformation, GTM, leadership scaling, cross-industry adaptability, AI innovation, and stakeholder engagement."
-        path="/practice"
+        title="Expertise | What I Help With"
+        description="Eight areas of expertise spanning customer success, digital marketing, transformation, GTM, leadership scaling, cross-industry adaptability, AI innovation, and stakeholder engagement."
+        path="/expertise"
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(itemListJsonLd)}</script>
@@ -55,13 +55,13 @@ export default function Services() {
       <section className="pt-24 pb-20 bg-secondary/30">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">The Practice</span>
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Expertise</span>
             <h1 className="mt-4 font-display font-bold text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
-              {capabilities.length} practices.<br />
+              {capabilities.length} capabilities.<br />
               <span className="text-muted-foreground">One operator behind all of them.</span>
             </h1>
             <p className="mt-8 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Each practice is a self-contained engagement with its own methodology, deliverables, and proof points. Pick the one that maps to your most acute problem; the others are there when you're ready.
+              Each one is a self-contained engagement with its own methodology, deliverables, and proof points. Pick the one that maps to your most acute problem; the others are there when you're ready.
             </p>
           </FadeIn>
         </div>
@@ -75,7 +75,7 @@ export default function Services() {
               The methodology
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Four phases that run on every engagement, regardless of which practice you pick. Designed for a measurable win inside 90 days, compounding from there.
+              Four phases that run on every engagement, regardless of which capability you pick. Designed for a measurable win inside 90 days, compounding from there.
             </p>
           </FadeIn>
 
@@ -131,12 +131,12 @@ export default function Services() {
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-3">
-                    <Link href={`/practice/${capability.id}`}>
+                    <Link href={`/expertise/${capability.id}`}>
                       <Button
                         className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground rounded-xl"
                         data-testid={`button-explore-${capability.id}`}
                       >
-                        Explore this practice
+                        Explore this capability
                         <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
                       </Button>
                     </Link>
@@ -234,10 +234,10 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Not sure which practice fits?
+              Not sure where to start?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              A 30-minute discovery call. Talk through what you're facing and we'll figure out which practice (or combination) actually moves the needle.
+              A 30-minute discovery call. Talk through what you're facing and we'll figure out which capability (or combination) actually moves the needle.
             </p>
             <Link href="/contact">
               <Button

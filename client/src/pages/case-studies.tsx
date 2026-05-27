@@ -112,7 +112,7 @@ export default function CaseStudies() {
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Case Studies | NovaTransform",
+    name: "Case Studies | Varun Goel",
     url: `${SITE_ORIGIN}/case-studies`,
     description:
       "Story-driven transformation case studies across industries, with metrics and lessons.",
@@ -296,7 +296,7 @@ export default function CaseStudies() {
         <div className="max-w-4xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-display font-bold text-3xl md:text-4xl mb-4">
-              Ready to Create Your NovaTransform?
+              Want results like these?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
               Every edgy insight started with bold action. Let's discuss how to unleash

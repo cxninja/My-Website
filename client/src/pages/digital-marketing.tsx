@@ -46,11 +46,11 @@ const deliverables = [
 export default function DigitalMarketing() {
   return (
     <>
-      {/* Legacy route. Canonical points at /practice/digital-marketing. */}
+      {/* Legacy route. Canonical points at /expertise/digital-marketing. */}
       <SEO
         title="Digital Marketing Consulting"
         description="Transform your marketing with data-driven attribution, conversion optimization, and systematic growth programs. Reduce CAC by 30% while increasing MQLs by 50%."
-        path="/practice/digital-marketing"
+        path="/expertise/digital-marketing"
       />
       
       {/* Hero Section */}

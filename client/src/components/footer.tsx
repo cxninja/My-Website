@@ -10,8 +10,7 @@ const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Philosophy", href: "/philosophy" },
-  { name: "Leadership", href: "/leadership" },
-  { name: "Practice", href: "/practice" },
+  { name: "Expertise", href: "/expertise" },
   { name: "Case Studies", href: "/case-studies" },
   { name: "Blog", href: "/blog" },
   { name: "Toolkit", href: "/toolkit" },
@@ -64,10 +63,10 @@ export function Footer() {
         <div className="grid md:grid-cols-2 gap-8 md:items-center">
           {/* About */}
           <div>
-            <img src="/images/NovaTransform_Large.png" alt="NovaTransform" loading="lazy" width="320" height="160" className="h-40 w-auto mb-4" />
+            <img src="/images/NovaTransform_Large.png" alt="Varun Goel" loading="lazy" width="320" height="160" className="h-40 w-auto mb-4" />
             <p className="text-muted-foreground text-sm mb-4 max-w-md">
-              My expertise spans Digital Marketing, Manufacturing Analytics, 
-              Digital Transformation, and Customer Success. Strategy. Systems. Scale.
+              I'm Varun Goel. I help leaders with customer success, digital marketing,
+              manufacturing analytics, and digital transformation. Senior-led, hands-on, AI-first.
             </p>
           </div>
 
@@ -110,7 +109,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-8 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            © 2024 {brand.name}. All rights reserved.
+            © {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
         </div>
       </div>

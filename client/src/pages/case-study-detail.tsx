@@ -154,9 +154,9 @@ export default function EdgyInsightDetail() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Edgy Insight Not Found</h1>
+          <h1 className="text-2xl font-bold mb-4">Case Study Not Found</h1>
           <Button asChild data-testid="button-back-to-edgy-insights-not-found">
-            <Link href="/case-studies">← Back to Edgy Insights</Link>
+            <Link href="/case-studies">← Back to Case Studies</Link>
           </Button>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default function EdgyInsightDetail() {
   }
 
   const heroImageUrl = resolveFlexibleImage(insight.image, { width: 1400, height: 600 });
-  const seoTitle = insight.seo?.metaTitle || `${insight.title} | Edgy Insight | NovaTransform`;
+  const seoTitle = insight.seo?.metaTitle || `${insight.title} | Case Study | Varun Goel`;
   const seoDesc = insight.seo?.metaDescription || insight.summary;
   const canonicalPath = `/case-studies/${insight.slug}`;
 
@@ -178,7 +178,7 @@ export default function EdgyInsightDetail() {
     keywords: insight.seo?.keywords?.join(", "),
     publisher: {
       "@type": "Organization",
-      name: "NovaTransform",
+      name: "Varun Goel",
       logo: { "@type": "ImageObject", url: `${SITE_ORIGIN}/images/MainLogo.png` },
     },
     mainEntityOfPage: `${SITE_ORIGIN}${canonicalPath}`,
@@ -207,7 +207,7 @@ export default function EdgyInsightDetail() {
             >
               <Link href="/case-studies">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Edgy Insights
+                Back to Case Studies
               </Link>
             </Button>
 
@@ -412,7 +412,7 @@ export default function EdgyInsightDetail() {
         <FadeIn delay={0.7}>
           <section className="text-center">
             <h2 className="font-display font-bold text-3xl mb-4">
-              Ready for Your NovaTransform?
+              Want results like these?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
               Let's discuss how to unleash similar explosive results in your transformation journey.

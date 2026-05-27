@@ -35,68 +35,62 @@ const aboutDropdown = [
     name: "About Varun",
     href: "/about",
     icon: User,
-    description: "The founder story: 19+ years across ops and growth.",
+    description: "My story, career, and credentials: 19+ years across ops and growth.",
   },
   {
     name: "Philosophy",
     href: "/philosophy",
     icon: Sparkles,
-    description: "The manifesto and contrarian principles behind the work.",
-  },
-  {
-    name: "Leadership",
-    href: "/leadership",
-    icon: Crown,
-    description: "Roles, milestones, and the inflection points of the journey.",
+    description: "The manifesto and contrarian principles behind how I work.",
   },
 ];
 
 const practiceDropdown = [
   {
     name: "Customer Success",
-    href: "/practice/customer-success",
+    href: "/expertise/customer-success",
     icon: Users,
     description: "Retention mastery (95%+): Churn prediction, relationship ecosystems",
   },
   {
     name: "Digital Marketing",
-    href: "/practice/digital-marketing",
+    href: "/expertise/digital-marketing",
     icon: TrendingUp,
     description: "Growth campaigns (40%+ leads): SEO/PPC, AI personalization",
   },
   {
     name: "Digital Transformation",
-    href: "/practice/digital-transformation",
+    href: "/expertise/digital-transformation",
     icon: Zap,
     description: "Efficiency revolutions (35%+): CRM/AI integrations, agile pivots",
   },
   {
     name: "GTM Strategy",
-    href: "/practice/gtm-strategy",
+    href: "/expertise/gtm-strategy",
     icon: Target,
     description: "Market dominance: Planning to launch, CEO-synced",
   },
   {
     name: "Leadership & Scaling",
-    href: "/practice/leadership-scaling",
+    href: "/expertise/leadership-scaling",
     icon: Crown,
     description: "Winning teams (5-50+, 25% productivity): Selfless builds",
   },
   {
     name: "Cross-Industry Adaptability",
-    href: "/practice/cross-industry",
+    href: "/expertise/cross-industry",
     icon: Globe,
     description: "Seamless shifts: Startup hustle to enterprise polish",
   },
   {
     name: "AI Innovation",
-    href: "/practice/ai-innovation",
+    href: "/expertise/ai-innovation",
     icon: Brain,
     description: "Tool creation: SOW generators and beyond",
   },
   {
     name: "Stakeholder Engagement",
-    href: "/practice/stakeholder-engagement",
+    href: "/expertise/stakeholder-engagement",
     icon: Network,
     description: "Syncing deciders: CEO collaborations, influence without noise",
   },
@@ -131,14 +125,14 @@ const navigation: {
     href: "/about",
     dropdown: aboutDropdown,
     dropdownTitle: "About Varun",
-    dropdownSubtitle: "Story, philosophy, and leadership journey.",
+    dropdownSubtitle: "My story, career, and how I think about the work.",
     dropdownCols: 1,
   },
   {
-    name: "Practice",
-    href: "/practice",
+    name: "Expertise",
+    href: "/expertise",
     dropdown: practiceDropdown,
-    dropdownTitle: "The Practice",
+    dropdownTitle: "Expertise",
     dropdownSubtitle: "Eight interconnected capabilities, senior-led and AI-first.",
     dropdownCols: 3,
   },
@@ -176,7 +170,7 @@ export function Header() {
 
   // Active state for the About dropdown is true if user is on any of the three pages.
   const isAboutActive =
-    location === "/about" || location === "/philosophy" || location === "/leadership";
+    location === "/about" || location === "/philosophy" || location === "/leadership" || location === "/meet-varun";
   const isResourcesActive =
     location.startsWith("/blog") || location === "/toolkit";
 
@@ -205,12 +199,12 @@ export function Header() {
           >
             <img
               src="/images/MainLogo.png"
-              alt="NovaTransform"
+              alt="Varun Goel"
               width="160"
               height="40"
               className="h-10 w-auto"
             />
-            {brand.name.split(" ")[0]}
+            {brand.wordmark}
           </Link>
 
           {/* Desktop nav */}

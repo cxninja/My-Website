@@ -67,12 +67,12 @@ const successMetrics = [
 export default function CustomerSuccess() {
   return (
     <>
-      {/* Legacy route. Canonical points at /practice/customer-success so Google
+      {/* Legacy route. Canonical points at /expertise/customer-success so Google
           credits the new URL and avoids treating this as duplicate content. */}
       <SEO
         title="Customer Success Consulting"
         description="Transform your customer success with predictive health scoring, systematic onboarding, and churn prevention. Reduce churn by 25% while increasing expansion revenue."
-        path="/practice/customer-success"
+        path="/expertise/customer-success"
       />
       
       {/* Hero Section */}

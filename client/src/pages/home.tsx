@@ -25,7 +25,6 @@ import {
 
 import { Hero } from "@/components/hero";
 import { ServiceCard } from "@/components/service-card";
-import { CaseStudyCard } from "@/components/case-study-card";
 import { FadeIn, StaggerContainer } from "@/components/motion/fade-in";
 import { SEO } from "@/lib/seo";
 import { Button } from "@/components/ui/button";
@@ -38,11 +37,9 @@ import {
 import { capabilities } from "@/data/capabilities";
 import {
   sanityClient,
-  ALL_EDGY_INSIGHTS_QUERY,
   POSTS_QUERY,
   resolveFlexibleImage,
   postUrl,
-  type EdgyInsightListItem,
   type PostListItem,
 } from "@/lib/sanity";
 import testimonials from "@/data/testimonials.json";
@@ -51,7 +48,7 @@ import { SITE_ORIGIN } from "@/config/site";
 // ─── Static data ─────────────────────────────────────────────────────────────
 
 // Impact numbers reused from the capability claims already shown in the header.
-// Keep these in sync with /practice/* descriptions.
+// Keep these in sync with /expertise/* descriptions.
 const impactStats = [
   { value: "19+", label: "Years across ops & growth" },
   { value: "95%+", label: "Customer retention" },
@@ -113,23 +110,22 @@ const differentiationRows: { trad: string; nova: string }[] = [
 
 const engagementModels = [
   {
-    name: "Sprint",
-    duration: "4–6 weeks",
-    summary: "A focused diagnostic + plan for a single capability or initiative.",
-    bullets: ["Discovery + diagnosis", "Prioritised roadmap", "One quick-win pilot"],
+    name: "With the C-suite",
+    duration: "Founders · CEOs · CXOs",
+    summary: "A thinking partner where the big calls get made. I help you see around corners and make the bets that actually matter.",
+    bullets: ["GTM and transformation strategy", "Board-ready narratives", "On-call for the hard decisions"],
   },
   {
-    name: "Retainer",
-    duration: "3–12 months",
-    summary: "Embedded execution partnership across one or more capability pillars.",
-    bullets: ["Weekly working sessions", "Hands-on implementation", "Team enablement"],
-    featured: true,
+    name: "Alongside your leaders",
+    duration: "Directors · VPs · function heads",
+    summary: "I work shoulder-to-shoulder with your leadership to turn the strategy into a system that actually runs.",
+    bullets: ["Weekly working sessions", "Hands-on implementation", "Operating cadence and dashboards"],
   },
   {
-    name: "Advisory",
-    duration: "Ongoing",
-    summary: "Monthly strategic counsel for founders, CEOs, and senior leaders.",
-    bullets: ["Twice-monthly 1:1s", "Async review of plans & docs", "On-call for critical moments"],
+    name: "Empowering the ground team",
+    duration: "The people who execute",
+    summary: "The work has to live with the people doing it. I coach, build playbooks, and hand over so the gains stick after I'm gone.",
+    bullets: ["1:1 coaching and enablement", "Playbooks the team owns", "Knowledge transfer, not dependency"],
   },
 ];
 
@@ -167,7 +163,7 @@ const faqs = [
 const whyUsPoints = [
   {
     title: "Senior-led",
-    description: "Partners, not junior consultants. 20+ years of hands-on experience across strategy and execution.",
+    description: "You get me, not a junior consultant. 19+ years of hands-on experience across strategy and execution.",
     icon: Crown,
   },
   {
@@ -185,18 +181,10 @@ const whyUsPoints = [
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const [edgyInsights, setEdgyInsights] = useState<EdgyInsightListItem[]>([]);
   const [posts, setPosts] = useState<PostListItem[]>([]);
   const [postsLoading, setPostsLoading] = useState(true);
-  const [insightsLoading, setInsightsLoading] = useState(true);
 
   useEffect(() => {
-    sanityClient
-      .fetch<EdgyInsightListItem[]>(ALL_EDGY_INSIGHTS_QUERY)
-      .then((data) => setEdgyInsights(data ?? []))
-      .catch(() => setEdgyInsights([]))
-      .finally(() => setInsightsLoading(false));
-
     sanityClient
       .fetch<PostListItem[]>(POSTS_QUERY)
       .then((data) => setPosts(data ?? []))
@@ -222,25 +210,23 @@ export default function Home() {
     itemListElement: capabilities.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      url: `${SITE_ORIGIN}/practice/${c.id}`,
+      url: `${SITE_ORIGIN}/expertise/${c.id}`,
       name: c.title,
     })),
   };
 
-  // Person schema. Anchors Varun's personal-brand search results.
+  // Person schema. The site's primary entity is Varun, not a company.
+  // NovaTransform is the domain/wordmark only, surfaced as an alternateName.
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Varun Goel",
-    jobTitle: "Founder, NovaTransform",
+    alternateName: "NovaTransform",
+    jobTitle: "AVP, Client Success & Digital Marketing Group",
     url: `${SITE_ORIGIN}/`,
     image: `${SITE_ORIGIN}/images/varun.webp`,
-    worksFor: {
-      "@type": "Organization",
-      name: "NovaTransform",
-      url: `${SITE_ORIGIN}/`,
-    },
     knowsAbout: capabilities.map((c) => c.title),
+    sameAs: ["https://www.linkedin.com/in/varungoel"],
   };
 
   return (
@@ -305,7 +291,7 @@ export default function Home() {
                 title={capability.title}
                 description={capability.description}
                 icon={capability.icon}
-                href={`/practice/${capability.id}`}
+                href={`/expertise/${capability.id}`}
                 delay={index * 0.1}
               />
             ))}
@@ -352,60 +338,6 @@ export default function Home() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* ── Edgy Insights (existing) ─────────────────────────────────────── */}
-      <section id="edgy-insights" className="section-padding bg-background section-divider">
-        <div className="max-w-7xl mx-auto px-6">
-          <FadeIn className="text-center container-spacing">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Edgy Insights</span>
-            <h2 className="mt-3 heading-lg">Case Studies & Transformation Stories</h2>
-            <p className="mt-4 text-large text-muted-foreground max-w-3xl mx-auto">
-              Story-driven narratives showing the playbook, the metrics, and the lessons, drawn from real transformations across industries.
-            </p>
-          </FadeIn>
-
-          {insightsLoading ? (
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {[0, 1, 2].map((i) => (
-                <div key={i} className="bg-secondary/50 rounded-lg h-80 animate-pulse" />
-              ))}
-            </div>
-          ) : (
-            <StaggerContainer className="grid md:grid-cols-3 gap-8 mb-12">
-              {edgyInsights.slice(0, 3).map((insight, index) => (
-                <CaseStudyCard
-                  key={insight.slug}
-                  title={insight.title}
-                  industry={insight.industry}
-                  year={insight.year}
-                  summary={insight.summary}
-                  metrics={(insight.metrics ?? []).map((m) => ({
-                    label: m.label,
-                    delta: m.delta,
-                    unit: m.unit ?? "",
-                  }))}
-                  slug={insight.slug}
-                  image={resolveFlexibleImage(insight.image, { width: 800, height: 450 }) ?? undefined}
-                  delay={index * 0.1}
-                />
-              ))}
-            </StaggerContainer>
-          )}
-
-          <FadeIn className="text-center">
-            <Link href="/case-studies">
-              <Button
-                variant="outline"
-                size="lg"
-                className="magnetic-button border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-10 py-4 font-semibold rounded-xl"
-                data-testid="button-view-all-edgy-insights"
-              >
-                Explore all case studies
-              </Button>
-            </Link>
-          </FadeIn>
         </div>
       </section>
 
@@ -474,20 +406,20 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">The difference</span>
-            <h2 className="mt-3 heading-lg">Traditional consultancy vs. NovaTransform</h2>
+            <h2 className="mt-3 heading-lg">Traditional consultant vs. Varun Goel</h2>
           </FadeIn>
 
           <div className="rounded-3xl border border-border bg-background overflow-hidden">
             <div className="grid grid-cols-3 bg-secondary/60 text-sm font-bold uppercase tracking-wider">
               <div className="p-5 md:p-6 col-span-1 text-muted-foreground">Dimension</div>
-              <div className="p-5 md:p-6 col-span-1 text-muted-foreground border-l border-border">Traditional consultancy</div>
-              <div className="p-5 md:p-6 col-span-1 text-accent border-l border-border">NovaTransform</div>
+              <div className="p-5 md:p-6 col-span-1 text-muted-foreground border-l border-border">Traditional consultant</div>
+              <div className="p-5 md:p-6 col-span-1 text-accent border-l border-border">Varun Goel</div>
             </div>
             {differentiationRows.map((row, i) => (
               <FadeIn key={i} delay={i * 0.05}>
                 <div className={`grid grid-cols-3 text-sm md:text-base ${i % 2 === 1 ? "bg-secondary/20" : ""}`}>
                   <div className="hidden md:block p-5 md:p-6 col-span-1 font-semibold text-foreground border-t border-border">
-                    {["Who does the work", "Approach", "Time to value", "AI posture", "After we're done"][i]}
+                    {["Who does the work", "Approach", "Time to value", "AI posture", "After it's done"][i]}
                   </div>
                   <div className="p-5 md:p-6 col-span-3 md:col-span-1 border-t border-border flex items-start gap-3 text-muted-foreground">
                     <XIcon className="w-4 h-4 mt-1 flex-shrink-0 text-muted-foreground/70" aria-hidden="true" />
@@ -508,32 +440,25 @@ export default function Home() {
       <section id="engagement" className="section-padding bg-background section-divider">
         <div className="max-w-7xl mx-auto px-6">
           <FadeIn className="text-center container-spacing">
-            <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Engagement models</span>
-            <h2 className="mt-3 heading-lg">Pick the shape that fits your moment</h2>
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">How I work</span>
+            <h2 className="mt-3 heading-lg">From the boardroom to the ground floor</h2>
             <p className="mt-4 text-large text-muted-foreground max-w-3xl mx-auto">
-              From a focused 4-week sprint to ongoing strategic advisory. Three ways to work together.
+              I plug in at whatever altitude the problem lives. Most engagements touch all three: I advise the C-suite, build with your leaders, and leave the ground team stronger than I found it.
             </p>
           </FadeIn>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {engagementModels.map((model, i) => (
-              <FadeIn key={model.name} delay={i * 0.1}>
-                <article
-                  className={`relative h-full rounded-3xl border p-8 md:p-10 transition-transform duration-300 hover:-translate-y-1 ${
-                    model.featured
-                      ? "border-accent bg-accent/[0.03] shadow-lg"
-                      : "border-border bg-background"
-                  }`}
-                >
-                  {model.featured && (
-                    <span className="absolute -top-3 left-8 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] bg-accent text-accent-foreground">
-                      Most chosen
-                    </span>
-                  )}
-                  <h3 className="font-display font-bold text-2xl mb-1">{model.name}</h3>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-5">{model.duration}</p>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{model.summary}</p>
-                  <ul className="space-y-3 mb-8">
+              <FadeIn key={model.name} delay={i * 0.1} className="h-full">
+                <article className="flex flex-col h-full rounded-3xl border border-border bg-background p-8 md:p-10 transition-transform duration-300 hover:-translate-y-1 hover:border-accent/40">
+                  {/* Fixed-height header block so the title (1 or 2 lines), eyebrow,
+                      and everything below line up row-for-row across all cards. */}
+                  <div className="min-h-[5.5rem]">
+                    <h3 className="font-display font-bold text-2xl leading-tight">{model.name}</h3>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-accent">{model.duration}</p>
+                  </div>
+                  <p className="mt-5 text-muted-foreground leading-relaxed">{model.summary}</p>
+                  <ul className="space-y-3 mt-auto pt-8">
                     {model.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-3 text-sm">
                         <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent" strokeWidth={3} aria-hidden="true" />
@@ -541,19 +466,6 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/contact">
-                    <Button
-                      variant={model.featured ? "default" : "outline"}
-                      className={`w-full rounded-xl ${
-                        model.featured
-                          ? "bg-accent hover:bg-accent/90 text-accent-foreground"
-                          : "border-2 border-border hover:border-accent hover:text-accent"
-                      }`}
-                    >
-                      Discuss this option
-                      <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
-                  </Link>
                 </article>
               </FadeIn>
             ))}
@@ -576,12 +488,12 @@ export default function Home() {
           <StaggerContainer className="grid md:grid-cols-2 gap-8">
             {testimonials.slice(0, 2).map((testimonial, index) => (
               <FadeIn key={testimonial.id} delay={index * 0.1}>
-                <figure className="bg-background p-8 rounded-2xl border border-border h-full">
+                <figure className="flex flex-col h-full bg-background p-8 rounded-2xl border border-border">
                   <Quote className="w-8 h-8 text-accent mb-4" aria-hidden="true" />
                   <blockquote className="text-lg italic text-muted-foreground mb-6">
                     "{testimonial.quote}"
                   </blockquote>
-                  <figcaption className="flex items-center">
+                  <figcaption className="flex items-center mt-auto pt-6 border-t border-border/60">
                     <span className="w-12 h-12 rounded-full bg-accent/10 text-accent ring-1 ring-accent/20 flex items-center justify-center font-bold text-base mr-4" aria-hidden="true">
                       {testimonial.author
                         .split(" ")

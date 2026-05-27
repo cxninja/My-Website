@@ -227,10 +227,10 @@ export default function Blog() {
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    name: "NovaTransform Blog",
+    name: "Varun Goel — Blog",
     url: `${SITE_ORIGIN}/blog`,
     description:
-      "Field notes on transformation, AI, retention, and scaling, from Varun Goel and the NovaTransform team.",
+      "Field notes on transformation, AI, retention, and scaling, from Varun Goel.",
     blogPost: (posts ?? []).slice(0, 10).map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
@@ -244,7 +244,7 @@ export default function Blog() {
     <>
       <SEO
         title="Blog | Transformation, AI & Scaling Field Notes"
-        description="Field notes on transformation, AI, retention, and scaling, from Varun Goel and the NovaTransform team."
+        description="Field notes on transformation, AI, retention, and scaling, from Varun Goel."
         path="/blog"
       />
       <Helmet>
@@ -257,7 +257,7 @@ export default function Blog() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
             <div>
               <p className="text-sm uppercase tracking-widest text-accent mb-3 font-semibold">
-                The NovaTransform Blog
+                Field Notes
               </p>
               <h1 className="font-display font-bold text-5xl md:text-6xl text-foreground leading-tight">
                 Field notes from the edge.

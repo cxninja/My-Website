@@ -19,7 +19,6 @@ import DigitalTransformation from "@/pages/digital-transformation";
 import CustomerSuccess from "@/pages/customer-success";
 import EdgyInsights from "@/pages/case-studies"; // Reuse case-studies as edgy-insights
 import EdgyInsightDetail from "@/pages/case-study-detail";
-import Leadership from "@/pages/leadership";
 import Connect from "@/pages/contact"; // Reuse contact as connect
 import CapabilityDetail from "@/pages/capability-detail";
 import Innovations from "@/pages/innovations";
@@ -39,14 +38,15 @@ function Router() {
         <Switch>
           <Route path="/" component={Home} />
 
-          {/* About cluster (3 separate pages, grouped under About in the nav) */}
+          {/* About + Philosophy. Leadership is merged into /about; the old
+              /leadership and /meet-varun URLs render About (canonical → /about). */}
           <Route path="/about" component={About} />
           <Route path="/philosophy" component={Philosophy} />
-          <Route path="/leadership" component={Leadership} />
+          <Route path="/leadership" component={About} />
 
-          {/* Practice (renamed from expertise/capability) */}
-          <Route path="/practice" component={Expertise} />
-          <Route path="/practice/:slug" component={CapabilityDetail} />
+          {/* Expertise (capabilities) */}
+          <Route path="/expertise" component={Expertise} />
+          <Route path="/expertise/:slug" component={CapabilityDetail} />
 
           {/* Case studies (renamed from edgy-insights) */}
           <Route path="/case-studies" component={EdgyInsights} />
@@ -63,9 +63,10 @@ function Router() {
           {/* Contact (renamed from connect) */}
           <Route path="/contact" component={Connect} />
 
-          {/* Legacy URL fallbacks — SPA-side. Netlify.toml issues real 301s on first hit;
-              these keep the old paths working if anyone deep-links into the SPA. */}
-          <Route path="/expertise" component={Expertise} />
+          {/* Legacy URL fallbacks — SPA-side. Keep old paths working if anyone
+              deep-links into the SPA; canonical tags point at the new URLs. */}
+          <Route path="/practice" component={Expertise} />
+          <Route path="/practice/:slug" component={CapabilityDetail} />
           <Route path="/capability/:slug" component={CapabilityDetail} />
           <Route path="/edgy-insights" component={EdgyInsights} />
           <Route path="/edgy-insights/:slug" component={EdgyInsightDetail} />
@@ -75,7 +76,7 @@ function Router() {
           <Route path="/service/manufacturing-analytics" component={ManufacturingAnalytics} />
           <Route path="/service/digital-transformation" component={DigitalTransformation} />
           <Route path="/service/customer-success" component={CustomerSuccess} />
-          <Route path="/meet-varun" component={Leadership} />
+          <Route path="/meet-varun" component={About} />
 
           <Route component={NotFound} />
         </Switch>

@@ -19,7 +19,7 @@ export interface Capability {
   approach: string[];
   outcomes: string[];
 
-  // ─── Expanded fields used by /practice/:slug ────────────────────────────
+  // ─── Expanded fields used by /expertise/:slug ────────────────────────────
   headlineMetric?: { value: string; label: string };
   painSignals?: string[];
   methodology?: Array<{ step: string; title: string; description: string; duration?: string }>;
