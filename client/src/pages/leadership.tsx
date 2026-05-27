@@ -241,20 +241,14 @@ export default function Leadership() {
         <div className="max-w-4xl mx-auto px-6">
           <FadeIn>
             <div className="text-center mb-8">
-              {/* Thin Banner */}
-              <div className="w-full h-60 mb-6 rounded-lg overflow-hidden bg-secondary/50">
-                <img
-                  src="https://media.licdn.com/dms/image/v2/D5616AQGZv2Ev9tGgwA/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1733746258207?e=1759363200&v=beta&t=sJiGxL6Q5ld8JMr5boRZwKz4tlDJfePHAFrTjOQosBA"
-                  alt="Professional Banner"
-                  className="w-full h-full object-contain"
-                />
-              </div>
-
-              {/* Profile Picture */}
+              {/* Profile picture — self-hosted to replace the LinkedIn CDN
+                  hot-link that had an expiring `e=` token. */}
               <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-6 border-4 border-accent/20">
                 <img
-                  src="https://media.licdn.com/dms/image/v2/C4E03AQEHHepD4pJI7Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1517744343084?e=1759363200&v=beta&t=_gyiwiAlvV6cuPEJeA6qKYoiJWDkD-NjgC3Y4i6s56U"
+                  src="/images/founder.jpg"
                   alt={leaderProfile.name}
+                  width="128"
+                  height="128"
                   className="w-full h-full object-cover"
                 />
               </div>
