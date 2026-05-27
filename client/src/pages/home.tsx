@@ -361,7 +361,7 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Edgy Insights</span>
             <h2 className="mt-3 heading-lg">Case Studies & Transformation Stories</h2>
             <p className="mt-4 text-large text-muted-foreground max-w-3xl mx-auto">
-              Six story-driven narratives showing the playbook, the metrics, and the lessons, drawn from real transformations across industries.
+              Story-driven narratives showing the playbook, the metrics, and the lessons, drawn from real transformations across industries.
             </p>
           </FadeIn>
 
