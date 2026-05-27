@@ -39,7 +39,7 @@ export const capabilities: Capability[] = [
       description: "Predict, Engage, Evolve – systematic approach to customer lifecycle"
     },
     quickWin: "Segment clients by AI signals for 20% uplift",
-    edgyInsight: "Loyalty outlives politics—build it proactively.",
+    edgyInsight: "Loyalty outlives politics. Build it proactively.",
     artifacts: [
       {
         title: "Retention Cycle Guide",
@@ -85,7 +85,7 @@ export const capabilities: Capability[] = [
       description: "Micro-segment, Optimize, Scale – precision marketing approach"
     },
     quickWin: "A/B test AI headlines for instant conversions",
-    edgyInsight: "Data strikes win wars—broad nets lose.",
+    edgyInsight: "Data strikes win wars. Broad nets lose.",
     artifacts: [
       {
         title: "Marketing Attribution Model",
@@ -131,7 +131,7 @@ export const capabilities: Capability[] = [
       description: "Assess, Pilot, Iterate – systematic digital evolution"
     },
     quickWin: "Integrate one tool in a bottleneck for quick ROI",
-    edgyInsight: "Stagnation is the real risk—burst through.",
+    edgyInsight: "Stagnation is the real risk. Burst through.",
     artifacts: [
       {
         title: "Digital Transformation Roadmap",
@@ -269,7 +269,7 @@ export const capabilities: Capability[] = [
       description: "Observe, Blend, Innovate – versatility in action"
     },
     quickWin: "Cross-pollinate tactics from one sector to another",
-    edgyInsight: "Versatility crushes silos—evolve unbound.",
+    edgyInsight: "Versatility crushes silos. Evolve unbound.",
     artifacts: [
       {
         title: "Industry Adaptation Framework",
@@ -315,7 +315,7 @@ export const capabilities: Capability[] = [
       description: "Ideate, Prototype, Deploy – innovation acceleration"
     },
     quickWin: "Automate one repetitive task for 30% time save",
-    edgyInsight: "AI is your nova—harness it early.",
+    edgyInsight: "AI is your nova. Harness it early.",
     artifacts: [
       {
         title: "AI SOW Generator",

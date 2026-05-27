@@ -111,7 +111,7 @@ export default function CaseStudies() {
   const collectionJsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Case Studies — NovaTransform",
+    name: "Case Studies | NovaTransform",
     url: "https://novatransform.com/case-studies",
     description:
       "Story-driven transformation case studies across industries, with metrics and lessons.",
@@ -126,8 +126,8 @@ export default function CaseStudies() {
   return (
     <>
       <SEO
-        title="Case Studies — Transformation Stories"
-        description="Story-driven case studies across industries — every one backed by numbers and the lessons that translate to your business."
+        title="Case Studies | Transformation Stories"
+        description="Story-driven case studies across industries. Every one backed by numbers and the lessons that translate to your business."
         path="/case-studies"
       />
       <Helmet>
@@ -142,7 +142,7 @@ export default function CaseStudies() {
             </h1>
             <p className="text-lg text-muted-foreground">
               Story-driven transformation narratives with visuals and takeaways.
-              Each insight reveals lessons from explosive business transformations — your edge awaits.
+              Each insight reveals lessons from explosive business transformations. Your edge awaits.
             </p>
           </FadeIn>
         </div>

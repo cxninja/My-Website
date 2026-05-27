@@ -222,14 +222,14 @@ export default function Blog() {
     return posts.filter((p) => !featuredIds.has(p._id));
   }, [posts, featured]);
 
-  // Blog index JSON-LD — declares this is a Blog hub and lists the latest posts.
+  // Blog index JSON-LD. Declares this is a Blog hub and lists the latest posts.
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "NovaTransform Blog",
     url: "https://novatransform.com/blog",
     description:
-      "Field notes on transformation, AI, retention, and scaling — from Varun Goel and the NovaTransform team.",
+      "Field notes on transformation, AI, retention, and scaling, from Varun Goel and the NovaTransform team.",
     blogPost: (posts ?? []).slice(0, 10).map((p) => ({
       "@type": "BlogPosting",
       headline: p.title,
@@ -242,8 +242,8 @@ export default function Blog() {
   return (
     <>
       <SEO
-        title="Blog — Transformation, AI & Scaling Field Notes"
-        description="Field notes on transformation, AI, retention, and scaling — from Varun Goel and the NovaTransform team."
+        title="Blog | Transformation, AI & Scaling Field Notes"
+        description="Field notes on transformation, AI, retention, and scaling, from Varun Goel and the NovaTransform team."
         path="/blog"
       />
       <Helmet>

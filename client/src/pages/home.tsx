@@ -73,7 +73,7 @@ const methodology = [
     icon: Stethoscope,
     title: "Diagnose",
     duration: "Week 2–4",
-    body: "Pinpoint the structural causes — not symptoms. Prioritise interventions by ROI, time-to-value, and organisational readiness.",
+    body: "Pinpoint the structural causes, not symptoms. Prioritise interventions by ROI, time-to-value, and organisational readiness.",
   },
   {
     n: "03",
@@ -106,7 +106,7 @@ const differentiationRows: { trad: string; nova: string }[] = [
   { trad: "Junior analysts produce slides, partner shows up for sign-off", nova: "Senior operator does the work alongside your team" },
   { trad: "Generic playbook applied to your business", nova: "Architecture built from your data, your constraints, your customers" },
   { trad: "12-month roadmap, value at month 9", nova: "First measurable win inside 90 days, compounding from there" },
-  { trad: "AI as a slide topic", nova: "AI as the default execution model — agents, automation, augmented decisions" },
+  { trad: "AI as a slide topic", nova: "AI as the default execution model: agents, automation, augmented decisions" },
   { trad: "Engagement ends, knowledge leaves with the firm", nova: "Playbooks, dashboards, and team enablement stay behind" },
 ];
 
@@ -135,11 +135,11 @@ const engagementModels = [
 const faqs = [
   {
     q: "How do you charge?",
-    a: "Sprints are fixed-fee. Retainers are monthly. Advisory is a monthly subscription. No hourly billing — you should never hesitate to call me because of the meter.",
+    a: "Sprints are fixed-fee. Retainers are monthly. Advisory is a monthly subscription. No hourly billing. You should never hesitate to call me because of the meter.",
   },
   {
     q: "How long is a typical engagement?",
-    a: "Sprints run 4–6 weeks. Retainers usually start at one quarter and extend as we see results — most clients stay 6–12 months. Advisory is open-ended.",
+    a: "Sprints run 4 to 6 weeks. Retainers usually start at one quarter and extend as we see results; most clients stay 6 to 12 months. Advisory is open-ended.",
   },
   {
     q: "Remote, on-site, or hybrid?",
@@ -159,7 +159,7 @@ const faqs = [
   },
   {
     q: "What happens after the engagement ends?",
-    a: "You keep the assets — playbooks, dashboards, frameworks, automations. I stay reachable for follow-up questions and offer a 30-day post-engagement check-in at no charge.",
+    a: "You keep the assets: playbooks, dashboards, frameworks, automations. I stay reachable for follow-up questions and offer a 30-day post-engagement check-in at no charge.",
   },
 ];
 
@@ -203,7 +203,7 @@ export default function Home() {
       .finally(() => setPostsLoading(false));
   }, []);
 
-  // FAQ schema — drives rich snippets in Google SERPs.
+  // FAQ schema. Drives rich snippets in Google SERPs.
   const faqJsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -214,7 +214,7 @@ export default function Home() {
     })),
   };
 
-  // Services as a structured list — helps Google understand the capability lineup.
+  // Services as a structured list. Helps Google understand the capability lineup.
   const servicesJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -226,7 +226,7 @@ export default function Home() {
     })),
   };
 
-  // Person schema — anchors Varun's personal-brand search results.
+  // Person schema. Anchors Varun's personal-brand search results.
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -246,7 +246,7 @@ export default function Home() {
     <>
       <SEO
         title="Digital Transformation, Manufacturing Analytics & Customer Success Consulting"
-        description="Varun Goel partners with leaders on digital marketing, manufacturing analytics, digital transformation and customer success — senior-led, data-native, AI-first. First measurable win inside 90 days."
+        description="Varun Goel partners with leaders on digital marketing, manufacturing analytics, digital transformation and customer success. Senior-led, data-native, AI-first. First measurable win inside 90 days."
         path="/"
       />
       <Helmet>
@@ -293,7 +293,7 @@ export default function Home() {
               My <span className="text-emphasis">Capability Pillars</span>
             </h2>
             <p className="text-large text-muted-foreground max-w-3xl mx-auto">
-              Eight interconnected practices spanning strategy and execution — pick the ones that move the needle for your business.
+              Eight interconnected practices spanning strategy and execution. Pick the ones that move the needle for your business.
             </p>
           </FadeIn>
 
@@ -361,7 +361,7 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Edgy Insights</span>
             <h2 className="mt-3 heading-lg">Case Studies & Transformation Stories</h2>
             <p className="mt-4 text-large text-muted-foreground max-w-3xl mx-auto">
-              Six story-driven narratives showing the playbook, the metrics, and the lessons — drawn from real transformations across industries.
+              Six story-driven narratives showing the playbook, the metrics, and the lessons, drawn from real transformations across industries.
             </p>
           </FadeIn>
 
@@ -510,7 +510,7 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">Engagement models</span>
             <h2 className="mt-3 heading-lg">Pick the shape that fits your moment</h2>
             <p className="mt-4 text-large text-muted-foreground max-w-3xl mx-auto">
-              From a focused 4-week sprint to ongoing strategic advisory — three ways to work together.
+              From a focused 4-week sprint to ongoing strategic advisory. Three ways to work together.
             </p>
           </FadeIn>
 
@@ -730,7 +730,7 @@ export default function Home() {
               Ready to talk about your next transformation?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              A 30-minute discovery call. No deck, no pitch — just a working conversation about where you are and what would move the needle.
+              A 30-minute discovery call. No deck, no pitch. Just a working conversation about where you are and what would move the needle.
             </p>
             <Link href="/contact">
               <Button

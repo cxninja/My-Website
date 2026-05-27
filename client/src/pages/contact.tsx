@@ -118,7 +118,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contact NovaTransform"
-        description="Book a 30-minute discovery call with Varun Goel. Talk about your transformation, growth, or customer success challenge — no deck, no pitch."
+        description="Book a 30-minute discovery call with Varun Goel. Talk about your transformation, growth, or customer success challenge. No deck, no pitch."
         path="/contact"
       />
       <Helmet>

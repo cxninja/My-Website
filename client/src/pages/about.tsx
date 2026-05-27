@@ -24,11 +24,11 @@ const founder = {
   linkedinUrl: "https://www.linkedin.com/in/varungoel/",
 };
 
-// The brand story — what /about is FOR. CV detail lives on /leadership;
+// The brand story. CV detail lives on /leadership;
 // manifesto lives on /philosophy. This page is the through-line.
 const brandStory = [
-  "NovaTransform is the advisory brand for 19+ years of senior operating experience — across Adobe (APAC Customer Success), Zendesk (CSM leadership), and Intelegencia (current AVP, Client Success & Digital Marketing Group).",
-  "It exists because the gap between a strategy slide and a working system is where most transformations die. I've spent two decades closing that gap — first inside enterprises, now as the practice behind NovaTransform.",
+  "NovaTransform is the advisory brand for 19+ years of senior operating experience across Adobe (APAC Customer Success), Zendesk (CSM leadership), and Intelegencia (current AVP, Client Success & Digital Marketing Group).",
+  "It exists because the gap between a strategy slide and a working system is where most transformations die. I've spent two decades closing that gap, first inside enterprises, now as the practice behind NovaTransform.",
   "The methodology is what travels. NovaTransform is how it gets packaged.",
 ];
 
@@ -36,7 +36,7 @@ const values = [
   {
     icon: Target,
     title: "Outcome-Driven",
-    description: "Every recommendation is tied to a measurable business outcome. I don't just provide advice — I ensure results.",
+    description: "Every recommendation is tied to a measurable business outcome. I don't just provide advice. I ensure results.",
   },
   {
     icon: Users,
@@ -50,7 +50,7 @@ const values = [
   },
 ];
 
-// Operating principles — was a prose essay, now a scannable 4-card grid.
+// Operating principles. Was a prose essay, now a scannable 4-card grid.
 const operatingPrinciples = [
   {
     n: "01",
@@ -78,7 +78,7 @@ const operatingPrinciples = [
   },
 ];
 
-// "Where to go from here" — routes intent. Replaces the duplicated timeline +
+// "Where to go from here" routes intent. Replaces the duplicated timeline +
 // certifications sections; this page is now a hub, not a duplicate.
 const nextDoors = [
   {
@@ -89,13 +89,13 @@ const nextDoors = [
   },
   {
     title: "Leadership",
-    description: "Full career timeline — roles at Adobe, Zendesk, and Intelegencia, plus credentials.",
+    description: "Full career timeline. Roles at Adobe, Zendesk, and Intelegencia, plus credentials.",
     href: "/leadership",
     icon: Briefcase,
   },
   {
     title: "Case Studies",
-    description: "Real transformations across industries — playbook, metrics, and the lessons that translate.",
+    description: "Real transformations across industries with playbook, metrics, and the lessons that translate.",
     href: "/case-studies",
     icon: FileText,
   },
@@ -134,7 +134,7 @@ export default function About() {
             </h1>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl">
               NovaTransform is what happens when two decades of operating experience get packaged
-              into a senior-led advisory practice — built for leaders who need execution, not slides.
+              into a senior-led advisory practice, built for leaders who need execution, not slides.
             </p>
           </FadeIn>
         </div>
@@ -315,7 +315,7 @@ export default function About() {
               Want to talk?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              A 30-minute discovery call. No deck, no pitch — just a working conversation about where you are and what would move the needle.
+              A 30-minute discovery call. No deck, no pitch. Just a working conversation about where you are and what would move the needle.
             </p>
             <Link href="/contact">
               <Button

@@ -39,12 +39,12 @@ export const innovations: Innovation[] = [
       "Accelerates project kickoffs"
     ],
     icon: Brain,
-    edgePhrase: "Bureaucracy burst—focus on strategy."
+    edgePhrase: "Bureaucracy burst. Focus on strategy."
   },
   {
     id: "ai-churn-predictor",
     title: "AI Churn Predictor",
-    description: "Forecasts customer risks with 95% accuracy—ties directly to Customer Success capability",
+    description: "Forecasts customer risks with 95% accuracy. Ties directly to Customer Success capability",
     status: "coming-soon",
     category: "ai-tools",
     capabilities: ["Customer Success", "AI Innovation"],
@@ -64,7 +64,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Q2 2025",
     icon: Zap,
-    edgePhrase: "Churn before it churns—retention revolution."
+    edgePhrase: "Churn before it churns. Retention revolution."
   },
   {
     id: "gtm-planner-tool",
@@ -89,7 +89,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Q3 2025",
     icon: Target,
-    edgePhrase: "Market burst—strategy at lightning speed."
+    edgePhrase: "Market burst. Strategy at lightning speed."
   },
   {
     id: "leadership-compass",
@@ -114,7 +114,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Q4 2025",
     icon: Users,
-    edgePhrase: "Leadership burst—scale without the chaos."
+    edgePhrase: "Leadership burst. Scale without the chaos."
   },
   {
     id: "transformation-tracker",
@@ -139,7 +139,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Beta Access Available",
     icon: BarChart3,
-    edgePhrase: "Transformation burst—visibility drives velocity."
+    edgePhrase: "Transformation burst. Visibility drives velocity."
   },
   {
     id: "automation-optimizer",
@@ -164,7 +164,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Q1 2026",
     icon: Cog,
-    edgePhrase: "Automation burst—efficiency without the overwhelm."
+    edgePhrase: "Automation burst. Efficiency without the overwhelm."
   },
   {
     id: "innovation-lab",
@@ -189,7 +189,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Experimental",
     icon: Lightbulb,
-    edgePhrase: "Innovation burst—ideas to impact in record time."
+    edgePhrase: "Innovation burst. Ideas to impact in record time."
   },
   {
     id: "growth-accelerator",
@@ -214,7 +214,7 @@ export const innovations: Innovation[] = [
     ],
     timeline: "Q2 2026",
     icon: TrendingUp,
-    edgePhrase: "Growth burst—exponential results, systematic approach."
+    edgePhrase: "Growth burst. Exponential results, systematic approach."
   }
 ];
 

@@ -52,7 +52,7 @@ const metrics = [
 export default function ManufacturingAnalytics() {
   return (
     <>
-      {/* Legacy orphan route — not linked from /practice. Canonical points at the
+      {/* Legacy orphan route. Not linked from /practice. Canonical points at the
           Practice overview so this page doesn't compete in search. Delete when
           ready, since no /practice/manufacturing-analytics equivalent exists. */}
       <SEO

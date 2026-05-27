@@ -124,7 +124,7 @@ export default function Toolkit() {
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Toolkit — Frameworks & Artifacts",
+    name: "Toolkit | Frameworks & Artifacts",
     url: "https://novatransform.com/toolkit",
     numberOfItems: toolkitResources.length,
     itemListElement: toolkitResources.slice(0, 25).map((r, i) => ({
@@ -138,7 +138,7 @@ export default function Toolkit() {
   return (
     <>
       <SEO
-        title="Toolkit — Free Frameworks, Playbooks & Templates"
+        title="Toolkit | Free Frameworks, Playbooks & Templates"
         description={`Downloadable blueprints, operational cadences, and evaluation matrices. ${toolkitResources.length} free transformation resources from Varun Goel.`}
         path="/toolkit"
       />

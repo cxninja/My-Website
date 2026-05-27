@@ -613,7 +613,7 @@ export default function BlogPost() {
     post.publishedAt &&
     new Date(post.updatedAt).getTime() - new Date(post.publishedAt).getTime() > 86400_000;
 
-  // FAQPage JSON-LD when the post has FAQs — drives rich SERP snippets.
+  // FAQPage JSON-LD when the post has FAQs. Drives rich SERP snippets.
   const faqJsonLd =
     post.faqs && post.faqs.length > 0
       ? {
@@ -633,7 +633,7 @@ export default function BlogPost() {
   return (
     <>
       <SEO
-        title={`${title} — Blog`}
+        title={`${title} | Blog`}
         description={description}
         image={heroUrl ?? undefined}
         path={postUrl({ slug: post.slug, categories: post.categories })}

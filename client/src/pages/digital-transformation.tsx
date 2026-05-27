@@ -116,7 +116,7 @@ export default function DigitalTransformation() {
           </StaggerContainer>
           <FadeIn className="text-center mt-12">
             <p className="text-lg text-muted-foreground">
-              <strong>You're not behind—you're ready.</strong> Most growing businesses reach this point. 
+              <strong>You're not behind. You're ready.</strong> Most growing businesses reach this point. 
               The difference is taking action to transform these inefficiencies into competitive advantages.
             </p>
           </FadeIn>

@@ -12,7 +12,7 @@ export const brand = {
     dark: "#DADADA",
   },
   meta: {
-    title: "NovaTransform — Strategy. Systems. Scale.",
+    title: "NovaTransform | Strategy. Systems. Scale.",
     description:
       "Consultancy across Digital Marketing, Manufacturing Analytics, Digital Transformation, and Customer Success.",
   },

@@ -167,7 +167,7 @@ export default function Innovations() {
       <Helmet>
         <title>Innovations: NovaTransform's AI Edges | Varun Goel</title>
         <meta name="description" content="Explore NovaTransform's comprehensive innovation portfolio - AI-powered tools, automation solutions, and strategic frameworks for business transformation." />
-        {/* Phase 2 page — hidden from nav, excluded from sitemap, kept noindex
+        {/* Phase 2 page. Hidden from nav, excluded from sitemap, kept noindex
             until launch. Flip to "index, follow" when ready to go public. */}
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
@@ -181,7 +181,7 @@ export default function Innovations() {
                 NovaTransform Innovations: <span className="text-accent">Burst Ahead</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
-                From prototypes to production-ready tools—discover {innovations.length} innovations designed to transform your workflow with AI precision and strategic insight.
+                From prototypes to production-ready tools. Discover {innovations.length} innovations designed to transform your workflow with AI precision and strategic insight.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild>
@@ -326,7 +326,7 @@ export default function Innovations() {
             <div className="bg-gradient-to-r from-accent/10 to-secondary/10 p-8 rounded-2xl">
               <h3 className="font-display text-2xl font-bold text-foreground mb-4">Innovation Vision</h3>
               <p className="text-lg text-muted-foreground mb-6">
-                "Innovation is endless: These tools evolve with user input, turning my 19-year insights into your daily advantage. Every burst builds on the last—exponential transformation awaits."
+                "Innovation is endless: These tools evolve with user input, turning my 19-year insights into your daily advantage. Every burst builds on the last. Exponential transformation awaits."
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild>

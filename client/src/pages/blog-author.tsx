@@ -117,7 +117,7 @@ export default function BlogAuthor() {
   return (
     <>
       <SEO
-        title={`${author.name} — Blog`}
+        title={`${author.name} | Blog`}
         description={author.bio ?? `Articles by ${author.name} on the NovaTransform blog.`}
         image={avatarUrl ?? undefined}
         path={`/blog/author/${author.slug}`}

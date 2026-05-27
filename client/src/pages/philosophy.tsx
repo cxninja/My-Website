@@ -30,7 +30,7 @@ const pillars = [
     title: "Radical Candor",
     body: "Clarity is kindness. I operate with absolute transparency, cutting through corporate diplomacy to address root causes immediately.",
     longBody:
-      "Most organizations rot from unspoken truths. I name the dysfunction in the room — kindly, specifically, and early — so teams can spend their energy solving the real problem instead of rehearsing diplomatic workarounds. Trust compounds when feedback is predictable and direct.",
+      "Most organizations rot from unspoken truths. I name the dysfunction in the room, kindly and specifically and early, so teams can spend their energy solving the real problem instead of rehearsing diplomatic workarounds. Trust compounds when feedback is predictable and direct.",
     bullets: [
       "Name the elephant in week one, not quarter three",
       "Critique the work, never the person",
@@ -47,7 +47,7 @@ const pillars = [
     title: "Architectural Thinking",
     body: "I don't solve isolated problems. I redesign the underlying architecture that allowed the problem to exist in the first place.",
     longBody:
-      "Symptoms beg for hotfixes. Systems demand redesign. I treat every recurring issue as a tell about the underlying structure — process, incentives, data flow, ownership — and rebuild the substrate so the same class of problem can't return. The work is slower upfront and exponentially cheaper at scale.",
+      "Symptoms beg for hotfixes. Systems demand redesign. I treat every recurring issue as a tell about the underlying structure (process, incentives, data flow, ownership) and rebuild the substrate so the same class of problem can't return. The work is slower upfront and exponentially cheaper at scale.",
     bullets: [
       "Map the system before touching the symptom",
       "Refactor incentives, not just workflows",
@@ -64,7 +64,7 @@ const pillars = [
     title: "AI-First Execution",
     body: "Every initiative begins with the question: \"How can AI accelerate, augment, or automate this?\" We build for the future state, not the present constraint.",
     longBody:
-      "AI is not a feature on a roadmap — it is the new floor. Every workflow I scope starts by asking which steps a model can compress from days to minutes, which decisions can be augmented with structured retrieval, and which human hours are now better spent on judgement instead of execution. We build for the org six quarters out, not the one we inherited.",
+      "AI is not a feature on a roadmap. It is the new floor. Every workflow I scope starts by asking which steps a model can compress from days to minutes, which decisions can be augmented with structured retrieval, and which human hours are now better spent on judgement instead of execution. I build for the org six quarters out, not the one I inherited.",
     bullets: [
       "Default to AI-augmented, prove the case for human-only",
       "Ship the agent, then design the team around it",
@@ -205,7 +205,7 @@ export default function Philosophy() {
                         : "bg-background hover:bg-secondary/60"
                     }`}
                   >
-                    {/* Top rule — accent when active, animates on hover */}
+                    {/* Top rule. Accent when active, animates on hover */}
                     <div
                       className={`absolute top-0 left-0 right-0 h-[2px] transition-colors duration-300 ${
                         isActive ? "bg-accent" : "bg-border group-hover:bg-accent/60"

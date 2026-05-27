@@ -7,7 +7,7 @@ import { Link } from "wouter";
 const heroImages = [
   {
     src: "/images/varun.webp",
-    alt: "Varun Goel — Founder, NovaTransform",
+    alt: "Varun Goel, Founder, NovaTransform",
     service: "varun"
   }
 ];
@@ -69,7 +69,7 @@ export function Hero() {
                 </span>
               </h1>
               <p className="text-large text-muted-foreground max-w-xl leading-relaxed">
-                Across 19+ years in diverse industries , I've ignited transformations—from startup sprints to enterprise overhauls—using street-smart tactics and AI bursts to deliver outsized wins. <br/> <span className="font-semibold text-foreground">NovaTransform</span> is your edge: <span className="text-emphasis">Practical insights for real results</span>.
+                Across 19+ years in diverse industries I've ignited transformations, from startup sprints to enterprise overhauls, using street-smart tactics and AI bursts to deliver outsized wins. <br/> <span className="font-semibold text-foreground">NovaTransform</span> is your edge: <span className="text-emphasis">practical insights for real results</span>.
               </p>
             </div>
           </FadeIn>

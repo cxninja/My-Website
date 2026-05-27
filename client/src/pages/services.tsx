@@ -27,7 +27,7 @@ const engagementModel = [
 ];
 
 export default function Services() {
-  // ItemList of all 8 services — helps Google understand the practice lineup.
+  // ItemList of all 8 services. Helps Google understand the practice lineup.
   const itemListJsonLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -42,7 +42,7 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="The Practice — Consulting Services"
+        title="The Practice | Consulting Services"
         description="Eight capability practices spanning customer success, digital marketing, transformation, GTM, leadership scaling, cross-industry adaptability, AI innovation, and stakeholder engagement."
         path="/practice"
       />
@@ -58,7 +58,7 @@ export default function Services() {
               Expertise: <span className="text-accent">Capability Pillars of NovaTransform Edge</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8">
-              Deepened across industries—these pillars deliver frameworks honed in real fires. 
+              Deepened across industries, these pillars deliver frameworks honed in real fires. 
               Each capability represents years of cross-industry experience distilled into actionable edges.
             </p>
           </FadeIn>

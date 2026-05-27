@@ -38,7 +38,7 @@ const leaderProfile = {
     {
       metric: "180+",
       label: "Team members led",
-      sub: "Intelegencia · 2009 — 2016",
+      sub: "Intelegencia · 2009 - 2016",
     },
   ],
   qualitativeStats: [
@@ -84,8 +84,8 @@ const leaderProfile = {
   professionalExperience: [
     {
       company: "Intelegencia",
-      role: "AVP — Client Success & Digital Marketing Group",
-      period: "Jan 2025 — Present",
+      role: "AVP, Client Success & Digital Marketing Group",
+      period: "Jan 2025 - Present",
       description:
         "Leading global client strategy, delivery, and transformation across SaaS and manufacturing-aligned services. Driving portfolio growth, operational efficiency, and the digital marketing practice for global customers. Managing key partnerships like Sight Machine to enable digital transformation in industrial environments.",
       skills: [
@@ -99,7 +99,7 @@ const leaderProfile = {
     {
       company: "Intelegencia",
       role: "Senior Director, Client Success",
-      period: "Jul 2023 — Jan 2025",
+      period: "Jul 2023 - Jan 2025",
       description:
         "Returned to Intelegencia to lead Client Success across manufacturing analytics and digital transformation engagements, ahead of promotion to AVP.",
       skills: ["Customer Success Management", "Manufacturing Analytics", "Account Growth"],
@@ -108,7 +108,7 @@ const leaderProfile = {
     {
       company: "Zendesk",
       role: "Customer Success Leader",
-      period: "Jul 2020 — Jul 2023",
+      period: "Jul 2020 - Jul 2023",
       description:
         "Led customer success across India, SAARC, and APAC enterprise accounts with focus on retention, expansion, and executive engagement. Built scalable engagement models through structured success planning, stakeholder alignment, and partner collaboration. Spearheaded CS Office Hours, ValueSelling Workshops, internal tooling improvements, and cross-functional programs.",
       skills: ["Customer Retention", "Post-Sales Management", "Account Growth"],
@@ -116,8 +116,8 @@ const leaderProfile = {
     },
     {
       company: "Adobe",
-      role: "Manager — Customer Success (APAC)",
-      period: "Aug 2016 — Jul 2020",
+      role: "Manager, Customer Success (APAC)",
+      period: "Aug 2016 - Jul 2020",
       description:
         "Built and led the APAC Customer Success team for Adobe Experience Cloud, Document Cloud, and Creative Cloud across enterprise accounts. Partnered with senior stakeholders to drive enablement, retention, and strategic product adoption. Took on a hybrid role leading customer success and owning sales enablement for Adobe Digital Learning Services across SEA and Greater China.",
       skills: ["Post-Sales Management", "Operations Management", "Team Leadership"],
@@ -126,18 +126,18 @@ const leaderProfile = {
     {
       company: "Intelegencia",
       role: "Associate Director, Client Services",
-      period: "Jun 2009 — Aug 2016",
+      period: "Jun 2009 - Aug 2016",
       description:
-        "Led global delivery across software, QA, and content teams — managing 180+ members serving clients across APAC, EMEA, and the US over seven years. Launched new service lines including QA, and scaled them into profit-driving units through process improvements and strong client partnerships.",
+        "Led global delivery across software, QA, and content teams, managing 180+ members serving clients across APAC, EMEA, and the US over seven years. Launched new service lines including QA, and scaled them into profit-driving units through process improvements and strong client partnerships.",
       skills: ["Service Delivery", "Operations Management", "Team Leadership"],
       isEarlier: false,
     },
     {
       company: "Porteck · MAG Studios · ISHIR",
       role: "Sales & Business Development",
-      period: "Nov 2005 — Jun 2009",
+      period: "Nov 2005 - Jun 2009",
       description:
-        "Built the foundation: pre-sales, business development, and client engagement across IT services, digital asset management, and application development — serving US, EMEA, and APAC markets.",
+        "Built the foundation: pre-sales, business development, and client engagement across IT services, digital asset management, and application development. Served US, EMEA, and APAC markets.",
       skills: ["Business Development", "Pre-Sales", "Client Engagement"],
       isEarlier: true,
     },
@@ -156,13 +156,13 @@ const leaderProfile = {
     },
     {
       institution: "Indo American School of Business",
-      program: "MBA — Global Management and Marketing",
-      year: "2003 — 2005",
+      program: "MBA, Global Management and Marketing",
+      year: "2003 - 2005",
     },
     {
       institution: "Kurukshetra University",
-      program: "B.C.A. — Computer Applications",
-      year: "2000 — 2003",
+      program: "B.C.A., Computer Applications",
+      year: "2000 - 2003",
     },
   ],
 
@@ -170,7 +170,7 @@ const leaderProfile = {
     {
       title: "Project Management Professional (PMP)®",
       issuer: "Project Management Institute",
-      year: "2024 — 2027",
+      year: "2024 - 2027",
     },
     {
       title: "Leading Business Transformation in the Age of AI",
@@ -205,12 +205,12 @@ const leaderProfile = {
   ],
 };
 
-// Current title is derived from the latest role — never goes stale even if
+// Current title is derived from the latest role. Never goes stale even if
 // the experience array gets updated.
 const currentRole = leaderProfile.professionalExperience[0];
 
 export default function Leadership() {
-  // Person JSON-LD — anchors Varun's personal-brand entity for Google Knowledge Panel.
+  // Person JSON-LD. Anchors Varun's personal-brand entity for Google Knowledge Panel.
   const personJsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
@@ -243,7 +243,7 @@ export default function Leadership() {
   return (
     <>
       <SEO
-        title={`Varun Goel — ${currentRole.role}`}
+        title={`Varun Goel, ${currentRole.role}`}
         description={leaderProfile.summary}
         path="/leadership"
         image="/images/founder.jpg"
@@ -347,7 +347,7 @@ export default function Leadership() {
           </FadeIn>
 
           <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Numeric stats — big-number treatment reserved for actual numbers */}
+            {/* Numeric stats. Big-number treatment reserved for actual numbers */}
             {leaderProfile.numericStats.map((s) => (
               <FadeIn key={s.label}>
                 <div className="bg-background border border-border rounded-2xl p-6 h-full hover:border-accent/40 transition-colors">
@@ -360,7 +360,7 @@ export default function Leadership() {
               </FadeIn>
             ))}
 
-            {/* Qualitative differentiators — icon+label, no fake big numbers */}
+            {/* Qualitative differentiators. Icon+label, no fake big numbers */}
             {leaderProfile.qualitativeStats.map((s) => {
               const Icon = s.icon;
               return (
@@ -419,7 +419,7 @@ export default function Leadership() {
               Where I've worked
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl">
-              19+ years across Adobe, Zendesk, and Intelegencia — with two stints at Intelegencia bookending the journey.
+              19+ years across Adobe, Zendesk, and Intelegencia, with two stints at Intelegencia bookending the journey.
             </p>
           </FadeIn>
 
@@ -535,7 +535,7 @@ export default function Leadership() {
               Want to talk?
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
-              Whether it's transformation, customer success, or scaling a practice — I'd rather have a working conversation than a discovery deck.
+              Whether it's transformation, customer success, or scaling a practice, I'd rather have a working conversation than a discovery deck.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button asChild variant="secondary" className="bg-white text-accent hover:bg-white/90 px-8 py-3">

@@ -31,7 +31,7 @@ export default function CapabilityDetail() {
   const IconComponent = capability.icon;
   const canonicalPath = `/practice/${capability.id}`;
 
-  // Service JSON-LD — eligible for rich Service results in Google SERPs.
+  // Service JSON-LD. Eligible for rich Service results in Google SERPs.
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
