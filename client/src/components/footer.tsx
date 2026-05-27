@@ -9,12 +9,13 @@ import { Linkedin, Mail, MapPin } from "lucide-react";
 const quickLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Expertise", href: "/expertise" },
-  { name: "Edgy Insights", href: "/edgy-insights" },
-  // { name: "Innovations", href: "/innovations" }, // hidden
+  { name: "Philosophy", href: "/philosophy" },
+  { name: "Leadership", href: "/leadership" },
+  { name: "Practice", href: "/practice" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Blog", href: "/blog" },
   { name: "Toolkit", href: "/toolkit" },
-  { name: "Connect", href: "/connect" },
-  { name: "Blog", href: "https://google.com" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export function Footer() {

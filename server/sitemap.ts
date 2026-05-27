@@ -17,25 +17,25 @@ const sanity = createClient({
   useCdn: true,
 });
 
+// /innovations is intentionally excluded — Phase 2, noindex.
 const STATIC_LINKS = [
   { url: "/", priority: 1.0, changefreq: "weekly" as const },
   { url: "/about", priority: 0.7, changefreq: "monthly" as const },
   { url: "/philosophy", priority: 0.6, changefreq: "monthly" as const },
-  { url: "/expertise", priority: 0.9, changefreq: "monthly" as const },
-  { url: "/capability/customer-success", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/digital-marketing", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/digital-transformation", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/gtm-strategy", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/leadership-scaling", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/cross-industry", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/ai-innovation", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/capability/stakeholder-engagement", priority: 0.8, changefreq: "monthly" as const },
-  { url: "/edgy-insights", priority: 0.8, changefreq: "weekly" as const },
-  { url: "/innovations", priority: 0.6, changefreq: "monthly" as const },
-  { url: "/toolkit", priority: 0.6, changefreq: "monthly" as const },
   { url: "/leadership", priority: 0.6, changefreq: "monthly" as const },
+  { url: "/practice", priority: 0.9, changefreq: "monthly" as const },
+  { url: "/practice/customer-success", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/digital-marketing", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/digital-transformation", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/gtm-strategy", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/leadership-scaling", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/cross-industry", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/ai-innovation", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/practice/stakeholder-engagement", priority: 0.8, changefreq: "monthly" as const },
+  { url: "/case-studies", priority: 0.8, changefreq: "weekly" as const },
+  { url: "/toolkit", priority: 0.6, changefreq: "monthly" as const },
   { url: "/blog", priority: 0.8, changefreq: "daily" as const },
-  { url: "/connect", priority: 0.5, changefreq: "yearly" as const },
+  { url: "/contact", priority: 0.5, changefreq: "yearly" as const },
 ];
 
 const POSTS_QUERY = `*[_type == "post" && defined(slug.current) && !(_id in path("drafts.**"))]{
@@ -94,7 +94,7 @@ export const generateCaseStudiesSitemap = async (hostname: string) => {
   return streamLinks(
     hostname,
     insights.map((i) => ({
-      url: `/edgy-insights/${i.slug}`,
+      url: `/case-studies/${i.slug}`,
       priority: 0.7,
       changefreq: "monthly" as const,
       lastmod: i.updatedAt,

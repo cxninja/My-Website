@@ -39,25 +39,26 @@ type PostRow = { slug: string; categorySlug?: string; updatedAt?: string; publis
 type InsightRow = { slug: string; updatedAt?: string };
 type AuthorRow = { slug: string; updatedAt?: string };
 
+// Note: /innovations is intentionally excluded — it's Phase 2, kept noindex
+// until launch so Google doesn't crawl an unfinished page.
 const STATIC_ROUTES: { path: string; priority: number; changefreq: string }[] = [
   { path: "/", priority: 1.0, changefreq: "weekly" },
   { path: "/about", priority: 0.7, changefreq: "monthly" },
   { path: "/philosophy", priority: 0.6, changefreq: "monthly" },
-  { path: "/expertise", priority: 0.9, changefreq: "monthly" },
-  { path: "/capability/customer-success", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/digital-marketing", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/digital-transformation", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/gtm-strategy", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/leadership-scaling", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/cross-industry", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/ai-innovation", priority: 0.8, changefreq: "monthly" },
-  { path: "/capability/stakeholder-engagement", priority: 0.8, changefreq: "monthly" },
-  { path: "/edgy-insights", priority: 0.8, changefreq: "weekly" },
-  { path: "/innovations", priority: 0.6, changefreq: "monthly" },
-  { path: "/toolkit", priority: 0.6, changefreq: "monthly" },
   { path: "/leadership", priority: 0.6, changefreq: "monthly" },
+  { path: "/practice", priority: 0.9, changefreq: "monthly" },
+  { path: "/practice/customer-success", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/digital-marketing", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/digital-transformation", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/gtm-strategy", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/leadership-scaling", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/cross-industry", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/ai-innovation", priority: 0.8, changefreq: "monthly" },
+  { path: "/practice/stakeholder-engagement", priority: 0.8, changefreq: "monthly" },
+  { path: "/case-studies", priority: 0.8, changefreq: "weekly" },
+  { path: "/toolkit", priority: 0.6, changefreq: "monthly" },
   { path: "/blog", priority: 0.8, changefreq: "daily" },
-  { path: "/connect", priority: 0.5, changefreq: "yearly" },
+  { path: "/contact", priority: 0.5, changefreq: "yearly" },
 ];
 
 function escapeXml(s: string): string {
@@ -146,7 +147,7 @@ function buildPagesSitemap(): string {
 async function buildCaseStudiesSitemap(): Promise<string> {
   const insights = await sanityFetch<InsightRow>(INSIGHTS_QUERY).catch(() => []);
   const urls = insights.map((i) =>
-    urlNode(`${SITE_ORIGIN}/edgy-insights/${i.slug}`, {
+    urlNode(`${SITE_ORIGIN}/case-studies/${i.slug}`, {
       lastmod: i.updatedAt,
       priority: 0.7,
       changefreq: "monthly",

@@ -153,7 +153,7 @@ export default function Innovations() {
         description={enhancedDescription}
         icon={IconComponent}
         ctaText={ctaText}
-        href="/connect"
+        href="/contact"
         delay={index * 0.1}
         dataTestId={`innovation-card-${innovation.id}`}
         ariaLabel={`${ctaText.replace(' →', '')} for ${innovation.title}`}
@@ -167,6 +167,9 @@ export default function Innovations() {
       <Helmet>
         <title>Innovations: NovaTransform's AI Edges | Varun Goel</title>
         <meta name="description" content="Explore NovaTransform's comprehensive innovation portfolio - AI-powered tools, automation solutions, and strategic frameworks for business transformation." />
+        {/* Phase 2 page — hidden from nav, excluded from sitemap, kept noindex
+            until launch. Flip to "index, follow" when ready to go public. */}
+        <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 
       {/* Hero Section */}
@@ -182,10 +185,10 @@ export default function Innovations() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild>
-                  <Link href="/connect">Join Innovation Program</Link>
+                  <Link href="/contact">Join Innovation Program</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/expertise">Explore Capabilities</Link>
+                  <Link href="/practice">Explore Capabilities</Link>
                 </Button>
               </div>
             </FadeIn>
@@ -327,13 +330,13 @@ export default function Innovations() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button asChild>
-                  <Link href="/connect">Join Innovation Program</Link>
+                  <Link href="/contact">Join Innovation Program</Link>
                 </Button>
                 <Button variant="outline" asChild>
                   <Link href="/toolkit">Get Free Toolkit</Link>
                 </Button>
                 <Button variant="outline" asChild>
-                  <Link href="/expertise">Explore All Capabilities</Link>
+                  <Link href="/practice">Explore All Capabilities</Link>
                 </Button>
               </div>
             </div>

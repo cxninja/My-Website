@@ -15,6 +15,10 @@
 
 [[edge_functions]]
   function = "edgy-insight-head"
+  path = "/case-studies/*"
+
+[[edge_functions]]
+  function = "edgy-insight-head"
   path = "/edgy-insights/*"
 
 [[edge_functions]]

@@ -36,7 +36,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 18,
     format: "PDF + Excel Templates",
     icon: Users,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
   {
@@ -52,7 +52,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 8,
     format: "PDF + Notion Template",
     icon: CheckSquare,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
 
@@ -69,7 +69,7 @@ export const toolkitResources: ToolkitResource[] = [
     fileSize: "3.1 MB",
     format: "Excel + Google Sheets",
     icon: Target,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
   {
@@ -84,7 +84,7 @@ export const toolkitResources: ToolkitResource[] = [
     fileSize: "1.8 MB",
     format: "Excel + PowerBI Template",
     icon: BarChart3,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
 
@@ -102,7 +102,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 24,
     format: "PDF + Video Series",
     icon: Users,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
   {
@@ -117,7 +117,7 @@ export const toolkitResources: ToolkitResource[] = [
     fileSize: "1.5 MB",
     format: "PDF + Excel Dashboard",
     icon: Award,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
 
@@ -135,7 +135,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 32,
     format: "PDF + Code Templates",
     icon: Brain,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
   {
@@ -151,7 +151,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 12,
     format: "PDF + Online Form",
     icon: Settings,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
 
@@ -169,7 +169,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 16,
     format: "PDF + Email Templates",
     icon: Network,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
   {
@@ -184,7 +184,7 @@ export const toolkitResources: ToolkitResource[] = [
     fileSize: "1.3 MB",
     format: "PDF + Miro Template",
     icon: Network,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
 
@@ -202,7 +202,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 42,
     format: "PDF + Project Templates",
     icon: Zap,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
   {
@@ -218,7 +218,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 6,
     format: "PDF + Online Quiz",
     icon: BarChart3,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
 
@@ -235,7 +235,7 @@ export const toolkitResources: ToolkitResource[] = [
     fileSize: "3.8 MB",
     format: "Excel + PowerPoint Template",
     icon: TrendingUp,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   },
   {
@@ -251,7 +251,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 20,
     format: "PDF + Analysis Tools",
     icon: Clock,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
 
@@ -269,7 +269,7 @@ export const toolkitResources: ToolkitResource[] = [
     pages: 28,
     format: "PDF + Case Studies",
     icon: Lightbulb,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: false
   },
   {
@@ -284,7 +284,7 @@ export const toolkitResources: ToolkitResource[] = [
     fileSize: "1.7 MB",
     format: "Excel + Strategy Canvas",
     icon: Shield,
-    downloadUrl: "/connect",
+    downloadUrl: "/contact",
     featured: true
   }
 ];

@@ -18,7 +18,7 @@ export default function CapabilityDetail() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Capability Not Found</h1>
           <Button asChild>
-            <Link href="/expertise">
+            <Link href="/practice">
               ← Back to Expertise
             </Link>
           </Button>
@@ -209,7 +209,7 @@ export default function CapabilityDetail() {
                 className="bg-white text-accent hover:bg-white/90"
                 asChild
               >
-                <Link href="/connect">
+                <Link href="/contact">
                   Start Your NovaTransform <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </Button>
@@ -219,7 +219,7 @@ export default function CapabilityDetail() {
                 className="border-white/30 text-white hover:bg-white/10"
                 asChild
               >
-                <Link href="/edgy-insights">
+                <Link href="/case-studies">
                   See This in Action
                 </Link>
               </Button>
@@ -256,7 +256,7 @@ export default function CapabilityDetail() {
           </div>
           <div className="text-center mt-8">
             <Button variant="outline" asChild>
-              <Link href="/expertise">
+              <Link href="/practice">
                 View All 8 Capabilities
               </Link>
             </Button>

@@ -280,7 +280,7 @@ export default function CaseStudies() {
               Every edgy insight started with bold action. Let's discuss how to unleash
               similar explosive results in your transformation journey.
             </p>
-            <Link href="/connect">
+            <Link href="/contact">
               <Button
                 variant="secondary"
                 className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"

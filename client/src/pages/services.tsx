@@ -112,7 +112,7 @@ export default function Services() {
                       <span className="text-muted-foreground ml-2 italic">"{capability.edgyInsight}"</span>
                     </div>
                   </div>
-                  <Link href="/connect">
+                  <Link href="/contact">
                     <Button
                       className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground"
                       data-testid={`button-connect-${capability.id}`}
@@ -210,7 +210,7 @@ export default function Services() {
               Let's identify which capabilities can deliver the most explosive impact for your transformation. 
               Every nova starts with understanding your unique edge potential.
             </p>
-            <Link href="/connect">
+            <Link href="/contact">
               <Button
                 variant="secondary"
                 className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"

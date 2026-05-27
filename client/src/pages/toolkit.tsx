@@ -352,7 +352,7 @@ export default function Toolkit() {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Button asChild>
-                  <Link href="/connect">Request custom playbook</Link>
+                  <Link href="/contact">Request custom playbook</Link>
                 </Button>
                 {/* Innovations link hidden
                 <Button variant="outline" asChild>

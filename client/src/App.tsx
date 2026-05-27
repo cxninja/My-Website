@@ -37,34 +37,45 @@ function Router() {
       <main className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
+
+          {/* About cluster (3 separate pages, grouped under About in the nav) */}
           <Route path="/about" component={About} />
           <Route path="/philosophy" component={Philosophy} />
-          <Route path="/expertise" component={Expertise} />
-          
-          {/* Capability detail routes - single dynamic page for all */}
-          <Route path="/capability/:slug" component={CapabilityDetail} />
-          
-          <Route path="/edgy-insights" component={EdgyInsights} />
-          <Route path="/edgy-insights/:slug" component={EdgyInsightDetail} />
-          <Route path="/innovations" component={Innovations} />
-          <Route path="/toolkit" component={Toolkit} />
-          <Route path="/connect" component={Connect} />
+          <Route path="/leadership" component={Leadership} />
+
+          {/* Practice (renamed from expertise/capability) */}
+          <Route path="/practice" component={Expertise} />
+          <Route path="/practice/:slug" component={CapabilityDetail} />
+
+          {/* Case studies (renamed from edgy-insights) */}
+          <Route path="/case-studies" component={EdgyInsights} />
+          <Route path="/case-studies/:slug" component={EdgyInsightDetail} />
+
+          {/* Resources cluster */}
           <Route path="/blog" component={Blog} />
           <Route path="/blog/author/:slug" component={BlogAuthor} />
           <Route path="/blog/:categorySlug/:slug" component={BlogPost} />
           <Route path="/blog/:slug" component={BlogPost} />
+          <Route path="/toolkit" component={Toolkit} />
+          <Route path="/innovations" component={Innovations} />
 
-          {/* Legacy redirects - keeping for backward compatibility */}
+          {/* Contact (renamed from connect) */}
+          <Route path="/contact" component={Connect} />
+
+          {/* Legacy URL fallbacks — SPA-side. Netlify.toml issues real 301s on first hit;
+              these keep the old paths working if anyone deep-links into the SPA. */}
+          <Route path="/expertise" component={Expertise} />
+          <Route path="/capability/:slug" component={CapabilityDetail} />
+          <Route path="/edgy-insights" component={EdgyInsights} />
+          <Route path="/edgy-insights/:slug" component={EdgyInsightDetail} />
+          <Route path="/connect" component={Connect} />
           <Route path="/services" component={Expertise} />
           <Route path="/service/digital-marketing" component={DigitalMarketing} />
           <Route path="/service/manufacturing-analytics" component={ManufacturingAnalytics} />
           <Route path="/service/digital-transformation" component={DigitalTransformation} />
           <Route path="/service/customer-success" component={CustomerSuccess} />
-          <Route path="/case-studies" component={EdgyInsights} />
-          <Route path="/case-studies/:slug" component={EdgyInsightDetail} />
-          <Route path="/contact" component={Connect} />
           <Route path="/meet-varun" component={Leadership} />
-          
+
           <Route component={NotFound} />
         </Switch>
       </main>

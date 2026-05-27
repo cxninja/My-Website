@@ -155,7 +155,7 @@ export default function EdgyInsightDetail() {
         <div className="text-center">
           <h1 className="text-2xl font-bold mb-4">Edgy Insight Not Found</h1>
           <Button asChild data-testid="button-back-to-edgy-insights-not-found">
-            <Link href="/edgy-insights">← Back to Edgy Insights</Link>
+            <Link href="/case-studies">← Back to Edgy Insights</Link>
           </Button>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default function EdgyInsightDetail() {
   const heroImageUrl = resolveFlexibleImage(insight.image, { width: 1400, height: 600 });
   const seoTitle = insight.seo?.metaTitle || `${insight.title} | Edgy Insight | NovaTransform`;
   const seoDesc = insight.seo?.metaDescription || insight.summary;
-  const canonicalPath = `/edgy-insights/${insight.slug}`;
+  const canonicalPath = `/case-studies/${insight.slug}`;
 
   const caseStudyJsonLd = {
     "@context": "https://schema.org",
@@ -204,7 +204,7 @@ export default function EdgyInsightDetail() {
               className="mb-6 p-0 hover:bg-transparent hover:text-accent"
               data-testid="button-back-to-edgy-insights"
             >
-              <Link href="/edgy-insights">
+              <Link href="/case-studies">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Edgy Insights
               </Link>
@@ -422,7 +422,7 @@ export default function EdgyInsightDetail() {
               className="magnetic-button bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-3"
               data-testid="button-connect-edgy-insight-cta"
             >
-              <Link href="/connect">Ignite Your Edge</Link>
+              <Link href="/contact">Ignite Your Edge</Link>
             </Button>
           </section>
         </FadeIn>

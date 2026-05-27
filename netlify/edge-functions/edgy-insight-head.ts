@@ -5,10 +5,11 @@
  * (LinkedIn, Twitter, Slack) see real per-page tags before any JS executes.
  *
  * Matches:
- *   /edgy-insights/:slug
+ *   /case-studies/:slug   (canonical)
+ *   /edgy-insights/:slug  (legacy fallback URL)
  *
  * Skips:
- *   /edgy-insights              (list page — handled by client SEO)
+ *   /case-studies, /edgy-insights  (list pages — handled by client SEO)
  */
 
 import type { Context } from "https://edge.netlify.com";
@@ -129,8 +130,8 @@ export default async (request: Request, context: Context) => {
   const url = new URL(request.url);
   const parts = url.pathname.replace(/^\/+|\/+$/g, "").split("/");
 
-  if (parts[0] !== "edgy-insights") return;
-  if (parts.length === 1) return; // /edgy-insights (list)
+  if (parts[0] !== "case-studies" && parts[0] !== "edgy-insights") return;
+  if (parts.length === 1) return; // list page
   const slug = parts[1];
   if (!slug) return;
 
@@ -141,7 +142,7 @@ export default async (request: Request, context: Context) => {
   const insight = await fetchInsight(slug).catch(() => null);
   if (!insight) return response;
 
-  const canonical = `${SITE_ORIGIN}/edgy-insights/${insight.slug}`;
+  const canonical = `${SITE_ORIGIN}/case-studies/${insight.slug}`;
   const metaHtml = buildMetaHtml(insight, canonical);
   const html = await response.text();
 
@@ -157,4 +158,4 @@ export default async (request: Request, context: Context) => {
   });
 };
 
-export const config = { path: ["/edgy-insights/*"] };
+export const config = { path: ["/case-studies/*", "/edgy-insights/*"] };

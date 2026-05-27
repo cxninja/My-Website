@@ -394,7 +394,7 @@ export default function Home() {
           )}
 
           <FadeIn className="text-center">
-            <Link href="/edgy-insights">
+            <Link href="/case-studies">
               <Button
                 variant="outline"
                 size="lg"
@@ -540,7 +540,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link href="/connect">
+                  <Link href="/contact">
                     <Button
                       variant={model.featured ? "default" : "outline"}
                       className={`w-full rounded-xl ${
@@ -697,7 +697,7 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-[0.3em] text-accent">FAQ</span>
             <h2 className="mt-3 heading-lg">Frequently asked</h2>
             <p className="mt-4 text-muted-foreground">
-              Don't see your question? <Link href="/connect" className="text-accent font-semibold hover:underline">Ask directly</Link>.
+              Don't see your question? <Link href="/contact" className="text-accent font-semibold hover:underline">Ask directly</Link>.
             </p>
           </FadeIn>
 
@@ -732,7 +732,7 @@ export default function Home() {
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
               A 30-minute discovery call. No deck, no pitch — just a working conversation about where you are and what would move the needle.
             </p>
-            <Link href="/connect">
+            <Link href="/contact">
               <Button
                 variant="secondary"
                 className="magnetic-button bg-white text-accent hover:bg-white/90 px-8 py-3"
