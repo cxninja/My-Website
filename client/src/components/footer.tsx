@@ -63,7 +63,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 gap-8 md:items-center">
           {/* About */}
           <div>
-            <img src="/images/NovaTransform_Large.png" alt="NovaTransform Logo" className="h-40 mb-4" />
+            <img src="/images/NovaTransform_Large.png" alt="NovaTransform" loading="lazy" width="320" height="160" className="h-40 w-auto mb-4" />
             <p className="text-muted-foreground text-sm mb-4 max-w-md">
               My expertise spans Digital Marketing, Manufacturing Analytics, 
               Digital Transformation, and Customer Success. Strategy. Systems. Scale.

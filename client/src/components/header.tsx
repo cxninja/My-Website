@@ -116,7 +116,7 @@ export function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 font-display font-bold text-xl text-foreground" data-testid="link-logo">
-            <img src="/images/MainLogo.png" alt="" className="h-10" />
+            <img src="/images/MainLogo.png" alt="NovaTransform" width="160" height="40" className="h-10 w-auto" />
             {brand.name.split(' ')[0]}
           </Link>
 

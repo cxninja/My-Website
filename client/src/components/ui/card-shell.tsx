@@ -68,9 +68,11 @@ export function CardShell({
       {/* Image Section */}
       {image && (
         <div className="relative overflow-hidden">
-          <img 
+          <img
             src={image}
             alt={imageAlt || title}
+            loading="lazy"
+            decoding="async"
             className={cn(
               "w-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500",
               variant === "compact" ? "h-32" : "h-48"

@@ -1,49 +1,76 @@
 import { Helmet } from "react-helmet-async";
 import { brand } from "@/config/brand";
 
+const SITE_URL = "https://novatransform.com";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 interface SEOProps {
   title?: string;
   description?: string;
   image?: string;
-  url?: string;
+  path?: string;
   type?: string;
+  noindex?: boolean;
 }
 
-export function SEO({ 
-  title, 
+function buildCanonical(path?: string): string {
+  if (path) {
+    const clean = path.split("?")[0].split("#")[0];
+    return `${SITE_URL}${clean.startsWith("/") ? clean : `/${clean}`}`;
+  }
+  if (typeof window !== "undefined") {
+    return `${SITE_URL}${window.location.pathname}`;
+  }
+  return SITE_URL;
+}
+
+function buildImage(image?: string): string {
+  if (!image) return DEFAULT_OG_IMAGE;
+  if (image.startsWith("http")) return image;
+  return `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`;
+}
+
+export function SEO({
+  title,
   description = brand.meta.description,
-  image = "/og-image.jpg",
-  url = window.location.href,
-  type = "website"
+  image,
+  path,
+  type = "website",
+  noindex = false,
 }: SEOProps) {
   const fullTitle = title ? `${title} | ${brand.name}` : brand.meta.title;
+  const canonical = buildCanonical(path);
+  const ogImage = buildImage(image);
 
   return (
     <Helmet>
-      {/* Primary Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="title" content={fullTitle} />
       <meta name="description" content={description} />
+      <meta
+        name="robots"
+        content={
+          noindex
+            ? "noindex, nofollow"
+            : "index, follow, max-image-preview:large, max-snippet:-1"
+        }
+      />
+      <meta name="author" content={brand.name} />
 
-      {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
-      <meta property="og:url" content={url} />
+      <meta property="og:site_name" content={brand.name} />
+      <meta property="og:url" content={canonical} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={ogImage} />
 
-      {/* Twitter */}
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content={url} />
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={image} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:url" content={canonical} />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImage} />
 
-      {/* Additional SEO */}
-      <link rel="canonical" href={url} />
-      <meta name="robots" content="index, follow" />
-      <meta name="language" content="English" />
-      <meta name="author" content={brand.name} />
+      <link rel="canonical" href={canonical} />
     </Helmet>
   );
 }

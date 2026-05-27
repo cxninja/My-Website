@@ -95,7 +95,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <FadeIn>
-              <img src="/images/founder.jpg" alt="Varun Goel" className="w-32 h-32 rounded-full object-cover mb-6" />
+              <img src="/images/founder.jpg" alt="Varun Goel, Founder of NovaTransform" loading="lazy" decoding="async" width="128" height="128" className="w-32 h-32 rounded-full object-cover mb-6" />
               <h2 className="font-display font-bold text-2xl mb-4">{founderStory.name}</h2>
               <p className="text-muted-foreground mb-4">{founderStory.experience}</p>
               <a 

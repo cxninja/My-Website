@@ -188,7 +188,7 @@ const portableComponents: PortableTextComponents = {
       if (!value?.asset) return null;
       return (
         <figure className="my-8">
-          <img src={urlFor(value).width(1200).fit("max").url()} alt={value.alt || ""} className="w-full rounded-lg" />
+          <img src={urlFor(value).width(1200).fit("max").url()} alt={value.alt || ""} loading="lazy" decoding="async" className="w-full rounded-lg" />
           {value.caption && (
             <figcaption className="text-sm text-muted-foreground mt-2 text-center">{value.caption}</figcaption>
           )}
@@ -200,7 +200,7 @@ const portableComponents: PortableTextComponents = {
       if (!url) return null;
       return (
         <figure className="my-8">
-          <img src={url} alt={value?.image?.alt || ""} className="w-full rounded-lg" />
+          <img src={url} alt={value?.image?.alt || ""} loading="lazy" decoding="async" className="w-full rounded-lg" />
           {value?.caption && (
             <figcaption className="text-sm text-muted-foreground mt-2 text-center">{value.caption}</figcaption>
           )}

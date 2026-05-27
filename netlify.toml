@@ -13,17 +13,69 @@
   function = "blog-head"
   path = "/blog/*"
 
+[[edge_functions]]
+  function = "edgy-insight-head"
+  path = "/edgy-insights/*"
+
+[[edge_functions]]
+  function = "sitemap"
+  path = "/sitemap.xml"
+
+[[edge_functions]]
+  function = "sitemap"
+  path = "/sitemap-pages.xml"
+
+[[edge_functions]]
+  function = "sitemap"
+  path = "/sitemap-case-studies.xml"
+
+[[edge_functions]]
+  function = "sitemap"
+  path = "/sitemap-blog.xml"
+
 
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
 
+# Long-cache hashed Vite asset bundles
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Long-cache images
 [[headers]]
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Long-cache fonts
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Note: /sitemap.xml is served by the `sitemap` edge function which sets
+# its own Content-Type and Cache-Control headers (dynamic, Sanity-backed).
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Security + best-practice headers (apply to all responses)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# SPA fallback - must remain last
 [[redirects]]
   from = "/*"
   to = "/index.html"

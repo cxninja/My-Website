@@ -3,7 +3,12 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
-import { generateSitemap } from "./sitemap";
+import {
+  generateSitemapIndex,
+  generatePagesSitemap,
+  generateCaseStudiesSitemap,
+  generateBlogSitemap,
+} from "./sitemap";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission endpoint
@@ -53,14 +58,47 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  const sendXml = (res: Parameters<Parameters<typeof app.get>[1]>[1], xml: string) => {
+    res.header("Content-Type", "application/xml; charset=utf-8");
+    res.send(xml);
+  };
+
   app.get("/sitemap.xml", async (req, res) => {
     try {
       const hostname = req.protocol + "://" + req.get("host");
-      const sitemap = await generateSitemap(hostname);
-      res.header("Content-Type", "application/xml");
-      res.send(sitemap);
+      sendXml(res, await generateSitemapIndex(hostname));
     } catch (error) {
-      console.error("Error generating sitemap:", error);
+      console.error("Error generating sitemap index:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  });
+
+  app.get("/sitemap-pages.xml", async (req, res) => {
+    try {
+      const hostname = req.protocol + "://" + req.get("host");
+      sendXml(res, await generatePagesSitemap(hostname));
+    } catch (error) {
+      console.error("Error generating pages sitemap:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  });
+
+  app.get("/sitemap-case-studies.xml", async (req, res) => {
+    try {
+      const hostname = req.protocol + "://" + req.get("host");
+      sendXml(res, await generateCaseStudiesSitemap(hostname));
+    } catch (error) {
+      console.error("Error generating case studies sitemap:", error);
+      res.status(500).send("Error generating sitemap");
+    }
+  });
+
+  app.get("/sitemap-blog.xml", async (req, res) => {
+    try {
+      const hostname = req.protocol + "://" + req.get("host");
+      sendXml(res, await generateBlogSitemap(hostname));
+    } catch (error) {
+      console.error("Error generating blog sitemap:", error);
       res.status(500).send("Error generating sitemap");
     }
   });

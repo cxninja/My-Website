@@ -210,7 +210,7 @@ export type EdgyInsightDetail = EdgyInsightListItem & {
   lessons?: string[];
   outcomes: Outcome[];
   testimonial?: { quote: string; author: string; title?: string; company?: string };
-  seo?: { metaTitle?: string; metaDescription?: string };
+  seo?: { metaTitle?: string; metaDescription?: string; keywords?: string[] };
 };
 
 const EDGY_INSIGHT_LIST_PROJECTION = `{

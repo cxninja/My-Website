@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "wouter";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/lib/seo";
 import { FadeIn } from "@/components/motion/fade-in";
 import { MetricChip, AnimatedCounter } from "@/components/metric-chip";
@@ -107,7 +108,7 @@ function StoryChapterBlock({ chapter }: { chapter: StoryChapter }) {
 
         {heroUrl && (
           <figure className="my-6">
-            <img src={heroUrl} alt={heroImage?.alt || chapter.title} className="w-full rounded-lg" />
+            <img src={heroUrl} alt={heroImage?.alt || chapter.title} loading="lazy" decoding="async" className="w-full rounded-lg" />
             {heroImage?.caption && (
               <figcaption className="text-xs text-muted-foreground mt-2 text-center">
                 {heroImage.caption}
@@ -162,12 +163,36 @@ export default function EdgyInsightDetail() {
   }
 
   const heroImageUrl = resolveFlexibleImage(insight.image, { width: 1400, height: 600 });
-  const seoTitle = insight.seo?.metaTitle || `${insight.title} | Edgy Insight | Varun Goel`;
+  const seoTitle = insight.seo?.metaTitle || `${insight.title} | Edgy Insight | NovaTransform`;
   const seoDesc = insight.seo?.metaDescription || insight.summary;
+  const canonicalPath = `/edgy-insights/${insight.slug}`;
+
+  const caseStudyJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: insight.title,
+    description: seoDesc,
+    image: heroImageUrl ? [heroImageUrl] : undefined,
+    articleSection: insight.industry,
+    keywords: insight.seo?.keywords?.join(", "),
+    publisher: {
+      "@type": "Organization",
+      name: "NovaTransform",
+      logo: { "@type": "ImageObject", url: "https://novatransform.com/images/MainLogo.png" },
+    },
+    mainEntityOfPage: `https://novatransform.com${canonicalPath}`,
+  };
 
   return (
     <>
-      <SEO title={seoTitle} description={seoDesc} />
+      <SEO title={seoTitle} description={seoDesc} image={heroImageUrl ?? undefined} path={canonicalPath} type="article" />
+      <Helmet>
+        {insight.industry && <meta property="article:section" content={insight.industry} />}
+        {insight.seo?.keywords?.map((k) => (
+          <meta key={k} property="article:tag" content={k} />
+        ))}
+        <script type="application/ld+json">{JSON.stringify(JSON.parse(JSON.stringify(caseStudyJsonLd)))}</script>
+      </Helmet>
 
       {/* Header */}
       <section className="pt-24 pb-8 bg-secondary/30">
