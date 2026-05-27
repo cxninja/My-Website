@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Switch, Route } from "wouter";
 import { MotionConfig } from "framer-motion";
 import { queryClient } from "./lib/queryClient";
@@ -7,27 +8,46 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-
-// Pages
 import { useScrollToTop } from "./hooks/use-scroll-to-top";
+
+// Home stays eager: it's the landing page and the LCP-critical entry point,
+// so we don't want a lazy-chunk round trip before first paint.
 import Home from "@/pages/home";
-import About from "@/pages/about";
-import Expertise from "@/pages/services"; // Reuse services page as expertise
-import DigitalMarketing from "@/pages/digital-marketing";
-import ManufacturingAnalytics from "@/pages/manufacturing-analytics";
-import DigitalTransformation from "@/pages/digital-transformation";
-import CustomerSuccess from "@/pages/customer-success";
-import EdgyInsights from "@/pages/case-studies"; // Reuse case-studies as edgy-insights
-import EdgyInsightDetail from "@/pages/case-study-detail";
-import Connect from "@/pages/contact"; // Reuse contact as connect
-import CapabilityDetail from "@/pages/capability-detail";
-import Innovations from "@/pages/innovations";
-import Toolkit from "@/pages/toolkit";
-import Philosophy from "@/pages/philosophy";
-import Blog from "@/pages/blog";
-import BlogPost from "@/pages/blog-post";
-import BlogAuthor from "@/pages/blog-author";
-import NotFound from "@/pages/not-found";
+
+// Every other route is code-split into its own chunk via React.lazy, so the
+// initial bundle no longer carries all 16 pages (and their unique deps like
+// PortableText, charts, and per-page data) up front.
+const About = lazy(() => import("@/pages/about"));
+const Expertise = lazy(() => import("@/pages/services"));
+const DigitalMarketing = lazy(() => import("@/pages/digital-marketing"));
+const ManufacturingAnalytics = lazy(() => import("@/pages/manufacturing-analytics"));
+const DigitalTransformation = lazy(() => import("@/pages/digital-transformation"));
+const CustomerSuccess = lazy(() => import("@/pages/customer-success"));
+const EdgyInsights = lazy(() => import("@/pages/case-studies"));
+const EdgyInsightDetail = lazy(() => import("@/pages/case-study-detail"));
+const Connect = lazy(() => import("@/pages/contact"));
+const CapabilityDetail = lazy(() => import("@/pages/capability-detail"));
+const Innovations = lazy(() => import("@/pages/innovations"));
+const Toolkit = lazy(() => import("@/pages/toolkit"));
+const Philosophy = lazy(() => import("@/pages/philosophy"));
+const Blog = lazy(() => import("@/pages/blog"));
+const BlogPost = lazy(() => import("@/pages/blog-post"));
+const BlogAuthor = lazy(() => import("@/pages/blog-author"));
+const NotFound = lazy(() => import("@/pages/not-found"));
+
+// Minimal fallback while a route chunk loads. Reserves viewport height so the
+// footer doesn't jump up during the brief fetch.
+function RouteFallback() {
+  return (
+    <div className="min-h-[70vh] flex items-center justify-center" aria-busy="true">
+      <div
+        className="w-8 h-8 rounded-full border-2 border-accent/30 border-t-accent animate-spin"
+        role="status"
+        aria-label="Loading"
+      />
+    </div>
+  );
+}
 
 function Router() {
   useScrollToTop();
@@ -35,6 +55,7 @@ function Router() {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
+        <Suspense fallback={<RouteFallback />}>
         <Switch>
           <Route path="/" component={Home} />
 
@@ -80,6 +101,7 @@ function Router() {
 
           <Route component={NotFound} />
         </Switch>
+        </Suspense>
       </main>
       <Footer />
     </div>
