@@ -29,37 +29,19 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       output: {
-        // Split large third-party deps into their own long-cached chunks so
-        // the app chunk stays small and vendors are cached across deploys.
+        // Keep ALL third-party deps in one vendor chunk. Splitting React into a
+        // separate chunk from the libraries that consume it broke module init
+        // order at runtime ("Cannot read properties of undefined (reading
+        // 'useState')") even though the build succeeded. One vendor chunk keeps
+        // React and its consumers together so init order is always correct.
+        // Route-level React.lazy (see App.tsx) still code-splits the app itself.
         manualChunks(id) {
-          if (!id.includes("node_modules")) return;
-          if (id.includes("framer-motion")) return "vendor-motion";
-          if (
-            id.includes("@sanity") ||
-            id.includes("@portabletext") ||
-            id.includes("groq") ||
-            id.includes("get-it") ||
-            id.includes("rxjs")
-          )
-            return "vendor-sanity";
-          if (id.includes("@radix-ui")) return "vendor-radix";
-          if (id.includes("lucide-react") || id.includes("react-icons"))
-            return "vendor-icons";
-          if (id.includes("recharts") || id.includes("/d3-") || id.includes("victory"))
-            return "vendor-charts";
-          if (
-            id.includes("/react/") ||
-            id.includes("/react-dom/") ||
-            id.includes("/scheduler/") ||
-            id.includes("react-helmet-async") ||
-            id.includes("/wouter/") ||
-            id.includes("@tanstack/react-query")
-          )
-            return "vendor-react";
-          return "vendor";
+          if (id.includes("node_modules")) return "vendor";
         },
       },
     },
+    // The single vendor chunk is intentionally large; silence the size warning.
+    chunkSizeWarningLimit: 1200,
   },
   server: {
     fs: {
